@@ -76,6 +76,33 @@ section p { font-size: 18px; max-width: 800px; margin: 0 auto 20px auto; text-al
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 30px;
+    background-color: white;
+}
+#contact form input, #contact form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+}
+#contact form button {
+    background-color: #014421;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+#contact form button:hover { background-color: #0a2d13; }
+#formStatus {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 15px;
 }
 
 /* Footer */
@@ -90,7 +117,6 @@ footer {
 @media (max-width: 768px){
     .navbar { flex-direction: column; gap:10px; }
     .navbar a { margin-left:0; margin-right:15px; }
-    #contact iframe { height: 800px; }
 }
 </style>
 </head>
@@ -129,11 +155,17 @@ footer {
     </div>
 </section>
 
-<!-- Contact Section with Google Form -->
+<!-- Contact Section with Supabase Form -->
 <section id="contact">
     <h2>Contact Us</h2>
     <div class="form-wrapper">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSck4Rw3FM3iEuYfiZArLVI55d1Al3YwnStuGlHJsXLrdC9EBg/viewform?embedded=true" width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" rows="6" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p id="formStatus"></p>
     </div>
 </section>
 
@@ -141,6 +173,39 @@ footer {
 <footer>
     &copy; 2025 GANT EXCHANGE. All rights reserved.
 </footer>
+
+<!-- Supabase Script -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+  // Replace with your Supabase Project URL and anon key
+  const supabaseUrl = 'https://cwtcsngbqcfviuurpwdv.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN3dGNzbmdicWNmdml1dXJwd2R2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg2MjU2MzYsImV4cCI6MjA3NDIwMTYzNn0.Kte2lTsXzDKJOvthwCbT6Xnox-Q-mz_kTGNPPG0GBo8';
+  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+
+  form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      const { data, error } = await supabase
+          .from('contacts')
+          .insert([{ name, email, message }]);
+
+      if (error) {
+          status.textContent = 'Error sending message. Try again.';
+          status.style.color = 'red';
+      } else {
+          status.textContent = 'Message sent successfully!';
+          status.style.color = 'green';
+          form.reset();
+      }
+  });
+</script>
 
 </body>
 </html>
