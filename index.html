@@ -29,18 +29,12 @@
       font-size: 28px;
       font-weight: 700;
     }
-    .nav-left a {
-      color: white;
-      margin-left: 20px;
-      font-weight: 600;
-    }
     .nav-links a {
       color: white;
       margin: 10px 0;
       font-weight: 600;
     }
     .nav-links a:hover { color: #a3d9a5; }
-    .nav-left a:hover { color: #a3d9a5; }
 
     .hamburger {
       display: none;
@@ -94,11 +88,9 @@
   <!-- Navbar -->
   <div class="navbar">
     <div class="brand">GANT EXCHANGE</div>
-    <div class="nav-left">
-      <a href="index.html">Home</a> <!-- FIXED -->
-    </div>
     <div class="hamburger">☰</div>
     <div class="nav-links">
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="exchange.html">Exchange</a>
       <a href="contact.html">Contact</a>
@@ -120,6 +112,13 @@
 
     hamburger.addEventListener("click", () => {
       navLinks.classList.toggle("show");
+    });
+
+    // Optional: close menu after clicking a link (mobile-friendly)
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+      });
     });
   </script>
 </body>
