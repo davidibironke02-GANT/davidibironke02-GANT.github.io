@@ -23,14 +23,55 @@
       top: 0;
       z-index: 100;
     }
-    .navbar a {
+    .navbar .brand {
+      font-family: 'Merriweather', serif;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .navbar-links {
+      display: flex;
+      gap: 20px;
+    }
+    .navbar-links a {
       color: white;
-      margin-left: 20px;
       font-weight: 600;
       transition: color 0.3s;
     }
-    .navbar a:hover { color: #a3d9a5; }
-    .navbar .brand { font-family: 'Merriweather', serif; font-size: 28px; font-weight: 700; }
+    .navbar-links a:hover { color: #a3d9a5; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+
+    /* Mobile menu hidden */
+    @media (max-width: 768px) {
+      .navbar-links {
+        display: none;
+        flex-direction: column;
+        background-color: #014421;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+      }
+      .navbar-links.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
 
     /* Hero */
     .hero {
@@ -58,23 +99,36 @@
   <!-- Navbar -->
   <div class="navbar">
     <div class="brand">GANT EXCHANGE</div>
-    <div>
+    <div class="navbar-links" id="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="exchange.html">Exchange</a>
       <a href="contact.html">Contact</a>
     </div>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
 
   <!-- Hero -->
-  <div class="hero">
-    <!-- keep clean, no text -->
-  </div>
+  <div class="hero"></div>
 
   <!-- Footer -->
   <footer>
     &copy; 2025 GANT EXCHANGE. All rights reserved.
   </footer>
+
+  <!-- JS -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
 
 </body>
 </html>
