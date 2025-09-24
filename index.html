@@ -35,7 +35,6 @@
       font-weight: 600;
     }
     .nav-links a:hover { color: #a3d9a5; }
-
     .hamburger {
       display: none;
       font-size: 28px;
@@ -45,7 +44,6 @@
       display: flex;
       gap: 20px;
     }
-
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -57,12 +55,8 @@
         padding: 15px;
         border-radius: 8px;
       }
-      .nav-links.show {
-        display: flex;
-      }
-      .hamburger {
-        display: block;
-      }
+      .nav-links.show { display: flex; }
+      .hamburger { display: block; }
     }
 
     /* Hero */
@@ -71,8 +65,39 @@
       background-image: url('hero.jpg.JPG'); /* make sure this file is uploaded */
       background-size: cover;
       background-position: center;
-      height: 80vh;
+      height: 70vh;
     }
+
+    /* Call-to-action section */
+    .cta {
+      max-width: 900px;
+      margin: -40px auto 60px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .cta h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #014421;
+    }
+    .cta p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+    .cta a {
+      display: inline-block;
+      background-color: #014421;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .cta a:hover { background-color: #0a2d13; }
 
     /* Footer */
     footer {
@@ -100,6 +125,26 @@
   <!-- Hero -->
   <div class="hero" id="home"></div>
 
+  <!-- Call-to-action section -->
+  <section class="cta">
+    <h2>Disrupting Big Ag and Middlemen</h2>
+    <p>
+      We are a small but determined business with a bold vision: to disrupt the grip of Big Ag, retail giants, 
+      and middlemen who have kept food prices high and farmers underpaid for far too long. 
+      GANT stands with producers and consumers alike—breaking barriers, restoring fairness, 
+      and building a new future for global agriculture.
+    </p>
+    <p>
+      If you share our belief that food should be affordable, transparent, and just, 
+      we invite you to express your support by filling out our non-binding 
+      <strong>Letter of Interest</strong>. Together, we can dismantle inefficiency 
+      and create a food system that truly works for everyone.
+    </p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSck4Rw3FM3iEuYfiZArLVI55d1Al3YwnStuGlHJsXLrdC9EBg/viewform?usp=header" target="_blank">
+      Fill Out Letter of Interest
+    </a>
+  </section>
+
   <!-- Footer -->
   <footer>
     &copy; 2025 GANT EXCHANGE. All rights reserved.
@@ -109,16 +154,8 @@
   <script>
     const hamburger = document.querySelector(".hamburger");
     const navLinks = document.querySelector(".nav-links");
-
     hamburger.addEventListener("click", () => {
       navLinks.classList.toggle("show");
-    });
-
-    // Optional: close menu after clicking a link (mobile-friendly)
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("show");
-      });
     });
   </script>
 </body>
