@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | GANT EXCHANGE</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background-color: #f5f5f5; color: #014421; line-height: 1.6; font-family: 'IBM Plex Sans', sans-serif; }
+    a { text-decoration: none; color: inherit; }
 
+    /* Navbar */
+    .navbar {
+      background-color: #014421;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar a {
+      color: white;
+      margin-left: 20px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .navbar a:hover { color: #a3d9a5; }
+    .navbar .brand { font-family: 'Merriweather', serif; font-size: 28px; font-weight: 700; }
+
+    /* Section */
+    section { padding: 80px 20px; max-width: 1000px; margin: auto; }
+    section h2 { font-family: 'Merriweather', serif; font-size: 36px; margin-bottom: 25px; text-align: center; color: #014421; }
+    section p { font-size: 18px; margin-bottom: 20px; text-align: justify; }
+
+    /* Footer */
+    footer {
+      background-color: #014421;
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px){
+      .navbar { flex-direction: column; gap:10px; }
+      .navbar a { margin-left:0; margin-right:15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="brand">GANT EXCHANGE</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="exchange.html">Exchange</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section>
+    <h2>About GANT EXCHANGE</h2>
+    <p>
+      GANT stands as a visionary force in agritrade, harnessing the power of innovation to reshape the global agricultural landscape. 
+      Born from a bold commitment to transparency, equity, and sustainability, we are crafting a future where farmers, co-operatives, 
+      and buyers are united through a cutting-edge, blockchain-secured exchange platform. Our mission is clear: to dismantle inefficiencies, 
+      empower producers with fair access to markets, and deliver resilient, traceable supply chains that meet the demands of a changing world.
+    </p>
+    <p>
+      At the heart of GANT lies a fusion of advanced technologies—blockchain for immutable trust, federated data for sovereign insights, 
+      and AI-driven analytics to navigate complex trade dynamics. Our Market Matching Engine facilitates real-time commodity trading, 
+      while IoT-enabled Collection Centers ensure precision in quality and origin verification. Smart contracts streamline settlements, 
+      and our Corridor Risk Engine anticipates and mitigates risks with unparalleled foresight.
+    </p>
+    <p>
+      GANT is more than a platform—it is a movement toward a sustainable, interconnected future. 
+      Join us as we redefine the possibilities of global agriculture.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 GANT EXCHANGE. All rights reserved.
+  </footer>
+
+</body>
+</html>
