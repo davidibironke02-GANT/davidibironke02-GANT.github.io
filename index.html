@@ -24,14 +24,29 @@ a { text-decoration: none; color: inherit; }
     top: 0;
     z-index: 100;
 }
-.navbar a {
+.navbar .brand { font-family: 'Merriweather', serif; font-size: 28px; font-weight: 700; }
+.menu-toggle {
+    font-size: 28px;
+    cursor: pointer;
+    display: block;
+}
+.nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #014421;
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    padding: 15px;
+    border-radius: 8px;
+}
+.nav-links a {
     color: white;
-    margin-left: 20px;
+    margin: 10px 0;
     font-weight: 600;
     transition: color 0.3s;
 }
-.navbar a:hover { color: #a3d9a5; }
-.navbar .brand { font-family: 'Merriweather', serif; font-size: 28px; font-weight: 700; }
+.nav-links a:hover { color: #a3d9a5; }
 
 /* Hero */
 .hero {
@@ -45,10 +60,7 @@ a { text-decoration: none; color: inherit; }
 /* Sections */
 section { padding: 80px 20px; max-width: 1200px; margin: auto; }
 section h2 { font-family: 'Merriweather', serif; font-size: 36px; margin-bottom: 25px; text-align: center; color: #014421; }
-section p { font-size: 18px; max-width: 800px; margin: 0 auto 20px auto; text-align: center; }
-
-/* About */
-#about { background-color: #e6f0e6; border-radius: 12px; }
+section p { font-size: 18px; max-width: 900px; margin: 0 auto 20px auto; text-align: center; }
 
 /* Exchange Preview */
 #exchange { background-color: #f5f5f5; }
@@ -57,12 +69,12 @@ section p { font-size: 18px; max-width: 800px; margin: 0 auto 20px auto; text-al
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    max-width: 600px;
+    max-width: 800px;
     margin: 20px auto;
     text-align: center;
 }
 .exchange-card h3 { margin-bottom: 15px; font-family: 'Merriweather', serif; }
-.exchange-card img { width: 100%; border-radius: 8px; }
+.exchange-card p { text-align: justify; }
 
 /* Contact Section */
 #contact {
@@ -93,8 +105,7 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px){
-    .navbar { flex-direction: column; gap:10px; }
-    .navbar a { margin-left:0; margin-right:15px; }
+    .nav-links { right: 15px; }
 }
 </style>
 </head>
@@ -103,7 +114,8 @@ footer {
 <!-- Navbar -->
 <div class="navbar">
     <div class="brand">GANT EXCHANGE</div>
-    <div>
+    <span class="menu-toggle">&#9776;</span>
+    <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#exchange">Exchange</a>
@@ -112,37 +124,57 @@ footer {
 </div>
 
 <!-- Hero -->
-<div class="hero" id="home">
-    <!-- No overlay, no text -->
-</div>
+<div class="hero" id="home"></div>
 
 <!-- About Section -->
 <section id="about">
     <h2>About GANT EXCHANGE</h2>
-    <p>GANT EXCHANGE is redefining global agritrade through innovation, transparency, and accessibility. Our mission is to provide farmers, traders, and partners a seamless platform for exchanging agricultural goods worldwide.</p>
-    <p>We leverage cutting-edge technology to ensure secure transactions, real-time market data, and unparalleled efficiency for all stakeholders.</p>
+    <p>
+        GANT stands as a visionary force in agritrade, harnessing the power of innovation to reshape the global agricultural landscape. Born from a bold commitment to transparency, equity, and sustainability, we are crafting a future where farmers, co-operatives, and buyers are united through a cutting-edge, blockchain-secured exchange platform. 
+    </p>
+    <p>
+        Our mission is clear: to dismantle inefficiencies, empower producers with fair access to markets, and deliver resilient, traceable supply chains that meet the demands of a changing world.
+    </p>
+    <p>
+        At the heart of GANT lies a fusion of advanced technologies—blockchain for immutable trust, federated data for sovereign insights, and AI-driven analytics to navigate complex trade dynamics. Our Market Matching Engine facilitates real-time commodity trading, while IoT-enabled Collection Centers ensure precision in quality and origin verification. Smart contracts streamline settlements, and our Corridor Risk Engine anticipates and mitigates risks with unparalleled foresight.
+    </p>
+    <p>
+        GANT is more than a platform—it is a movement toward a sustainable, interconnected future. Join us as we redefine the possibilities of global agriculture.
+    </p>
 </section>
 
 <!-- Exchange Preview Section -->
 <section id="exchange">
-    <h2>Exchange Preview</h2>
+    <h2>Exchange</h2>
     <div class="exchange-card">
-        <h3>Live Market Overview</h3>
-        <img src="chart-placeholder.jpg" alt="Exchange Chart Mockup">
-        <p>Experience a sneak peek of our future live exchange with real-time price charts and trade analytics designed to empower every user.</p>
+        <h3>The Challenge We Solve</h3>
+        <p>
+            The global agritrade sector grapples with systemic inefficiencies that undermine its potential: fragmented supply chains, opaque pricing mechanisms, protracted settlement cycles, and pervasive risks from fraud to volatility. These issues erode trust, impose disproportionate costs on producers—often absorbing 30–40% in middlemen margins—and expose buyers to unreliable supply and compliance uncertainties. In an era where food security and sustainability are paramount, such barriers not only stifle economic growth but also perpetuate inequities, leaving small-scale producers marginalized in a market dominated by intermediaries.
+        </p>
+        <p>
+            This is where GANT intervenes: to architect a transformative platform that restores transparency, equity, and resilience, enabling agritrade to function as a seamless, value-driven ecosystem.
+        </p>
+        <p>
+            GANT’s exchange model is engineered as a sophisticated, blockchain-enabled marketplace that orchestrates end-to-end transactions with precision and security. Producers list their commodities with essential details on quantity, quality, and origin. Buyers engage through a bid/ask system calibrated by corridor-specific factors to ensure fair valuation from the outset.
+        </p>
+        <p>
+            Smart-contract escrow eliminates phantom bids, while the Market Matching Engine executes real-time pairings optimized by price, volume, and producer reputation. Our Corridor Risk Engine dynamically evaluates geopolitical, logistical, and environmental factors, safeguarding trades and enhancing market stability.
+        </p>
+        <p>
+            After quality verification at Collection Centers, funds are released to producers on a T+1 cycle—transparent and fee-free—while buyers gain digital documentation and IoT-enabled shipment tracking. This process reduces latency, minimizes disputes, and builds enduring trust.
+        </p>
+        <p>
+            Through this model, GANT not only addresses inefficiencies but also lays the foundation for a sustainable, inclusive future in agriculture—one trade at a time.
+        </p>
     </div>
 </section>
 
 <!-- Contact Section -->
 <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Reach out through one of the channels below or fill out our <strong>GANT Form</strong> for detailed inquiries:</p>
+    <h2>Contact</h2>
     <div class="contact-links">
-        <a href="mailto:youremail@example.com">Email Me</a>
-        <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-        <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a>
-        <a href="https://t.me/yourhandle" target="_blank">Telegram</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSck4Rw3FM3iEuYfiZArLVI55d1Al3YwnStuGlHJsXLrdC9EBg/viewform?usp=sf_link" target="_blank">GANT Form</a>
+        <a href="mailto:david@gantexchange.com">Email Us</a>
+        <a href="https://www.linkedin.com/company/gant-incorporation/" target="_blank">LinkedIn</a>
     </div>
 </section>
 
@@ -150,6 +182,15 @@ footer {
 <footer>
     &copy; 2025 GANT EXCHANGE. All rights reserved.
 </footer>
+
+<script>
+  // Toggle navbar
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  menuToggle.addEventListener('click', () => {
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+  });
+</script>
 
 </body>
 </html>
