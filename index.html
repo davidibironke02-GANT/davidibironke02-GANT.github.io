@@ -26,10 +26,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 }
 .navbar .brand { font-family: 'Merriweather', serif; font-size: 28px; font-weight: 700; }
 .menu-toggle { font-size: 28px; cursor: pointer; display: none; }
-.nav-links {
-    display: flex;
-    gap: 20px;
-}
+.nav-links { display: flex; gap: 20px; }
 .nav-links a {
     color: white;
     font-weight: 600;
@@ -37,31 +34,43 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 }
 .nav-links a:hover { color: #a3d9a5; }
 
-/* Hero */
-.hero {
-    position: relative;
-    background-image: url('hero.jpg.JPG');
-    background-size: cover;
-    background-position: center;
-    height: 80vh;
-}
-
 /* Sections */
-section {
-    display: none; /* hidden by default */
+.page {
+    display: none; /* Hidden by default */
+    min-height: 80vh;
     padding: 80px 20px;
     max-width: 1200px;
     margin: auto;
 }
-section.active { display: block; }
-section h2 {
+.page.active { display: block; }
+
+/* Hero Page */
+#home {
+    background-image: url('hero.jpg.JPG');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#home h1 {
+    color: white;
+    font-size: 48px;
+    background: rgba(1, 68, 33, 0.7);
+    padding: 20px 40px;
+    border-radius: 12px;
+    font-family: 'Merriweather', serif;
+}
+
+/* About / Exchange / Contact */
+.page h2 {
     font-family: 'Merriweather', serif;
     font-size: 36px;
     margin-bottom: 25px;
     text-align: center;
     color: #014421;
 }
-section p {
+.page p {
     font-size: 18px;
     max-width: 900px;
     margin: 0 auto 20px auto;
@@ -79,7 +88,6 @@ section p {
     text-align: center;
 }
 .exchange-card h3 { margin-bottom: 15px; font-family: 'Merriweather', serif; }
-.exchange-card img { width: 100%; border-radius: 8px; }
 
 /* Contact */
 #contact .contact-links a {
@@ -122,25 +130,28 @@ footer {
     <div class="brand">GANT EXCHANGE</div>
     <span class="menu-toggle">&#9776;</span>
     <div class="nav-links">
-        <a data-section="about">About</a>
-        <a data-section="exchange">Exchange</a>
-        <a data-section="contact">Contact</a>
+        <a data-page="home">Home</a>
+        <a data-page="about">About</a>
+        <a data-page="exchange">Exchange</a>
+        <a data-page="contact">Contact</a>
     </div>
 </div>
 
-<!-- Hero -->
-<div class="hero" id="home"></div>
+<!-- Home Page -->
+<div class="page active" id="home">
+    <h1>Welcome to GANT EXCHANGE</h1>
+</div>
 
-<!-- About Section -->
-<section id="about">
+<!-- About Page -->
+<div class="page" id="about">
     <h2>About GANT EXCHANGE</h2>
-    <p>GANT stands as a visionary force in agritrade, harnessing the power of innovation to reshape the global agricultural landscape. Born from a bold commitment to transparency, equity, and sustainability, we are crafting a future where farmers, co-operatives, and buyers are united through a cutting-edge, blockchain-secured exchange platform. Our mission is clear: to dismantle inefficiencies, empower producers with fair access to markets, and deliver resilient, traceable supply chains that meet the demands of a changing world.</p>
+    <p>GANT stands as a visionary force in agritrade, harnessing the power of innovation to reshape the global agricultural landscape. Born from a bold commitment to transparency, equity, and sustainability, we are crafting a future where farmers, co-operatives, and buyers are united through a cutting-edge, blockchain-secured exchange platform.</p>
     <p>At the heart of GANT lies a fusion of advanced technologies—blockchain for immutable trust, federated data for sovereign insights, and AI-driven analytics to navigate complex trade dynamics. Our Market Matching Engine facilitates real-time commodity trading, while IoT-enabled Collection Centers ensure precision in quality and origin verification. Smart contracts streamline settlements, and our Corridor Risk Engine anticipates and mitigates risks with unparalleled foresight.</p>
     <p>GANT is more than a platform—it is a movement toward a sustainable, interconnected future. Join us as we redefine the possibilities of global agriculture.</p>
-</section>
+</div>
 
-<!-- Exchange Section -->
-<section id="exchange">
+<!-- Exchange Page -->
+<div class="page" id="exchange">
     <h2>Exchange</h2>
     <div class="exchange-card">
         <h3>How GANT Works</h3>
@@ -149,16 +160,16 @@ footer {
         <p>Once matched, goods move to Collection Centers for quality verification, and producers are paid in a T+1 settlement cycle. Buyers receive complete digital documentation and IoT-powered shipment tracking, creating a transparent and trust-driven ecosystem.</p>
         <p>Through this model, GANT embeds intelligence, security, and fairness into every transaction—paving the way for a sustainable and inclusive future in agriculture.</p>
     </div>
-</section>
+</div>
 
-<!-- Contact Section -->
-<section id="contact">
+<!-- Contact Page -->
+<div class="page" id="contact">
     <h2>Contact</h2>
     <div class="contact-links">
         <a href="mailto:david@gantexchange.com">Email Us</a>
         <a href="https://www.linkedin.com/company/gant-incorporation/" target="_blank">LinkedIn</a>
     </div>
-</section>
+</div>
 
 <!-- Footer -->
 <footer>
@@ -171,15 +182,15 @@ document.querySelector('.menu-toggle').addEventListener('click', () => {
     document.querySelector('.nav-links').classList.toggle('show');
 });
 
-// Section switching
-const links = document.querySelectorAll('.nav-links a');
-const sections = document.querySelectorAll('section');
+// Page switching
+const navLinks = document.querySelectorAll('.nav-links a');
+const pages = document.querySelectorAll('.page');
 
-links.forEach(link => {
+navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        sections.forEach(sec => sec.classList.remove('active'));
-        document.getElementById(link.getAttribute('data-section')).classList.add('active');
-        document.querySelector('.nav-links').classList.remove('show'); // auto close on mobile
+        pages.forEach(pg => pg.classList.remove('active'));
+        document.getElementById(link.getAttribute('data-page')).classList.add('active');
+        document.querySelector('.nav-links').classList.remove('show'); // close on mobile
     });
 });
 </script>
