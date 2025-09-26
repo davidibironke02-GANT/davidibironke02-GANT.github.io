@@ -57,8 +57,19 @@
 
     /* Hero */
     .hero {
+      position: relative;
+      background: url('hero_.AVIF') no-repeat center center/cover;
+      height: 400px; /* adjust height if needed */
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 80px 20px;
+      padding: 20px;
+    }
+    .hero-text {
+      background: rgba(255, 255, 255, 0.7); /* overlay for readability */
+      padding: 20px 30px;
+      border-radius: 8px;
     }
     .hero h5 {
       font-family: 'Montserrat', sans-serif;
@@ -182,8 +193,10 @@
 
   <!-- Hero -->
   <div class="hero">
-    <h5>Welcome to GANT</h5>
-    <h1>Transforming Global Agritrade Through Innovative Technologies</h1>
+    <div class="hero-text">
+      <h5>Welcome to GANT</h5>
+      <h1>Transforming Global Agritrade Through Innovative Technologies</h1>
+    </div>
   </div>
 
   <!-- Articles Section -->
