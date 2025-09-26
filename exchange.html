@@ -3,53 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exchange | GANT EXCHANGE</title>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <title>EXCHANGE | GANT EXCHANGE</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
   <style>
     /* Reset & Base */
     * { margin:0; padding:0; box-sizing:border-box; }
-    body { background-color: #f5f5f5; color: #014421; line-height: 1.6; font-family: 'IBM Plex Sans', sans-serif; }
+    body { background-color: #f9f7f3; color: #111; line-height: 1.6; font-family: 'IBM Plex Sans', sans-serif; }
     a { text-decoration: none; color: inherit; }
 
     /* Navbar */
     .navbar {
-      background-color: #014421;
-      color: white;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    .navbar a {
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .hamburger {
+      font-size: 28px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .nav-left { display: flex; align-items: center; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { font-weight: 600; color: #111; }
+    .nav-links a:hover { color: #014421; }
+    @media(max-width:768px){
+      .nav-links { display: none; flex-direction: column; background: white; position: absolute; top:60px; left:20px; padding:15px; border:1px solid #ddd; border-radius:8px; }
+      .nav-links.show { display: flex; }
+    }
+
+    /* Hero */
+    .hero {
+      background: url('exchange_.AVIF') no-repeat center center/cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 700;
       color: white;
-      margin-left: 20px;
-      font-weight: 600;
-      transition: color 0.3s;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
     }
-    .navbar a:hover { color: #a3d9a5; }
-    .navbar .brand { font-family: 'Merriweather', serif; font-size: 28px; font-weight: 700; }
 
     /* Content */
     section {
-      padding: 80px 20px;
+      padding: 60px 20px;
       max-width: 1000px;
       margin: auto;
     }
-    section h2 { font-family: 'Merriweather', serif; font-size: 36px; margin-bottom: 25px; color: #014421; text-align:center; }
+    section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      margin-bottom: 25px;
+      color: #014421;
+      text-align:center;
+    }
     section p { font-size: 18px; margin-bottom: 20px; text-align: justify; }
 
     /* Footer */
     footer {
-      background-color: #014421;
+      background: #111;
       color: white;
       text-align: center;
       padding: 25px 20px;
       margin-top: 40px;
-    }
-
-    @media (max-width: 768px){
-      .navbar { flex-direction: column; gap:10px; }
-      .navbar a { margin-left:0; margin-right:15px; }
     }
   </style>
 </head>
@@ -57,8 +93,11 @@
 
   <!-- Navbar -->
   <div class="navbar">
-    <div class="brand">GANT EXCHANGE</div>
-    <div>
+    <div class="nav-left">
+      <div class="hamburger">☰</div>
+      <div class="brand">GANT EXCHANGE</div>
+    </div>
+    <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="exchange.html">Exchange</a>
@@ -66,9 +105,13 @@
     </div>
   </div>
 
+  <!-- Hero -->
+  <div class="hero">
+    <h1>THE GANT EXCHANGE MODEL</h1>
+  </div>
+
   <!-- Exchange Section -->
   <section>
-    <h2>The GANT Exchange Model</h2>
     <p>
       The global agritrade sector grapples with systemic inefficiencies that undermine its potential: fragmented supply chains, opaque pricing mechanisms, protracted settlement cycles, and pervasive risks from fraud to volatility. These issues erode trust, impose disproportionate costs on producers—often absorbing 30-40% in middlemen margins—and expose buyers to unreliable supply and compliance uncertainties. In an era where food security and sustainability are paramount, such barriers not only stifle economic growth but also perpetuate inequities, leaving small-scale producers marginalized in a market dominated by intermediaries. 
     </p>
@@ -97,5 +140,13 @@
     &copy; 2025 GANT EXCHANGE. All rights reserved.
   </footer>
 
+  <!-- Hamburger Script -->
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+  </script>
 </body>
 </html>
