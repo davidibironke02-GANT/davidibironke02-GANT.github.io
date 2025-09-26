@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GANT EXCHANGE</title>
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
@@ -13,19 +13,14 @@
   <style>
     /* Reset & Base */
     * { margin:0; padding:0; box-sizing:border-box; }
-    body { 
-      background-color: #f9f7f3; 
-      color: #111; 
-      line-height: 1.6; 
-      font-family: 'IBM Plex Sans', sans-serif;
-    }
+    body { background-color: #f9f7f3; color: #111; line-height: 1.6; font-family: 'IBM Plex Sans', sans-serif; }
     a { text-decoration: none; color: inherit; }
 
     /* Navbar */
     .navbar {
-      background-color: transparent;
-      color: #111;
-      padding: 20px 40px;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -37,81 +32,102 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 28px;
       font-weight: 700;
-      line-height: 1.1;
-    }
-    .brand span {
-      display: block;
-      margin-left: 20px; /* staggered look */
-      font-size: 22px;
-    }
-    .nav-links a {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      margin-left: 20px;
+      letter-spacing: 1px;
     }
     .hamburger {
-      display: none;
       font-size: 28px;
       cursor: pointer;
+      margin-right: 10px;
     }
+    .nav-left { display: flex; align-items: center; }
     .nav-links {
-      display: flex;
-      gap: 20px;
+      display: flex; gap: 20px;
     }
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: white;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      }
+    .nav-links a {
+      font-weight: 600; color: #111;
+    }
+    .nav-links a:hover { color: #014421; }
+    .login-btn {
+      background: #014421; color: white; padding: 8px 16px; border-radius: 6px; font-weight: 600;
+    }
+    @media(max-width:768px){
+      .nav-links { display: none; flex-direction: column; background: white; position: absolute; top:60px; left:20px; padding:15px; border:1px solid #ddd; border-radius:8px; }
       .nav-links.show { display: flex; }
-      .hamburger { display: block; }
     }
 
-    /* Hero Section */
+    /* Hero */
     .hero {
       text-align: center;
-      padding: 80px 20px 60px 20px;
+      padding: 80px 20px;
     }
-    .hero small {
-      display: block;
+    .hero h5 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      color: #555;
       margin-bottom: 10px;
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 14px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
     }
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
+      font-size: 40px;
+      font-weight: 700;
       max-width: 700px;
       margin: 0 auto;
+      color: #111;
     }
 
-    /* Articles (placeholder for slider later) */
+    /* Articles */
     .articles {
-      margin: 60px auto;
-      max-width: 900px;
-      padding: 0 20px;
-      text-align: center;
+      padding: 60px 20px;
+      background: #fff;
     }
     .articles h2 {
       font-family: 'Cormorant Garamond', serif;
-      margin-bottom: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 30px;
+    }
+    .article-slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .article-card {
+      min-width: 300px;
+      max-width: 350px;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      scroll-snap-align: start;
+      flex: 0 0 auto;
+    }
+    .article-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .article-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 10px;
+    }
+    .article-card p {
+      font-size: 15px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .article-card a {
+      color: #014421;
+      font-weight: 600;
     }
 
-    /* CTA Section */
+    /* Call-to-action */
     .cta {
       max-width: 900px;
       margin: 60px auto;
-      background: white;
-      padding: 30px;
+      background: #fff;
+      padding: 40px;
       border-radius: 12px;
       text-align: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -120,38 +136,30 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 28px;
       margin-bottom: 20px;
-      color: #111;
     }
-    .cta p { font-size: 18px; margin-bottom: 25px; }
     .cta a {
       display: inline-block;
-      background-color: #111;
+      background: #014421;
       color: white;
       padding: 15px 30px;
       border-radius: 8px;
       font-weight: 600;
-      font-family: 'Montserrat', sans-serif;
-      transition: background-color 0.3s;
     }
-    .cta a:hover { background-color: #333; }
+    .cta a:hover { background: #0a2d13; }
 
-    /* Image Section */
-    .feature-image {
-      margin: 60px auto;
-      max-width: 1000px;
-    }
-    .feature-image img {
-      width: 100%;
-      border-radius: 12px;
+    /* Big Picture */
+    .big-pic {
+      background: url('pic_1.AVIF') no-repeat center center/cover;
+      height: 300px;
+      margin-top: 40px;
     }
 
     /* Footer */
     footer {
-      background-color: #111;
+      background: #111;
       color: white;
       text-align: center;
       padding: 25px 20px;
-      font-family: 'IBM Plex Sans', sans-serif;
     }
   </style>
 </head>
@@ -159,49 +167,51 @@
 
   <!-- Navbar -->
   <div class="navbar">
-    <div class="brand">GANT <span>EXCHANGE</span></div>
-    <div class="hamburger">☰</div>
+    <div class="nav-left">
+      <div class="hamburger">☰</div>
+      <div class="brand">GANT EXCHANGE</div>
+    </div>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="exchange.html">Exchange</a>
       <a href="contact.html">Contact</a>
-      <a href="#">Login</a>
     </div>
+    <a href="#" class="login-btn">Login</a>
   </div>
 
   <!-- Hero -->
-  <section class="hero">
-    <small>Welcome to GANT</small>
-    <h1>Transforming Global Agritrade through Innovative Technologies</h1>
-  </section>
+  <div class="hero">
+    <h5>Welcome to GANT</h5>
+    <h1>Transforming Global Agritrade Through Innovative Technologies</h1>
+  </div>
 
-  <!-- Articles placeholder -->
+  <!-- Articles Section -->
   <section class="articles">
-    <h2>Insights & Updates</h2>
-    <p>(Future sliding articles go here)</p>
+    <h2>Insights & Policies</h2>
+    <div class="article-slider">
+      <!-- Article 1 -->
+      <div class="article-card">
+        <img src="pic_2.JPG" alt="Smallholder Protection">
+        <h3>Smallholder Protection Policy</h3>
+        <p>Every farmer deserves a fair chance. Explore how GANT safeguards smallholders with algorithmic preference, progressive pricing, and real market governance.</p>
+        <a href="policy.html">Read Full Policy →</a>
+      </div>
+      <!-- More articles can be added here -->
+    </div>
   </section>
 
   <!-- CTA -->
   <section class="cta">
     <h2>Disrupting Big Ag and Middlemen</h2>
-    <p>
-      We are a small but determined business with a bold vision: to disrupt the grip of Big Ag, retail giants, 
-      and middlemen who have kept food prices high and farmers underpaid for far too long. 
-    </p>
-    <p>
-      GANT stands with producers and consumers alike—breaking barriers, restoring fairness, 
-      and building a new future for global agriculture.
-    </p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSck4Rw3FM3iEuYfiZArLVI55d1Al3YwnStuGlHJsXLrdC9EBg/viewform?usp=header" target="_blank">
-      Fill Our Letter of Interest
-    </a>
+    <p>We are a small but determined business with a bold vision: to disrupt the grip of Big Ag, retail giants, 
+    and middlemen who keep food prices high and farmers underpaid. GANT stands with producers and consumers alike.</p>
+    <p>If you share our belief that food should be affordable, transparent, and just, support us by filling out our non-binding <strong>Letter of Interest</strong>.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSck4Rw3FM3iEuYfiZArLVI55d1Al3YwnStuGlHJsXLrdC9EBg/viewform?usp=header" target="_blank">Fill Our Letter of Interest</a>
   </section>
 
-  <!-- Feature Image -->
-  <section class="feature-image">
-    <img src="pic_one.AVIF" alt="Feature Image">
-  </section>
+  <!-- Big Picture -->
+  <div class="big-pic"></div>
 
   <!-- Footer -->
   <footer>
