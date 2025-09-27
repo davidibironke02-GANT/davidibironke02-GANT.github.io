@@ -59,7 +59,7 @@
     .hero {
       position: relative;
       background: url('hero_.AVIF') no-repeat center center/cover;
-      height: 400px; /* adjust height if needed */
+      height: 400px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -67,7 +67,7 @@
       padding: 20px;
     }
     .hero-text {
-      background: rgba(255, 255, 255, 0.7); /* overlay for readability */
+      background: rgba(255, 255, 255, 0.7);
       padding: 20px 30px;
       border-radius: 8px;
     }
@@ -103,6 +103,7 @@
       gap: 20px;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
+      padding-bottom: 20px; /* Prevent cutoff */
     }
     .article-card {
       min-width: 300px;
@@ -118,6 +119,7 @@
       width: 100%;
       border-radius: 8px;
       margin-bottom: 15px;
+      min-height: 150px; /* Ensure image space */
     }
     .article-card h3 {
       font-family: 'Cormorant Garamond', serif;
@@ -172,9 +174,21 @@
       text-align: center;
       padding: 25px 20px;
     }
+
+    /* JavaScript Disabled Fallback */
+    .no-js-message {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      background: #ffebee;
+      color: #c62828;
+    }
+    .no-js .no-js-message {
+      display: block;
+    }
   </style>
 </head>
-<body>
+<body class="no-js">
 
   <!-- Navbar -->
   <div class="navbar">
@@ -203,14 +217,21 @@
   <section class="articles">
     <h2>Insights & Policies</h2>
     <div class="article-slider">
-      <!-- Article 1 -->
+      <!-- Article 1: Smallholder Protection Policy -->
       <div class="article-card">
         <img src="Pic_2.JPG" alt="Smallholder Protection">
         <h3>Smallholder Protection Policy</h3>
         <p>Every farmer deserves a fair chance. Explore how GANT safeguards smallholders with algorithmic preference, progressive pricing, and real market governance.</p>
         <a href="policy.html">Read Full Policy →</a>
       </div>
-      <!-- More articles can be added here -->
+      <!-- Article 2: Letter of Interest -->
+      <div class="article-card">
+        <img src="pic_3.JPG" alt="Letter of Interest">
+        <h3>GANT Exchange Letter of Interest</h3>
+        <p>Support our mission to disrupt Big Ag and middlemen. Submit a non-binding Letter of Interest to join us as an early supporter and gain early platform access.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSck4Rw3FM3iEuYfiZArLVI55d1Al3YwnStuGlHJsXLrdC9EBg/viewform?usp=header" target="_blank" onclick="this.href=this.href+'&js_enabled=true'">Submit Interest →</a>
+        <p class="no-js-message">Please enable JavaScript in your browser to access the form.</p>
+      </div>
     </div>
   </section>
 
@@ -220,7 +241,7 @@
     <p>We are a small but determined business with a bold vision: to disrupt the grip of Big Ag, retail giants, 
     and middlemen who keep food prices high and farmers underpaid. GANT stands with producers and consumers alike.</p>
     <p>If you share our belief that food should be affordable, transparent, and just, support us by filling out our non-binding <strong>Letter of Interest</strong>.</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSck4Rw3FM3iEuYfiZArLVI55d1Al3YwnStuGlHJsXLrdC9EBg/viewform?usp=header" target="_blank">Fill Our Letter of Interest</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSck4Rw3FM3iEuYfiZArLVI55d1Al3YwnStuGlHJsXLrdC9EBg/viewform?usp=header" target="_blank" onclick="this.href=this.href+'&js_enabled=true'">Fill Our Letter of Interest</a>
   </section>
 
   <!-- Big Picture -->
@@ -231,8 +252,11 @@
     &copy; 2025 GANT EXCHANGE. All rights reserved.
   </footer>
 
-  <!-- Hamburger Script -->
+  <!-- Hamburger Script & JavaScript Enable Check -->
   <script>
+    // Remove 'no-js' class if JavaScript is enabled
+    document.documentElement.classList.remove('no-js');
+
     const hamburger = document.querySelector(".hamburger");
     const navLinks = document.querySelector(".nav-links");
     hamburger.addEventListener("click", () => {
