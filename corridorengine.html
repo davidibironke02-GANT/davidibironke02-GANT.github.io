@@ -118,11 +118,46 @@
       margin-top: 40px;
     }
   </style>
+</head>
+<body>
+  <header>
+    <h1>Insights & Policies</h1>
+  </header>
+
+  <div class="carousel">
+    <div class="carousel-slides">
+      <!-- Corridor Engine Slide -->
+      <div class="carousel-slide" style="background: url('placeholder1.jpg') no-repeat center center/cover;">
+        <div class="carousel-slide-content">
+          <h2>Corridor Risk Engine</h2>
+          <a href="corridorengine.html">Explore</a>
+        </div>
+      </div>
+      <!-- Sustainable Farming Slide -->
+      <div class="carousel-slide" style="background: url('placeholder2.jpg') no-repeat center center/cover;">
+        <div class="carousel-slide-content">
+          <h2>Sustainable Farming Practices</h2>
+          <a href="sustainable.html">Read More</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-nav">
+      <button onclick="prevSlide()">❮</button>
+      <button onclick="nextSlide()">❯</button>
+    </div>
+  </div>
+
+  <div class="content">
+    <p>Welcome to GANT Exchange's Insights & Policies hub, where we share our commitment to fairness, transparency, and smallholder empowerment. As a Canadian-based company with a global vision, we leverage innovative technologies and robust policies to create a trustworthy agricultural trade platform. Explore our carousel to dive into detailed articles that reflect our mission, from corridor risk analytics to fostering sustainable practices worldwide.</p>
+  </div>
+
+  <footer>
+    &copy; 2025 GANT EXCHANGE. All rights reserved.
+  </footer>
 
   <script>
     let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-slide');
-    const totalSlides = slides.length;
+    let slides, totalSlides;
 
     function showSlide(index) {
       if (index >= totalSlides) currentSlide = 0;
@@ -139,51 +174,14 @@
       showSlide(currentSlide - 1);
     }
 
-    // Auto-slide every 5 seconds
-    setInterval(nextSlide, 5000);
+    window.onload = () => {
+      slides = document.querySelectorAll('.carousel-slide');
+      totalSlides = slides.length;
+      showSlide(currentSlide);
 
-    // Initial load
-    window.onload = () => showSlide(currentSlide);
+      // Auto-slide every 5 seconds
+      setInterval(nextSlide, 5000);
+    };
   </script>
-</head>
-<body>
-  <header>
-    <h1>Insights & Policies</h1>
-  </header>
-
-  <div class="carousel">
-    <div class="carousel-slides">
-      <div class="carousel-slide" style="background: url('pic_3.JPG') no-repeat center center/cover;">
-        <div class="carousel-slide-content">
-          <h2>Smallholder Protection & Fair Market Policy</h2>
-          <a href="policy.html">Read More</a>
-        </div>
-      </div>
-      <div class="carousel-slide" style="background: url('placeholder1.jpg') no-repeat center center/cover;">
-        <div class="carousel-slide-content">
-          <h2>Empowering Smallholders Through Technology</h2>
-          <a href="empowering.html">Read More</a>
-        </div>
-      </div>
-      <div class="carousel-slide" style="background: url('placeholder2.jpg') no-repeat center center/cover;">
-        <div class="carousel-slide-content">
-          <h2>Sustainable Farming Practices at GANT</h2>
-          <a href="sustainable.html">Read More</a>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-nav">
-      <button onclick="prevSlide()">❮</button>
-      <button onclick="nextSlide()">❯</button>
-    </div>
-  </div>
-
-  <div class="content">
-    <p>Welcome to GANT Exchange's Insights & Policies hub, where we share our commitment to fairness, transparency, and smallholder empowerment. As a Canadian-based company with a global vision, we leverage innovative technologies and robust policies to create a trustworthy agricultural trade platform. Explore our carousel to dive into detailed articles that reflect our mission, from protecting smallholders to fostering sustainable practices worldwide.</p>
-  </div>
-
-  <footer>
-    &copy; 2025 GANT EXCHANGE. All rights reserved.
-  </footer>
 </body>
 </html>
