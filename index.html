@@ -15,8 +15,8 @@
       --beige:#E9E3D5;
       --ink:#111;
       --muted:#3a3a3a;
-      --deep:#062e21;      /* deep forest green */
-      --deep-2:#0c3b2a;    /* hover */
+      --deep:#062e21;      
+      --deep-2:#0c3b2a;    
       --border:#e6e6e6;
       --card:#fff;
       --container:1120px;
@@ -169,26 +169,58 @@
     </div>
   </section>
 
-  <!-- rest of your page (carousel, CTA, LOI, subscribe, footer, scripts) stays exactly the same -->
+  <!-- REST OF YOUR CONTENT (carousel, CTA, forms, footer) stays same -->
 
   <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const SUPABASE_URL = 'https://djtdmqqsereqkppckjyx.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGRtcXFzZXJlcWtwcGNranl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDM1NjUsImV4cCI6MjA3NDQ3OTU2NX0.f6Qo_xFEHep6A7ulaM9RlP_ILQXCLqdBKPuwPNfAT';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGRtcXFzZXJlcWtwcGNranl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDM1NjUsImV4cCI6MjA3NDQ3OTU2NX0.f6Qo_xFEHep6A7ulaM9RlP_ILQXCLqdBKPuwPNfATGQ';
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    
-    // LOI submit
-    loiForm.addEventListener('submit', async (e)=>{
+
+    // LOI form
+    const loiForm = document.getElementById('loiForm');
+    const loiBtn  = document.getElementById('loiBtn');
+    const loiMsg  = document.getElementById('loiMsg');
+
+    loiForm?.addEventListener('submit', async (e)=>{
       e.preventDefault();
-      const payload = {...};
+      loiBtn.disabled = true;
+
+      const payload = {
+        full_name: document.getElementById('full_name').value.trim(),
+        organization: document.getElementById('organization').value.trim() || null,
+        email: document.getElementById('email').value.trim(),
+        role: document.getElementById('role').value || null,
+        interest: document.getElementById('interest').value.trim() || null,
+        accepted_terms: true
+      };
+
       const { error } = await supabase.from('letter_of_interest').insert(payload);
+      if(!error){
+        loiForm.reset();
+        loiMsg.style.display='block';
+        setTimeout(()=>{loiMsg.style.display='none'},5000);
+      }else{ alert('Could not submit.'); }
+      loiBtn.disabled = false;
     });
 
     // Newsletter
-    subForm.addEventListener('submit', async (e)=>{
+    const subForm = document.getElementById('subForm');
+    const subEmail = document.getElementById('subEmail');
+    const subBtn = document.getElementById('subBtn');
+    const subMsg = document.getElementById('subMsg');
+
+    subForm?.addEventListener('submit', async (e)=>{
       e.preventDefault();
+      subBtn.disabled = true;
       const { error } = await supabase.from('newsletter_subscriptions').insert({ email: subEmail.value.trim() });
+      if(!error){
+        subForm.reset();
+        subMsg.style.display='block';
+        setTimeout(()=>{subMsg.style.display='none'},5000);
+      }else{ alert('Subscription failed.'); }
+      subBtn.disabled = false;
     });
   </script>
 </body>
