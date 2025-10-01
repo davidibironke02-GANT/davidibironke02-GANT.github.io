@@ -344,12 +344,13 @@
       loiBtn.disabled = true;
 
       const payload = {
-        full_name: document.getElementById('full_name').value.trim(),
-        organization: document.getElementById('organization').value.trim() || null,
-        email: document.getElementById('email').value.trim(),
-        role: document.getElementById('role').value || null,
-        interest: document.getElementById('interest').value.trim() || null,
-        accepted_terms: true
+  name: document.getElementById('full_name').value.trim(),  // match table column
+  organization: document.getElementById('organization').value.trim() || null,
+  email: document.getElementById('email').value.trim(),
+  role: document.getElementById('role').value || null,
+  interest: document.getElementById('interest').value.trim() || null,
+  accepted_terms: true
+};
       };
 
       const { error } = await supabase.from('letters_of_interest').insert(payload);
