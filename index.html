@@ -51,7 +51,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:50px 0; /* margin so bg shows above/below overlay */
+      padding:50px 0;
     }
     .hero-overlay {
       background:rgba(255,255,255,.75);
@@ -104,16 +104,11 @@
     .cta-card{max-width:1000px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.08);padding:26px}
     .cta-card h2{font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:10px}
     .cta-card p{margin-bottom:8px}
-    .loi-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
-    @media(max-width:760px){ .loi-grid{grid-template-columns:1fr} }
+    .loi-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:12px}
     .field label{font-weight:600;display:block;margin-bottom:6px}
-    .field input,.field textarea{width:100%;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff}
-    .field textarea{min-height:110px;resize:vertical}
-    .roles{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-    .role-btn{border:1px solid var(--border);border-radius:999px;padding:10px 14px;background:#fff;cursor:pointer;font-weight:700}
-    .role-btn.active{background:var(--deep);color:var(--beige);border-color:var(--deep)}
+    .field input{width:100%;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff}
     .agree{display:flex;gap:10px;align-items:flex-start;margin-top:2px}
-    .btn{background:var(--deep);color:var(--beige);border:none;border-radius:12px;padding:12px 18px;font-weight:800;cursor:pointer}
+    .btn{background:var(--deep);color:var(--beige);border:none;border-radius:12px;padding:14px;font-weight:800;cursor:pointer;width:100%}
     .btn:hover{background:var(--deep-2)}
     .success{color:#0a6d3a;font-weight:700;margin-top:8px;display:none}
 
@@ -209,8 +204,7 @@
       <button class="chev next" id="nextBtn">›</button>
     </div>
   </section>
-
-  <!-- CTA + LETTER OF INTEREST -->
+    <!-- CTA + LETTER OF INTEREST -->
   <section class="container cta-area">
     <div class="cta-card">
       <h2>Disrupting Big Ag and Middlemen</h2>
@@ -218,28 +212,24 @@
       <p>If you share our belief that food should be affordable, transparent, and just, support us by filling out our non-binding <strong>Letter of Interest</strong>.</p>
 
       <form id="loiForm" class="loi-grid" autocomplete="off">
-        <div class="field"><label for="full_name">Full name *</label><input id="full_name" name="full_name" required/></div>
-        <div class="field"><label for="organization">Organization (optional)</label><input id="organization" name="organization"/></div>
-        <div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" required/></div>
-        <div class="field" style="grid-column:1 / -1">
-          <label>I am a…</label>
-          <div class="roles" id="roleButtons">
-            <button type="button" class="role-btn" data-role="Farmer">Farmer</button>
-            <button type="button" class="role-btn" data-role="Buyer">Buyer</button>
-            <button type="button" class="role-btn" data-role="Investor">Investor</button>
-            <button type="button" class="role-btn" data-role="Cooperative">Cooperative</button>
-            <button type="button" class="role-btn" data-role="Other">Other</button>
-          </div>
-          <input type="hidden" id="role" name="role"/>
+        <div class="field">
+          <label for="full_name">Full name *</label>
+          <input id="full_name" name="full_name" required/>
+        </div>
+        <div class="field">
+          <label for="email">Email *</label>
+          <input id="email" name="email" type="email" required/>
         </div>
         <div class="field" style="grid-column:1 / -1">
-          <label for="interest">Why are you interested in GANT Exchange? (optional)</label>
-          <textarea id="interest" name="interest"></textarea>
+          <label class="agree">
+            <input type="checkbox" id="accepted_terms" required/>
+            <span>
+              I agree that, when GANT Exchange launches, I intend to use the platform. 
+              This Letter of Interest is non-binding and does not represent a contractual commitment.
+            </span>
+          </label>
         </div>
-        <div class="field" style="grid-column:1 / -1">
-          <label class="agree"><input type="checkbox" id="accepted_terms" required/><span>I understand that this Letter of Interest is non-binding and does not represent a contractual commitment.</span></label>
-        </div>
-        <div style="grid-column:1 / -1;display:flex;align-items:center;gap:14px">
+        <div style="grid-column:1 / -1">
           <button id="loiBtn" class="btn" type="submit">Submit Letter of Interest</button>
           <div id="loiMsg" class="success">Thank you — we’ve received your interest.</div>
         </div>
@@ -295,7 +285,7 @@
         <a href="GANT GEOPOLITICAL DEFENSE STRATEGY *.pdf">Geopolitical Strategy</a>
         <a href="Grant & Diplomatic Target Strategy *.pdf">Grant Strategy</a>
       </div>
-       </div>
+    </div>
     <div class="subfoot">© 2025 GANT Exchange. All rights reserved.</div>
   </footer>
 
@@ -317,17 +307,6 @@
     next.addEventListener('click', () => scrollByCards(1));
     setInterval(()=>scrollByCards(1), 6000);
 
-    // ROLE BUTTONS
-    const roleHidden = document.getElementById('role');
-    const roleButtons = Array.from(document.querySelectorAll('.role-btn'));
-    roleButtons.forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        roleButtons.forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        roleHidden.value = btn.dataset.role;
-      });
-    });
-
     // SUPABASE
     const SUPABASE_URL = 'https://djtdmqqsereqkppckjyx.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGRtcXFzZXJlcWtwcGNranl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDM1NjUsImV4cCI6MjA3NDQ3OTU2NX0.f6Qo_xFEHep6A7ulaM9RlP_ILQXCLqdBKPuwPNfATGQ';
@@ -344,21 +323,14 @@
       loiBtn.disabled = true;
 
       const payload = {
-  name: document.getElementById('full_name').value.trim(),  // match table column
-  organization: document.getElementById('organization').value.trim() || null,
-  email: document.getElementById('email').value.trim(),
-  role: document.getElementById('role').value || null,
-  interest: document.getElementById('interest').value.trim() || null,
-  accepted_terms: true
-};
+        full_name: document.getElementById('full_name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        accepted_terms: true
       };
 
-      const { error } = await supabase
-  .from('letters_of_interest')
-  .insert(payload, { returning: "minimal" });
+      const { error } = await supabase.from('letter_of_interest').insert(payload);
       if(!error){
         loiForm.reset();
-        roleButtons.forEach(b=>b.classList.remove('active'));
         loiMsg.style.display='block';
       }else{
         alert('Could not submit. Please try again.');
@@ -375,7 +347,7 @@
     subForm.addEventListener('submit', async (e)=>{
       e.preventDefault();
       subBtn.disabled = true;
-      const { error } = await supabase.from('newsletter_subscriptions').insert({ email: subEmail.value.trim() });
+      const { error } = await supabase.from('newsletter_subscription').insert({ email: subEmail.value.trim() });
       if(!error){ subForm.reset(); subMsg.style.display='block'; }
       else{ alert('Subscription failed. Please try again.'); }
       subBtn.disabled = false;
