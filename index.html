@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Reset & Base */
     * { margin:0; padding:0; box-sizing:border-box; }
     body { background-color: #f9f7f3; color: #111; line-height: 1.6; font-family: 'IBM Plex Sans', sans-serif; }
     a { text-decoration: none; color: inherit; }
@@ -25,85 +24,61 @@
       justify-content: space-between;
       align-items: center;
       position: sticky;
-      top: 0;
-      z-index: 100;
+      top: 0; z-index: 100;
     }
-    .brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
+    .brand { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; }
     .nav-links { display: flex; gap: 20px; }
     .nav-links a { font-weight: 600; color: #111; }
     .nav-links a:hover { color: #014421; }
-    .login-btn {
-      background: #014421; color: white; padding: 8px 16px; border-radius: 6px; font-weight: 600;
-    }
+    .login-btn { background: #014421; color: white; padding: 8px 16px; border-radius: 6px; font-weight: 600; }
+    .hamburger { font-size: 28px; cursor: pointer; display: none; }
     @media(max-width:768px){
-      .nav-links { display: none; flex-direction: column; background: white; position: absolute; top:60px; left:20px; padding:15px; border:1px solid #ddd; border-radius:8px; }
+      .nav-links { display: none; flex-direction: column; background: white; position: absolute; top:60px; right:20px; padding:15px; border:1px solid #ddd; border-radius:8px; }
       .nav-links.show { display: flex; }
+      .hamburger { display: block; }
     }
 
     /* Hero */
     .hero {
-      position: relative;
       background: url('hero_.AVIF') no-repeat center center/cover;
-      height: 400px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
+      height: 400px; display: flex; justify-content: center; align-items: center; text-align: center;
     }
-    .hero-text {
-      background: rgba(255, 255, 255, 0.7);
-      padding: 20px 30px;
-      border-radius: 8px;
-    }
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 40px;
-      font-weight: 700;
-      max-width: 700px;
-      margin: 0 auto;
-      color: #111;
-    }
+    .hero-text { background: rgba(255,255,255,0.7); padding: 20px 30px; border-radius: 8px; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 700; color: #111; }
 
     /* Carousel */
-    .carousel { position: relative; overflow: hidden; max-width: 1200px; margin: 40px auto; }
-    .carousel-track { display: flex; transition: transform 0.7s ease; }
-    .carousel-card { flex: 0 0 100%; padding: 20px; text-align: center; }
+    .articles { padding: 60px 20px; background: #fff; text-align: center; }
+    .articles h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; margin-bottom: 30px; }
+    .carousel { position: relative; max-width: 1000px; margin: auto; overflow: hidden; }
+    .carousel-track { display: flex; transition: transform 0.6s ease; }
+    .carousel-card { min-width: 300px; max-width: 350px; background:#f9f9f9; margin:0 10px; padding:20px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.08); }
     .carousel-card img { width: 100%; border-radius: 8px; margin-bottom: 15px; }
-    .carousel-nav {
-      position: absolute; top: 50%; left: 0; right: 0;
-      display: flex; justify-content: space-between; transform: translateY(-50%);
-    }
-    .carousel-nav button {
-      background: rgba(1,68,33,0.8); border: none; color: white;
-      font-size: 20px; padding: 10px; border-radius: 50%; cursor: pointer;
-    }
+    .carousel-nav { text-align:center; margin-top:15px; }
+    .carousel-nav button { background:none; border:none; font-size:30px; cursor:pointer; color:#014421; margin:0 15px; }
 
-    /* Forms (CTA) */
-    .form-section { max-width: 700px; margin: 60px auto; text-align: center; }
-    .form-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; margin-bottom: 15px; }
-    form input, form button {
-      padding: 12px; font-size: 16px; margin: 8px; border-radius: 6px; border: 1px solid #ccc;
+    /* CTA Section */
+    .cta { max-width: 900px; margin: 60px auto; padding: 40px; text-align: center; background: #fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+    .cta h2 { font-family:'Cormorant Garamond', serif; font-size:28px; margin-bottom:15px; }
+
+    /* Forms */
+    .form-section { max-width: 900px; margin: 40px auto; padding: 30px; background: #fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+    form { display:flex; flex-direction:column; gap:15px; }
+    form input, form textarea, form select {
+      padding:12px; border:1px solid #ccc; border-radius:6px; font-size:15px;
     }
-    form button { background: #014421; color: white; font-weight: 600; cursor: pointer; }
-    form button:hover { background: #0a2d13; }
+    form button { background:#014421; color:white; font-weight:600; padding:12px; border:none; border-radius:6px; cursor:pointer; }
+    form button:hover { background:#0a2d13; }
+    .checkbox { display:flex; align-items:center; gap:10px; font-size:14px; }
 
     /* Footer */
-    footer {
-      background: #111; color: white; padding: 40px 20px;
-    }
-    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
-    .footer-grid h4 { font-family: 'Cormorant Garamond', serif; margin-bottom: 15px; font-size: 20px; }
-    .footer-grid ul { list-style: none; padding: 0; }
-    .footer-grid ul li { margin-bottom: 8px; }
-    .footer-grid ul li a { color: #ddd; font-size: 14px; }
-    .footer-grid ul li a:hover { color: #fff; }
-    .footer-bottom { text-align: center; margin-top: 30px; font-size: 13px; color: #aaa; }
+    footer { background:#014421; color:#eee; padding:40px 20px; }
+    .footer-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap:30px; max-width:1200px; margin:auto; }
+    .footer-grid h4 { font-family:'Cormorant Garamond', serif; margin-bottom:15px; font-size:20px; }
+    .footer-grid ul { list-style:none; padding:0; }
+    .footer-grid li { margin-bottom:8px; }
+    .footer-grid a { color:#ddd; font-size:14px; }
+    .footer-grid a:hover { color:#fff; }
+    .footer-bottom { text-align:center; margin-top:20px; font-size:13px; color:#ccc; }
   </style>
 </head>
 <body>
@@ -111,6 +86,7 @@
   <!-- Navbar -->
   <div class="navbar">
     <div class="brand">GANT EXCHANGE</div>
+    <div class="hamburger">☰</div>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -128,35 +104,59 @@
   </div>
 
   <!-- Carousel -->
-  <div class="carousel">
-    <div class="carousel-track">
-      <div class="carousel-card"><img src="Pic_2.JPG" alt="Smallholder"><h3>Smallholder Protection Policy</h3><p>Safeguarding farmers with preference, pricing, and governance.</p><a href="policy.html">Read More →</a></div>
-      <div class="carousel-card"><img src="cre1.WEBP" alt="CRE"><h3>Corridor Risk Engine</h3><p>Scoring trade corridors in real-time for resilient agritrade.</p><a href="corridorengine.html">Explore →</a></div>
-      <div class="carousel-card"><img src="pic_3.JPG" alt="Climate"><h3>Climate Impact Analysis</h3><p>Embedding ESG and climate metrics into every trade.</p><a href="climate.html">Read More →</a></div>
-      <div class="carousel-card"><img src="hero.jpg.JPG" alt="Pricing"><h3>Pricing Algorithm</h3><p>AI-powered value discovery for farmers and buyers.</p><a href="pricing.html">See How →</a></div>
+  <section class="articles">
+    <h2>Insights & Policies</h2>
+    <div class="carousel">
+      <div class="carousel-track">
+        <div class="carousel-card"><img src="Pic_2.JPG"><h3>Smallholder Protection</h3><p>Safeguarding farmers with preference, pricing & governance.</p><a href="policy.html">Read More →</a></div>
+        <div class="carousel-card"><img src="cre1.WEBP"><h3>Corridor Risk Engine</h3><p>Scoring trade corridors in real-time for resilience.</p><a href="corridorengine.html">Explore →</a></div>
+        <div class="carousel-card"><img src="pic_3.JPG"><h3>Climate Impact</h3><p>Embedding ESG & climate metrics in every trade.</p><a href="climate.html">Read More →</a></div>
+        <div class="carousel-card"><img src="hero.jpg.JPG"><h3>Pricing Algorithm</h3><p>AI-powered value discovery for fairer trade.</p><a href="pricing.html">See How →</a></div>
+      </div>
     </div>
     <div class="carousel-nav">
-      <button id="prev">❮</button>
-      <button id="next">❯</button>
+      <button id="prev">‹</button>
+      <button id="next">›</button>
     </div>
-  </div>
+  </section>
 
-  <!-- CTA: Letter of Interest -->
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Disrupting Big Ag and Middlemen</h2>
+    <p>We are a small but determined business with a bold vision: to disrupt the grip of Big Ag, retail giants, and middlemen who keep food prices high and farmers underpaid. GANT stands with producers and consumers alike.</p>
+  </section>
+
+  <!-- Letter of Interest -->
   <section class="form-section">
-    <h2>Disrupt Big Ag — Join the Movement</h2>
+    <h2>Letter of Interest</h2>
     <form id="loi-form">
-      <input type="text" id="loi-name" placeholder="Your Name" required>
-      <input type="email" id="loi-email" placeholder="Your Email" required>
-      <button type="submit">Submit Letter of Interest</button>
+      <input type="text" id="loi-name" placeholder="Full Name *" required>
+      <input type="text" id="loi-org" placeholder="Organization (optional)">
+      <input type="email" id="loi-email" placeholder="Email *" required>
+      <textarea id="loi-interest" placeholder="Interest in GANT (optional)"></textarea>
+      <select id="loi-role">
+        <option value="">Select Role (optional)</option>
+        <option>Farmer</option>
+        <option>Buyer</option>
+        <option>Investor</option>
+        <option>Cooperative</option>
+        <option>Other</option>
+      </select>
+      <textarea id="loi-why" placeholder="Why are you interested? (optional)"></textarea>
+      <div class="checkbox">
+        <input type="checkbox" id="loi-consent" required>
+        <label for="loi-consent">I understand this Letter of Interest is non-binding and not a contractual commitment.</label>
+      </div>
+      <button type="submit">Submit</button>
     </form>
     <p id="loi-message"></p>
   </section>
 
-  <!-- CTA: Newsletter -->
+  <!-- Newsletter -->
   <section class="form-section">
-    <h2>Subscribe to Our Latest Insights</h2>
+    <h2>Subscribe to Insights</h2>
     <form id="newsletter-form">
-      <input type="email" id="newsletter-email" placeholder="Your Email" required>
+      <input type="email" id="newsletter-email" placeholder="Email *" required>
       <button type="submit">Subscribe</button>
     </form>
     <p id="newsletter-message"></p>
@@ -165,58 +165,31 @@
   <!-- Footer -->
   <footer>
     <div class="footer-grid">
-      <div>
-        <h4>About GANT</h4>
-        <ul>
-          <li><a href="about.html">Our Vision</a></li>
-          <li><a href="policy.html">Policies</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Solutions</h4>
-        <ul>
-          <li><a href="exchange.html">Exchange</a></li>
-          <li><a href="corridorengine.html">Risk Engine</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="#">Investor FAQ</a></li>
-          <li><a href="#">Insights Blog</a></li>
-          <li><a href="#">Whitepapers</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Follow Us</h4>
-        <ul>
-          <li><a href="#">Twitter</a></li>
-          <li><a href="#">LinkedIn</a></li>
-          <li><a href="#">YouTube</a></li>
-        </ul>
-      </div>
+      <div><h4>About</h4><ul><li><a href="about.html">Vision</a></li><li><a href="policy.html">Policies</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Solutions</h4><ul><li><a href="exchange.html">Exchange</a></li><li><a href="corridorengine.html">Risk Engine</a></li><li><a href="pricing.html">Pricing</a></li></ul></div>
+      <div><h4>Resources</h4><ul><li><a href="#">Investor FAQ</a></li><li><a href="#">Insights Blog</a></li><li><a href="#">Whitepapers</a></li></ul></div>
+      <div><h4>Follow Us</h4><ul><li><a href="#">Twitter</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">YouTube</a></li></ul></div>
     </div>
-    <div class="footer-bottom">
-      &copy; 2025 GANT EXCHANGE. All rights reserved.
-    </div>
+    <div class="footer-bottom">&copy; 2025 GANT EXCHANGE. All rights reserved.</div>
   </footer>
 
   <!-- Scripts -->
   <script type="module">
     import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+    const supabase = createClient("https://djtdmqqsereqkppckjyx.supabase.co","YOUR_ANON_KEY");
 
-    const supabase = createClient("https://djtdmqqsereqkppckjyx.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGRtcXFzZXJlcWtwcGNranl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDM1NjUsImV4cCI6MjA3NDQ3OTU2NX0.f6Qo_xFEHep6A7ulaM9RlP_ILQXCLqdBKPuwPNfATGQ");
-
-    // Letter of Interest
+    // LOI
     document.getElementById("loi-form").addEventListener("submit", async (e) => {
       e.preventDefault();
       const name = document.getElementById("loi-name").value;
+      const org = document.getElementById("loi-org").value;
       const email = document.getElementById("loi-email").value;
-      const { error } = await supabase.from("letters_of_interest").insert([{ name, email }]);
-      document.getElementById("loi-message").textContent = error ? "Error, try again." : "Thank you for your interest!";
+      const interest = document.getElementById("loi-interest").value;
+      const role = document.getElementById("loi-role").value;
+      const why = document.getElementById("loi-why").value;
+      const { error } = await supabase.from("letters_of_interest").insert([{ name, org, email, interest, role, why }]);
+      document.getElementById("loi-message").textContent = error ? "Error, try again." : "Thank you!";
+      e.target.reset();
     });
 
     // Newsletter
@@ -224,20 +197,23 @@
       e.preventDefault();
       const email = document.getElementById("newsletter-email").value;
       const { error } = await supabase.from("newsletter_subscriptions").insert([{ email }]);
-      document.getElementById("newsletter-message").textContent = error ? "Error, try again." : "Subscribed successfully!";
+      document.getElementById("newsletter-message").textContent = error ? "Error, try again." : "Subscribed!";
+      e.target.reset();
+    });
+
+    // Navbar toggle
+    document.querySelector(".hamburger").addEventListener("click", () => {
+      document.querySelector(".nav-links").classList.toggle("show");
     });
 
     // Carousel
     const track = document.querySelector('.carousel-track');
     const cards = document.querySelectorAll('.carousel-card');
     let index = 0;
-    function showSlide(i) {
-      index = (i + cards.length) % cards.length;
-      track.style.transform = `translateX(-${index * 100}%)`;
-    }
-    document.getElementById("next").onclick = () => showSlide(index + 1);
-    document.getElementById("prev").onclick = () => showSlide(index - 1);
-    setInterval(() => showSlide(index + 1), 6000);
+    function showSlide(i){ index=(i+cards.length)%cards.length; track.style.transform=`translateX(-${index*100}%)`; }
+    document.getElementById("next").onclick=()=>showSlide(index+1);
+    document.getElementById("prev").onclick=()=>showSlide(index-1);
+    setInterval(()=>showSlide(index+1),6000);
   </script>
 </body>
 </html>
