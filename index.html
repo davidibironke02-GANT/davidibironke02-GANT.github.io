@@ -214,23 +214,25 @@
       <form id="loiForm" class="loi-grid" autocomplete="off">
         <div class="field">
           <label for="full_name">Full name *</label>
-          <input id="full_name" name="full_name" required/>
+          <input id="full_name" name="full_name" required />
         </div>
+
         <div class="field">
           <label for="email">Email *</label>
-          <input id="email" name="email" type="email" required/>
+          <input id="email" name="email" type="email" required />
         </div>
+
         <div class="field" style="grid-column:1 / -1">
           <label class="agree">
-            <input type="checkbox" id="accepted_terms" required/>
-            <span>
-              I agree that, when GANT Exchange launches, I intend to use the platform. 
-              This Letter of Interest is non-binding and does not represent a contractual commitment.
-            </span>
+            <input type="checkbox" id="agreed_statement" required />
+            <span>I understand that this Letter of Interest is non-binding, and I agree to use the GANT Exchange platform when it launches.</span>
           </label>
         </div>
-        <div style="grid-column:1 / -1">
-          <button id="loiBtn" class="btn" type="submit">Submit Letter of Interest</button>
+
+        <div style="grid-column:1 / -1;display:flex;flex-direction:column;align-items:center;gap:14px">
+          <button id="loiBtn" class="btn" type="submit" style="width:100%;font-size:16px">
+            Submit Letter of Interest
+          </button>
           <div id="loiMsg" class="success">Thank you — we’ve received your interest.</div>
         </div>
       </form>
@@ -245,7 +247,7 @@
     <h3>Stay Ahead in Agritrade</h3>
     <p>Subscribe to our latest insights and policy updates.</p>
     <form id="subForm" class="sub-row" autocomplete="off">
-      <input id="subEmail" type="email" required/>
+      <input id="subEmail" type="email" required />
       <button id="subBtn" class="btn" type="submit">Subscribe</button>
     </form>
     <div id="subMsg" class="success">Subscribed — welcome!</div>
@@ -292,22 +294,6 @@
   <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    // NAV
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => navLinks.classList.toggle('show'));
-
-    // CAROUSEL
-    const track = document.getElementById('track');
-    const prev = document.getElementById('prevBtn');
-    const next = document.getElementById('nextBtn');
-    const cardWidth = 320 + parseInt(getComputedStyle(document.documentElement).getPropertyValue('--gap'));
-    function scrollByCards(dir){ document.querySelector('.viewport').scrollBy({ left: dir*cardWidth, behavior:'smooth' }); }
-    prev.addEventListener('click', () => scrollByCards(-1));
-    next.addEventListener('click', () => scrollByCards(1));
-    setInterval(()=>scrollByCards(1), 6000);
-
-    // SUPABASE
     const SUPABASE_URL = 'https://djtdmqqsereqkppckjyx.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGRtcXFzZXJlcWtwcGNranl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDM1NjUsImV4cCI6MjA3NDQ3OTU2NX0.f6Qo_xFEHep6A7ulaM9RlP_ILQXCLqdBKPuwPNfATGQ';
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -319,13 +305,13 @@
 
     loiForm.addEventListener('submit', async (e)=>{
       e.preventDefault();
-      if(!document.getElementById('accepted_terms').checked) return;
+      if(!document.getElementById('agreed_statement').checked) return;
       loiBtn.disabled = true;
 
       const payload = {
         full_name: document.getElementById('full_name').value.trim(),
         email: document.getElementById('email').value.trim(),
-        accepted_terms: true
+        agreed_statement: document.getElementById('agreed_statement').checked,
       };
 
       const { error } = await supabase.from('letter_of_interest').insert(payload);
@@ -334,11 +320,12 @@
         loiMsg.style.display='block';
       }else{
         alert('Could not submit. Please try again.');
+        console.error(error);
       }
       loiBtn.disabled = false;
     });
 
-    // NEWSLETTER
+    // Newsletter
     const subForm = document.getElementById('subForm');
     const subEmail = document.getElementById('subEmail');
     const subBtn = document.getElementById('subBtn');
@@ -349,9 +336,7 @@
       subBtn.disabled = true;
       const { error } = await supabase.from('newsletter_subscription').insert({ email: subEmail.value.trim() });
       if(!error){ subForm.reset(); subMsg.style.display='block'; }
-      else{ alert('Subscription failed. Please try again.'); }
+      else{ alert('Subscription failed. Please try again.'); console.error(error); }
       subBtn.disabled = false;
     });
   </script>
-</body>
-</html>
