@@ -15,8 +15,8 @@
       --beige:#E9E3D5;
       --ink:#111;
       --muted:#3a3a3a;
-      --deep:#062e21;      
-      --deep-2:#0c3b2a;    
+      --deep:#062e21;      /* deep forest green */
+      --deep-2:#0c3b2a;    /* hover */
       --border:#e6e6e6;
       --card:#fff;
       --container:1120px;
@@ -24,6 +24,7 @@
       --radius:14px;
     }
 
+    /* Base */
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'IBM Plex Sans',sans-serif;background:#f9f7f3;color:var(--ink);line-height:1.6}
     a{text-decoration:none;color:inherit}
@@ -51,13 +52,14 @@
       display:flex;
       align-items:center;
       justify-content:center;
+      padding:40px 0;  /* leaves space above and below the white overlay */
     }
     .hero-overlay {
-      background:rgba(255,255,255,0.75);
+      background:rgba(255,255,255,.75);
       border-radius:12px;
       padding:24px 28px;
       max-width:700px;
-      margin:0 20px;
+      margin:0 auto;
       text-align:center;
     }
     .hero-overlay h5 {
@@ -76,7 +78,7 @@
     /* Section title */
     .section-title{font-family:'Cormorant Garamond',serif;text-align:center;font-size:32px;margin:38px 0 20px}
 
-    /* Carousel */
+    /* Carousel (phone-shape cards) */
     .carousel{position:relative}
     .viewport{overflow:hidden}
     .track{display:flex;gap:var(--gap);padding:8px 0;scroll-behavior:smooth}
@@ -100,13 +102,18 @@
 
     /* CTA + LOI */
     .cta-area{margin:56px 0 28px}
-    .cta-card{max-width:1000px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.08);padding:26px}
+    .cta-card{
+      max-width:1000px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:14px;
+      box-shadow:0 10px 24px rgba(0,0,0,.08);padding:26px
+    }
     .cta-card h2{font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:10px}
     .cta-card p{margin-bottom:8px}
     .loi-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
     @media(max-width:760px){ .loi-grid{grid-template-columns:1fr} }
     .field label{font-weight:600;display:block;margin-bottom:6px}
-    .field input,.field textarea{width:100%;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff}
+    .field input,.field textarea{
+      width:100%;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff
+    }
     .field textarea{min-height:110px;resize:vertical}
     .roles{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
     .role-btn{border:1px solid var(--border);border-radius:999px;padding:10px 14px;background:#fff;cursor:pointer;font-weight:700}
@@ -117,7 +124,10 @@
     .success{color:#0a6d3a;font-weight:700;margin-top:8px;display:none}
 
     /* Full-bleed image separator */
-    .full-bleed{width:100vw;height:360px;background:url('pic_one.AVIF') center/cover no-repeat;position:relative;left:50%;margin:40px 0;transform:translateX(-50%)}
+    .full-bleed{
+      width:100vw;height:360px;background:url('pic_one.AVIF') center/cover no-repeat;
+      position:relative;left:50%;right:50%;margin:40px 0;transform:translateX(-50%);
+    }
     @media(min-width:1000px){ .full-bleed{height:430px} }
 
     /* Subscribe */
@@ -163,65 +173,14 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-overlay">
-      <h5>Welcome to GANT</h5>
-      <h1>Transforming Global Agritrade Through Innovative Technologies</h1>
+    <div class="container hero-wrap">
+      <div class="hero-overlay">
+        <h5>Welcome to GANT</h5>
+        <h1>Transforming Global Agritrade Through Innovative Technologies</h1>
+      </div>
     </div>
   </section>
 
-  <!-- REST OF YOUR CONTENT (carousel, CTA, forms, footer) stays same -->
-
-  <!-- Supabase -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-    const SUPABASE_URL = 'https://djtdmqqsereqkppckjyx.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGRtcXFzZXJlcWtwcGNranl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDM1NjUsImV4cCI6MjA3NDQ3OTU2NX0.f6Qo_xFEHep6A7ulaM9RlP_ILQXCLqdBKPuwPNfATGQ';
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    // LOI form
-    const loiForm = document.getElementById('loiForm');
-    const loiBtn  = document.getElementById('loiBtn');
-    const loiMsg  = document.getElementById('loiMsg');
-
-    loiForm?.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      loiBtn.disabled = true;
-
-      const payload = {
-        full_name: document.getElementById('full_name').value.trim(),
-        organization: document.getElementById('organization').value.trim() || null,
-        email: document.getElementById('email').value.trim(),
-        role: document.getElementById('role').value || null,
-        interest: document.getElementById('interest').value.trim() || null,
-        accepted_terms: true
-      };
-
-      const { error } = await supabase.from('letter_of_interest').insert(payload);
-      if(!error){
-        loiForm.reset();
-        loiMsg.style.display='block';
-        setTimeout(()=>{loiMsg.style.display='none'},5000);
-      }else{ alert('Could not submit.'); }
-      loiBtn.disabled = false;
-    });
-
-    // Newsletter
-    const subForm = document.getElementById('subForm');
-    const subEmail = document.getElementById('subEmail');
-    const subBtn = document.getElementById('subBtn');
-    const subMsg = document.getElementById('subMsg');
-
-    subForm?.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      subBtn.disabled = true;
-      const { error } = await supabase.from('newsletter_subscriptions').insert({ email: subEmail.value.trim() });
-      if(!error){
-        subForm.reset();
-        subMsg.style.display='block';
-        setTimeout(()=>{subMsg.style.display='none'},5000);
-      }else{ alert('Subscription failed.'); }
-      subBtn.disabled = false;
-    });
-  </script>
+  <!-- REST OF YOUR PAGE UNCHANGED... -->
 </body>
 </html>
