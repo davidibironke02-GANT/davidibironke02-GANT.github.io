@@ -353,7 +353,9 @@
 };
       };
 
-      const { error } = await supabase.from('letters_of_interest').insert(payload);
+      const { error } = await supabase
+  .from('letters_of_interest')
+  .insert(payload, { returning: "minimal" });
       if(!error){
         loiForm.reset();
         roleButtons.forEach(b=>b.classList.remove('active'));
