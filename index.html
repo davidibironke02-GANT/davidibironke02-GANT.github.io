@@ -114,16 +114,35 @@
     .chev.prev{left:4px}
     .chev.next{right:4px}
 
-    /* CTA + LOI */
+    /* CTA + LOI (fixed) */
     .cta-area{margin:56px 0 28px}
-    .cta-card{max-width:1000px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.08);padding:26px}
-    .cta-card h2{font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:10px}
-    .cta-card p{margin-bottom:8px}
-    .loi-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
-    @media(max-width:760px){ .loi-grid{grid-template-columns:1fr} }
+    .cta-card{
+      max-width:880px;
+      margin:0 auto;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:14px;
+      box-shadow:0 10px 24px rgba(0,0,0,.08);
+      padding:28px 28px 26px;
+      text-align:center;
+    }
+    .cta-card h2{font-family:'Cormorant Garamond',serif;font-size:30px;margin-bottom:10px}
+    .cta-card p{margin-bottom:10px}
+    .loi-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(240px,1fr));
+      gap:14px;
+      margin-top:14px;
+      align-items:start;
+    }
+    @media(max-width:760px){
+      .loi-grid{grid-template-columns:1fr}
+    }
+    .field{text-align:left}
     .field label{font-weight:600;display:block;margin-bottom:6px}
     .field input{width:100%;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff}
-    .agree{display:flex;gap:10px;align-items:flex-start;margin-top:2px}
+    .agree{display:flex;gap:10px;align-items:center;margin-top:4px;text-align:left}
+    .agree input{margin-top:0}
     .btn{background:var(--deep);color:var(--beige);border:none;border-radius:12px;padding:16px 20px;font-weight:800;cursor:pointer;width:100%}
     .btn:hover{background:var(--deep-2)}
     .success{color:#0a6d3a;font-weight:700;margin-top:8px;display:none}
@@ -143,8 +162,7 @@
     /* Footer */
     footer{background:var(--deep);color:var(--beige)}
     .footer-inner{max-width:var(--container);margin:0 auto;padding:40px 20px;display:grid;gap:26px;grid-template-columns:1fr}
-    @media(min-width:900px){ .footer-inner{grid-template-columns:1.2fr repeat(4,1fr)} }
-    .f-brand{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:28px;line-height:1.1}
+    @media(min-width:900px){ .footer-inner{grid-template-columns:repeat(4,1fr)} } /* removed brand column */
     .f-col h4{font-family:'Cormorant Garamond',serif;font-size:18px;margin-bottom:10px}
     .f-col a{display:block;color:var(--beige);opacity:.9;margin:6px 0}
     .f-col a:hover{opacity:1;text-decoration:underline}
@@ -222,8 +240,14 @@
       <p>If you share our belief that food should be affordable, transparent, and just, support us by filling out our non-binding <strong>Letter of Interest</strong>.</p>
 
       <form id="loiForm" class="loi-grid" autocomplete="off">
-        <div class="field"><label for="full_name">Full name *</label><input id="full_name" name="full_name" required/></div>
-        <div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" required/></div>
+        <div class="field">
+          <label for="full_name">Full name *</label>
+          <input id="full_name" name="full_name" required/>
+        </div>
+        <div class="field">
+          <label for="email">Email *</label>
+          <input id="email" name="email" type="email" required/>
+        </div>
         <div class="field" style="grid-column:1 / -1">
           <label class="agree">
             <input type="checkbox" id="agreed_statement" required/>
@@ -255,15 +279,11 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <div>
-        <div class="f-brand">GANT<br/>EXCHANGE</div>
-        <p style="margin-top:10px;opacity:.9">NASDAQ-grade infrastructure for food: instant settlement, corridor intelligence, and compliance-by-default.</p>
-      </div>
       <div class="f-col">
         <h4>Product</h4>
         <a href="pricing.html">Pricing Algorithm</a>
         <a href="corridorengine.html">Corridor Risk Engine</a>
-        <a href="chart.html">Live Markets (Demo)</a>
+        <a href="https://preview--gant-prototype.lovable.app/" target="_blank" rel="noopener">Live Markets (Demo)</a>
         <a href="#subscribe">Newsletter</a>
       </div>
       <div class="f-col">
@@ -293,15 +313,14 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    // NAV - Hamburger toggle
+    // NAV
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('show');
     });
 
-    // CAROUSEL
-    const track = document.getElementById('track');
+    // Carousel
     const prev = document.getElementById('prevBtn');
     const next = document.getElementById('nextBtn');
     const cardWidth = 320 + parseInt(getComputedStyle(document.documentElement).getPropertyValue('--gap'));
@@ -312,10 +331,9 @@
     next.addEventListener('click', () => scrollByCards(1));
     setInterval(() => scrollByCards(1), 6000);
 
-    // SUPABASE INIT
+    // Supabase
     const SUPABASE_URL = 'https://djtdmqqsereqkppckjyx.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGRtcXFzZXJlcWtwcGNranl4Iiwicm9continuing full valid version (safe Supabase key kept):```html
-  ...'InR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGRtcXFzZXJlcWtwcGNranl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDM1NjUsImV4cCI6MjA3NDQ3OTU2NX0.f6Qo_xFEHep6A7ulaM9RlP_ILQXCLqdBKPuwPNfATGQ';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGRtcXFzZXJlcWtwcGNranl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDM1NjUsImV4cCI6MjA3NDQ3OTU2NX0.f6Qo_xFEHep6A7ulaM9RlP_ILQXCLqdBKPuwPNfATGQ';
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     // LOI submit
@@ -344,7 +362,7 @@
       loiBtn.disabled = false;
     });
 
-    // NEWSLETTER
+    // Newsletter
     const subForm = document.getElementById('subForm');
     const subEmail = document.getElementById('subEmail');
     const subBtn = document.getElementById('subBtn');
