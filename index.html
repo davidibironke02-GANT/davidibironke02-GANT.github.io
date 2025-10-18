@@ -28,22 +28,11 @@
     body{font-family:'IBM Plex Sans',sans-serif;background:#f9f7f3;color:var(--ink);line-height:1.6}
     a{text-decoration:none;color:inherit}
     img{display:block;max-width:100%}
-    .container{
-      width:min(var(--container), 94%);
-      margin-inline:auto;
-      padding-inline:20px;
-    }
+    .container{width:min(var(--container),94%);margin-inline:auto;padding-inline:20px}
 
     /* Navbar */
     .navbar{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--border)}
-    .nav-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:14px 20px;
-      max-width:var(--container);
-      margin-inline:auto;
-    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:var(--container);margin-inline:auto}
     .nav-left{display:flex;align-items:center;gap:12px}
     .hamburger{font-size:28px;cursor:pointer;line-height:1;display:none}
     .brand .top,.brand .bottom{font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:1px;font-size:28px;line-height:1.05}
@@ -53,41 +42,17 @@
     @media(max-width:850px){
       .hamburger{display:block}
       .nav-links{
-        display:none;
-        position:absolute;
-        top:62px;
-        right:20px;
-        background:#fff;
-        border:1px solid var(--border);
-        border-radius:12px;
-        padding:12px;
-        flex-direction:column;
-        gap:12px;
-        width:200px;
-        box-shadow:0 10px 20px rgba(0,0,0,.1);
+        display:none;position:absolute;top:62px;right:20px;background:#fff;border:1px solid var(--border);
+        border-radius:12px;padding:12px;flex-direction:column;gap:12px;width:200px;box-shadow:0 10px 20px rgba(0,0,0,.1)
       }
       .nav-links.show{display:flex}
     }
 
     /* Hero */
-    .hero {
-      background:url('hero_.AVIF') center/cover no-repeat;
-      min-height:420px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:50px 0;
-    }
-    .hero-overlay {
-      background:rgba(255,255,255,.75);
-      border-radius:12px;
-      padding:24px 28px;
-      max-width:700px;
-      margin:0 auto;
-      text-align:center;
-    }
-    .hero-overlay h5 {font-family:'Montserrat',sans-serif;font-weight:500;color:#555;margin-bottom:10px}
-    .hero-overlay h1 {font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4.6vw,42px);font-weight:700;color:#111}
+    .hero{background:url('hero_.AVIF') center/cover no-repeat;min-height:420px;display:flex;align-items:center;justify-content:center;padding:50px 0}
+    .hero-overlay{background:rgba(255,255,255,.75);border-radius:12px;padding:24px 28px;max-width:700px;margin:0 auto;text-align:center}
+    .hero-overlay h5{font-family:'Montserrat',sans-serif;font-weight:500;color:#555;margin-bottom:10px}
+    .hero-overlay h1{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4.6vw,42px);font-weight:700;color:#111}
 
     /* Section title */
     .section-title{font-family:'Cormorant Garamond',serif;text-align:center;font-size:32px;margin:38px 0 20px}
@@ -96,60 +61,44 @@
     .carousel{position:relative}
     .viewport{overflow:hidden}
     .track{display:flex;gap:var(--gap);padding:8px 0;scroll-behavior:smooth}
-    .card{
-      flex:0 0 320px;
-      height:460px;
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:14px;
-      box-shadow:0 8px 18px rgba(0,0,0,.06);
-      display:flex;flex-direction:column;padding:14px
-    }
+    .card{flex:0 0 320px;height:460px;background:var(--card);border:1px solid var(--border);border-radius:14px;
+      box-shadow:0 8px 18px rgba(0,0,0,.06);display:flex;flex-direction:column;padding:14px}
     .card img{width:100%;height:180px;object-fit:cover;border-radius:10px;margin-bottom:10px}
     .card h3{font-family:'Cormorant Garamond',serif;font-size:22px;margin:6px 0 4px}
     .card p{color:var(--muted)}
     .card .read{margin-top:auto;font-weight:700;color:var(--deep-2);display:inline-block;border-bottom:2px solid transparent}
     .card .read:hover{border-color:var(--deep-2)}
     .chev{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--deep-2);font-size:44px;font-weight:700;cursor:pointer;line-height:1;padding:0 6px}
-    .chev.prev{left:4px}
-    .chev.next{right:4px}
+    .chev.prev{left:4px}.chev.next{right:4px}
 
-    /* CTA + LOI (fixed) */
+    /* CTA + LOI (mobile-first, desktop-polished) */
     .cta-area{margin:56px 0 28px}
     .cta-card{
-      max-width:880px;
+      width:min(1100px,96%);
       margin:0 auto;
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:14px;
-      box-shadow:0 10px 24px rgba(0,0,0,.08);
-      padding:28px 28px 26px;
-      text-align:center;
+      background:#fff;border:1px solid var(--border);border-radius:18px;
+      box-shadow:0 10px 24px rgba(0,0,0,.08);padding:28px 22px
     }
-    .cta-card h2{font-family:'Cormorant Garamond',serif;font-size:30px;margin-bottom:10px}
-    .cta-card p{margin-bottom:10px}
-    .loi-grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(240px,1fr));
-      gap:14px;
-      margin-top:14px;
-      align-items:start;
-    }
-    @media(max-width:760px){
-      .loi-grid{grid-template-columns:1fr}
-    }
-    .field{text-align:left}
+    .cta-card h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,36px);text-align:center;margin-bottom:12px}
+    .cta-card p{margin:0 auto 10px;max-width:70ch;text-align:left}
+    .loi-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px}
     .field label{font-weight:600;display:block;margin-bottom:6px}
     .field input{width:100%;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff}
-    .agree{display:flex;gap:10px;align-items:center;margin-top:4px;text-align:left}
-    .agree input{margin-top:0}
+    .agree{display:flex;gap:10px;align-items:flex-start;margin-top:2px}
     .btn{background:var(--deep);color:var(--beige);border:none;border-radius:12px;padding:16px 20px;font-weight:800;cursor:pointer;width:100%}
     .btn:hover{background:var(--deep-2)}
     .success{color:#0a6d3a;font-weight:700;margin-top:8px;display:none}
 
+    /* Desktop enhancements */
+    @media(min-width:900px){
+      .cta-card{padding:32px}
+      .loi-grid{grid-template-columns:repeat(2, minmax(360px,1fr))}
+      .btn{width:auto;padding:14px 24px}
+    }
+
     /* Full-bleed image */
     .full-bleed{width:100vw;height:360px;background:url('pic_one.AVIF') center/cover no-repeat;position:relative;left:50%;right:50%;margin:40px 0;transform:translateX(-50%)}
-    @media(min-width:1000px){ .full-bleed{height:430px} }
+    @media(min-width:1000px){.full-bleed{height:430px}}
 
     /* Subscribe */
     .subscribe{max-width:900px;margin:40px auto 72px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06)}
@@ -161,8 +110,7 @@
 
     /* Footer */
     footer{background:var(--deep);color:var(--beige)}
-    .footer-inner{max-width:var(--container);margin:0 auto;padding:40px 20px;display:grid;gap:26px;grid-template-columns:1fr}
-    @media(min-width:900px){ .footer-inner{grid-template-columns:repeat(4,1fr)} } /* removed brand column */
+    .footer-inner{max-width:var(--container);margin:0 auto;padding:40px 20px;display:grid;gap:26px;grid-template-columns:repeat(4,1fr)}
     .f-col h4{font-family:'Cormorant Garamond',serif;font-size:18px;margin-bottom:10px}
     .f-col a{display:block;color:var(--beige);opacity:.9;margin:6px 0}
     .f-col a:hover{opacity:1;text-decoration:underline}
@@ -254,7 +202,7 @@
             <span>I understand and agree (non-binding) that I will use GANT Exchange when it launches.</span>
           </label>
         </div>
-        <div style="grid-column:1 / -1;display:flex;align-items:center;gap:14px">
+        <div style="grid-column:1 / -1;display:flex;align-items:center;gap:14px;justify-content:flex-start">
           <button id="loiBtn" class="btn" type="submit">Submit Letter of Interest</button>
           <div id="loiMsg" class="success">Thank you — we’ve received your interest.</div>
         </div>
@@ -316,9 +264,7 @@
     // NAV
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('show'));
 
     // Carousel
     const prev = document.getElementById('prevBtn');
@@ -331,7 +277,7 @@
     next.addEventListener('click', () => scrollByCards(1));
     setInterval(() => scrollByCards(1), 6000);
 
-    // Supabase
+    // Supabase (unchanged)
     const SUPABASE_URL = 'https://djtdmqqsereqkppckjyx.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGRtcXFzZXJlcWtwcGNranl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDM1NjUsImV4cCI6MjA3NDQ3OTU2NX0.f6Qo_xFEHep6A7ulaM9RlP_ILQXCLqdBKPuwPNfATGQ';
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -340,7 +286,6 @@
     const loiForm = document.getElementById('loiForm');
     const loiBtn  = document.getElementById('loiBtn');
     const loiMsg  = document.getElementById('loiMsg');
-
     loiForm.addEventListener('submit', async (e)=>{
       e.preventDefault();
       if(!document.getElementById('agreed_statement').checked) return;
@@ -354,8 +299,7 @@
 
       const { error } = await supabase.from('letter_of_interest').insert(payload);
       if(!error){
-        loiForm.reset();
-        loiMsg.style.display='block';
+        loiForm.reset();loiMsg.style.display='block';
       }else{
         alert('Could not submit. Please try again.');
       }
@@ -367,14 +311,12 @@
     const subEmail = document.getElementById('subEmail');
     const subBtn = document.getElementById('subBtn');
     const subMsg = document.getElementById('subMsg');
-
     subForm.addEventListener('submit', async (e)=>{
       e.preventDefault();
       subBtn.disabled = true;
       const { error } = await supabase.from('newsletter_subscription').insert({ email: subEmail.value.trim() });
       if(!error){
-        subForm.reset();
-        subMsg.style.display='block';
+        subForm.reset();subMsg.style.display='block';
       }else{
         alert('Subscription failed. Please try again.');
       }
