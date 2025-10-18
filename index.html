@@ -5,26 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GANT EXCHANGE</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet"/>
 
   <style>
     :root{
-      --beige:#E9E3D5;
-      --ink:#111;
-      --muted:#3a3a3a;
-      --deep:#062e21;
-      --deep-2:#0c3b2a;
-      --border:#e6e6e6;
-      --card:#fff;
-      --container:1120px;
-      --gap:18px;
-      --radius:14px;
+      --beige:#E9E3D5; --ink:#111; --muted:#3a3a3a;
+      --deep:#062e21; --deep-2:#0c3b2a;
+      --border:#e6e6e6; --card:#fff;
+      --container:1120px; --gap:18px; --radius:14px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
+    html,body{max-width:100%;overflow-x:hidden}       /* <-- stop horizontal nudge */
     body{font-family:'IBM Plex Sans',sans-serif;background:#f9f7f3;color:var(--ink);line-height:1.6}
     a{text-decoration:none;color:inherit}
     img{display:block;max-width:100%}
@@ -43,7 +37,7 @@
       .hamburger{display:block}
       .nav-links{
         display:none;position:absolute;top:62px;right:20px;background:#fff;border:1px solid var(--border);
-        border-radius:12px;padding:12px;flex-direction:column;gap:12px;width:200px;box-shadow:0 10px 20px rgba(0,0,0,.1)
+        border-radius:12px;padding:12px;flex-direction:column;gap:12px;width:200px;box-shadow:0 10px 20px rgb(0 0 0 / .1)
       }
       .nav-links.show{display:flex}
     }
@@ -61,8 +55,7 @@
     .carousel{position:relative}
     .viewport{overflow:hidden}
     .track{display:flex;gap:var(--gap);padding:8px 0;scroll-behavior:smooth}
-    .card{flex:0 0 320px;height:460px;background:var(--card);border:1px solid var(--border);border-radius:14px;
-      box-shadow:0 8px 18px rgba(0,0,0,.06);display:flex;flex-direction:column;padding:14px}
+    .card{flex:0 0 320px;height:460px;background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:0 8px 18px rgb(0 0 0 / .06);display:flex;flex-direction:column;padding:14px}
     .card img{width:100%;height:180px;object-fit:cover;border-radius:10px;margin-bottom:10px}
     .card h3{font-family:'Cormorant Garamond',serif;font-size:22px;margin:6px 0 4px}
     .card p{color:var(--muted)}
@@ -71,16 +64,15 @@
     .chev{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--deep-2);font-size:44px;font-weight:700;cursor:pointer;line-height:1;padding:0 6px}
     .chev.prev{left:4px}.chev.next{right:4px}
 
-    /* CTA + LOI (mobile-first, desktop-polished) */
+    /* CTA + LOI */
     .cta-area{margin:56px 0 28px}
     .cta-card{
-      width:min(1100px,96%);
-      margin:0 auto;
-      background:#fff;border:1px solid var(--border);border-radius:18px;
-      box-shadow:0 10px 24px rgba(0,0,0,.08);padding:28px 22px
+      width:clamp(680px, 70vw, 1040px);             /* <-- wider on desktop */
+      margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:18px;
+      box-shadow:0 10px 24px rgb(0 0 0 / .08);padding:30px 26px
     }
-    .cta-card h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,36px);text-align:center;margin-bottom:12px}
-    .cta-card p{margin:0 auto 10px;max-width:70ch;text-align:left}
+    .cta-card h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,38px);text-align:center;margin-bottom:12px}
+    .cta-card p{margin:0 auto 10px;max-width:75ch;text-align:left}
     .loi-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px}
     .field label{font-weight:600;display:block;margin-bottom:6px}
     .field input{width:100%;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff}
@@ -89,19 +81,21 @@
     .btn:hover{background:var(--deep-2)}
     .success{color:#0a6d3a;font-weight:700;margin-top:8px;display:none}
 
-    /* Desktop enhancements */
     @media(min-width:900px){
-      .cta-card{padding:32px}
-      .loi-grid{grid-template-columns:repeat(2, minmax(360px,1fr))}
+      .loi-grid{grid-template-columns:repeat(2, minmax(420px,1fr))}  /* <-- bigger fields */
       .btn{width:auto;padding:14px 24px}
+      .cta-card{padding:34px}
     }
 
-    /* Full-bleed image */
-    .full-bleed{width:100vw;height:360px;background:url('pic_one.AVIF') center/cover no-repeat;position:relative;left:50%;right:50%;margin:40px 0;transform:translateX(-50%)}
+    /* Full-bleed image (scrollbar-safe) */
+    .full-bleed{
+      height:360px;background:url('pic_one.AVIF') center/cover no-repeat;margin:40px 0;
+      position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;width:100vw;
+    }
     @media(min-width:1000px){.full-bleed{height:430px}}
 
     /* Subscribe */
-    .subscribe{max-width:900px;margin:40px auto 72px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06)}
+    .subscribe{max-width:900px;margin:40px auto 72px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;box-shadow:0 10px 24px rgb(0 0 0 / .06)}
     .subscribe h3{font-family:'Cormorant Garamond',serif;font-size:26px}
     .subscribe p{color:var(--muted);margin:4px 0 12px}
     .sub-row{display:flex;gap:12px;flex-wrap:wrap}
@@ -258,7 +252,6 @@
     <div class="subfoot">© 2025 GANT Exchange. All rights reserved.</div>
   </footer>
 
-  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     // NAV
@@ -270,14 +263,12 @@
     const prev = document.getElementById('prevBtn');
     const next = document.getElementById('nextBtn');
     const cardWidth = 320 + parseInt(getComputedStyle(document.documentElement).getPropertyValue('--gap'));
-    function scrollByCards(dir){
-      document.querySelector('.viewport').scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
-    }
+    function scrollByCards(dir){ document.querySelector('.viewport').scrollBy({ left: dir * cardWidth, behavior: 'smooth' }); }
     prev.addEventListener('click', () => scrollByCards(-1));
     next.addEventListener('click', () => scrollByCards(1));
     setInterval(() => scrollByCards(1), 6000);
 
-    // Supabase (unchanged)
+    // Supabase
     const SUPABASE_URL = 'https://djtdmqqsereqkppckjyx.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGRtcXFzZXJlcWtwcGNranl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDM1NjUsImV4cCI6MjA3NDQ3OTU2NX0.f6Qo_xFEHep6A7ulaM9RlP_ILQXCLqdBKPuwPNfATGQ';
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -298,11 +289,8 @@
       };
 
       const { error } = await supabase.from('letter_of_interest').insert(payload);
-      if(!error){
-        loiForm.reset();loiMsg.style.display='block';
-      }else{
-        alert('Could not submit. Please try again.');
-      }
+      if(!error){ loiForm.reset(); loiMsg.style.display='block'; }
+      else{ alert('Could not submit. Please try again.'); }
       loiBtn.disabled = false;
     });
 
@@ -315,11 +303,8 @@
       e.preventDefault();
       subBtn.disabled = true;
       const { error } = await supabase.from('newsletter_subscription').insert({ email: subEmail.value.trim() });
-      if(!error){
-        subForm.reset();subMsg.style.display='block';
-      }else{
-        alert('Subscription failed. Please try again.');
-      }
+      if(!error){ subForm.reset(); subMsg.style.display='block'; }
+      else{ alert('Subscription failed. Please try again.'); }
       subBtn.disabled = false;
     });
   </script>
