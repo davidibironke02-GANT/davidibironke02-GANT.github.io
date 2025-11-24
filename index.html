@@ -1,312 +1,1100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GANT EXCHANGE</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GANT Exchange | Canada-Anchored Agritrade Infrastructure</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet"/>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
 
   <style>
-    :root{
-      --beige:#E9E3D5; --ink:#111; --muted:#3a3a3a;
-      --deep:#062e21; --deep-2:#0c3b2a;
-      --border:#e6e6e6; --card:#fff;
-      --container:1120px; --gap:18px; --radius:14px;
+    :root {
+      --beige:#E9E3D5;
+      --ink:#111;
+      --muted:#4a4a4a;
+      --deep:#062e21;
+      --deep-2:#0c3b2a;
+      --border:#e2e2e2;
+      --card:#fff;
+      --container:1120px;
+      --radius:16px;
+      --gap:20px;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{max-width:100%;overflow-x:hidden}       /* <-- stop horizontal nudge */
-    body{font-family:'IBM Plex Sans',sans-serif;background:#f9f7f3;color:var(--ink);line-height:1.6}
-    a{text-decoration:none;color:inherit}
-    img{display:block;max-width:100%}
-    .container{width:min(var(--container),94%);margin-inline:auto;padding-inline:20px}
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html, body { max-width:100%; overflow-x:hidden; }
+    body {
+      font-family:'IBM Plex Sans',sans-serif;
+      background:#f9f7f3;
+      color:var(--ink);
+      line-height:1.6;
+    }
+    a { text-decoration:none; color:inherit; }
+    img { max-width:100%; display:block; }
+    .container {
+      width:min(var(--container), 94%);
+      margin-inline:auto;
+      padding-inline:18px;
+    }
 
-    /* Navbar */
-    .navbar{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--border)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:var(--container);margin-inline:auto}
-    .nav-left{display:flex;align-items:center;gap:12px}
-    .hamburger{font-size:28px;cursor:pointer;line-height:1;display:none}
-    .brand .top,.brand .bottom{font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:1px;font-size:28px;line-height:1.05}
-    .brand .bottom{display:block;margin-top:2px}
-    .nav-links{display:flex;gap:20px}
-    .login-btn{background:var(--deep);color:var(--beige);padding:10px 18px;border-radius:12px;font-weight:700}
-    @media(max-width:850px){
-      .hamburger{display:block}
-      .nav-links{
-        display:none;position:absolute;top:62px;right:20px;background:#fff;border:1px solid var(--border);
-        border-radius:12px;padding:12px;flex-direction:column;gap:12px;width:200px;box-shadow:0 10px 20px rgb(0 0 0 / .1)
+    /* NAVBAR */
+    .navbar {
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:#fff;
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner {
+      max-width:var(--container);
+      margin-inline:auto;
+      padding:12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .nav-left { display:flex; align-items:center; gap:12px; }
+    .brand {
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+    }
+    .brand .top,
+    .brand .bottom {
+      font-family:'Cormorant Garamond',serif;
+      font-weight:700;
+      font-size:24px;
+      letter-spacing:1px;
+    }
+    .brand .bottom {
+      font-size:20px;
+      opacity:.9;
+    }
+    .hamburger {
+      font-size:26px;
+      cursor:pointer;
+      display:none;
+      user-select:none;
+    }
+    .nav-links {
+      display:flex;
+      align-items:center;
+      gap:18px;
+      font-size:15px;
+      font-weight:600;
+    }
+    .nav-links a { color:#222; }
+    .nav-links a:hover { color:var(--deep); }
+    .nav-cta {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .login-btn {
+      background:var(--deep);
+      color:var(--beige);
+      border-radius:999px;
+      padding:9px 16px;
+      font-size:14px;
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .login-btn:hover { background:var(--deep-2); }
+
+    @media (max-width:860px) {
+      .hamburger { display:block; }
+      .nav-links {
+        position:absolute;
+        top:58px;
+        right:18px;
+        flex-direction:column;
+        background:#fff;
+        border:1px solid var(--border);
+        border-radius:14px;
+        padding:10px 14px;
+        box-shadow:0 10px 24px rgba(0,0,0,.08);
+        display:none;
+        min-width:210px;
       }
-      .nav-links.show{display:flex}
+      .nav-links.show { display:flex; }
     }
 
-    /* Hero */
-    .hero{background:url('hero_.AVIF') center/cover no-repeat;min-height:420px;display:flex;align-items:center;justify-content:center;padding:50px 0}
-    .hero-overlay{background:rgba(255,255,255,.75);border-radius:12px;padding:24px 28px;max-width:700px;margin:0 auto;text-align:center}
-    .hero-overlay h5{font-family:'Montserrat',sans-serif;font-weight:500;color:#555;margin-bottom:10px}
-    .hero-overlay h1{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4.6vw,42px);font-weight:700;color:#111}
+    /* HERO */
+    .hero {
+      position:relative;
+      min-height:420px;
+      background:url('hero_.AVIF') center/cover no-repeat;
+      display:flex;
+      align-items:center;
+    }
+    .hero::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg, rgba(0,0,0,.62), rgba(0,0,0,.35), rgba(0,0,0,.1));
+    }
+    .hero-inner {
+      position:relative;
+      z-index:1;
+      max-width:var(--container);
+      margin-inline:auto;
+      padding:52px 18px 64px;
+      display:grid;
+      grid-template-columns:minmax(0, 3fr) minmax(260px, 2.2fr);
+      gap:32px;
+      align-items:center;
+    }
+    @media (max-width:900px) {
+      .hero-inner {
+        grid-template-columns:1fr;
+        padding-block:42px;
+      }
+    }
 
-    /* Section title */
-    .section-title{font-family:'Cormorant Garamond',serif;text-align:center;font-size:32px;margin:38px 0 20px}
+    .hero-copy h5 {
+      font-family:'Montserrat',sans-serif;
+      font-weight:500;
+      font-size:13px;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+      color:#f3efe6;
+      margin-bottom:10px;
+    }
+    .hero-copy h1 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(28px, 4.4vw, 44px);
+      line-height:1.12;
+      color:#fff;
+      margin-bottom:12px;
+    }
+    .hero-copy p {
+      color:#f5f2ea;
+      font-size:15px;
+      max-width:36rem;
+      margin-bottom:20px;
+    }
+    .hero-ctas {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:18px;
+    }
+    .btn-primary,
+    .btn-secondary {
+      border-radius:999px;
+      padding:11px 18px;
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+      border:none;
+    }
+    .btn-primary {
+      background:var(--beige);
+      color:var(--deep);
+    }
+    .btn-primary:hover { background:#f4ecde; }
+    .btn-secondary {
+      background:rgba(0,0,0,.35);
+      color:#f7f5ef;
+      border:1px solid rgba(255,255,255,.45);
+    }
+    .btn-secondary:hover { background:rgba(0,0,0,.6); }
+    .hero-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      font-size:13px;
+      color:#ece7df;
+      opacity:.9;
+    }
+    .hero-meta span {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:4px 10px;
+      border-radius:999px;
+      background:rgba(0,0,0,.28);
+      border:1px solid rgba(255,255,255,.16);
+    }
 
-    /* Carousel */
-    .carousel{position:relative}
-    .viewport{overflow:hidden}
-    .track{display:flex;gap:var(--gap);padding:8px 0;scroll-behavior:smooth}
-    .card{flex:0 0 320px;height:460px;background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:0 8px 18px rgb(0 0 0 / .06);display:flex;flex-direction:column;padding:14px}
-    .card img{width:100%;height:180px;object-fit:cover;border-radius:10px;margin-bottom:10px}
-    .card h3{font-family:'Cormorant Garamond',serif;font-size:22px;margin:6px 0 4px}
-    .card p{color:var(--muted)}
-    .card .read{margin-top:auto;font-weight:700;color:var(--deep-2);display:inline-block;border-bottom:2px solid transparent}
-    .card .read:hover{border-color:var(--deep-2)}
-    .chev{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--deep-2);font-size:44px;font-weight:700;cursor:pointer;line-height:1;padding:0 6px}
-    .chev.prev{left:4px}.chev.next{right:4px}
+    .hero-panel {
+      background:rgba(249,247,243,.96);
+      border-radius:18px;
+      padding:18px 18px 16px;
+      box-shadow:0 18px 40px rgba(0,0,0,.35);
+      backdrop-filter:blur(8px);
+    }
+    .hero-panel h3 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:20px;
+      margin-bottom:4px;
+      color:var(--deep);
+    }
+    .hero-panel p {
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+    .hero-stats {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .stat {
+      background:#fff;
+      border-radius:14px;
+      padding:10px 10px;
+      border:1px solid var(--border);
+    }
+    .stat-label {
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      color:#777;
+      margin-bottom:4px;
+    }
+    .stat-value {
+      font-size:15px;
+      font-weight:700;
+      color:var(--deep-2);
+    }
+    .hero-note {
+      font-size:11px;
+      color:#777;
+      margin-top:4px;
+    }
+
+    /* SECTION GENERIC */
+    section {
+      padding-block:40px;
+    }
+    .section-header {
+      text-align:left;
+      margin-bottom:18px;
+    }
+    .section-kicker {
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:1.8px;
+      color:#7a7a7a;
+      margin-bottom:6px;
+    }
+    .section-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:26px;
+      color:var(--deep);
+      margin-bottom:4px;
+    }
+    .section-sub {
+      font-size:14px;
+      color:var(--muted);
+      max-width:46rem;
+    }
+
+    /* HOW IT WORKS */
+    .how-grid {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+      margin-top:10px;
+    }
+    @media (max-width:960px) {
+      .how-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width:640px) {
+      .how-grid { grid-template-columns:1fr; }
+    }
+    .step-card {
+      background:var(--card);
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      padding:14px 14px 16px;
+      box-shadow:0 8px 18px rgba(0,0,0,.04);
+    }
+    .step-tag {
+      font-size:11px;
+      font-weight:600;
+      color:#666;
+      margin-bottom:4px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+    .step-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:18px;
+      margin-bottom:4px;
+      color:var(--deep-2);
+    }
+    .step-text {
+      font-size:14px;
+      color:var(--muted);
+    }
+    .section-footer-link {
+      margin-top:12px;
+      font-size:13px;
+      font-weight:600;
+      color:var(--deep-2);
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    /* WAREHOUSE SECTION */
+    .warehouse-block {
+      background:#fff;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      padding:18px 16px 16px;
+      box-shadow:0 10px 26px rgba(0,0,0,.05);
+      display:grid;
+      grid-template-columns:minmax(0, 1.4fr) minmax(260px, 1fr);
+      gap:18px;
+      align-items:flex-start;
+    }
+    @media (max-width:900px) {
+      .warehouse-block { grid-template-columns:1fr; }
+    }
+    .warehouse-points {
+      list-style:none;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .warehouse-points li {
+      margin-bottom:6px;
+      display:flex;
+      gap:6px;
+    }
+    .bullet-dot {
+      font-size:10px;
+      line-height:1.6;
+      color:var(--deep);
+    }
+    .warehouse-tag {
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:1.5px;
+      color:#7a7a7a;
+      margin-bottom:4px;
+    }
+    .warehouse-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:20px;
+      margin-bottom:6px;
+      color:var(--deep-2);
+    }
+    .warehouse-img {
+      border-radius:14px;
+      background:url('pic_one.AVIF') center/cover no-repeat;
+      min-height:180px;
+    }
+
+    /* WHO WE SERVE */
+    .split-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+    @media (max-width:860px) {
+      .split-grid { grid-template-columns:1fr; }
+    }
+    .role-card {
+      background:#fff;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      padding:16px 16px 18px;
+      box-shadow:0 8px 18px rgba(0,0,0,.04);
+    }
+    .role-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:20px;
+      margin-bottom:6px;
+      color:var(--deep-2);
+    }
+    .role-sub {
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+    .role-list {
+      list-style:none;
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+    .role-list li { margin-bottom:4px; }
+    .role-cta {
+      font-size:13px;
+      font-weight:600;
+      color:var(--deep-2);
+    }
+
+    /* RISK / TRACE / FINANCE TILES */
+    .tile-grid {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+      margin-top:10px;
+    }
+    @media (max-width:960px) {
+      .tile-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width:640px) {
+      .tile-grid { grid-template-columns:1fr; }
+    }
+    .tile {
+      background:#fff;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      padding:14px 14px 16px;
+      box-shadow:0 8px 18px rgba(0,0,0,.04);
+    }
+    .tile-label {
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:1.5px;
+      color:#777;
+      margin-bottom:4px;
+    }
+    .tile-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:18px;
+      color:var(--deep-2);
+      margin-bottom:4px;
+    }
+    .tile-text {
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:4px;
+    }
+    .tile-link {
+      font-size:13px;
+      font-weight:600;
+      color:var(--deep-2);
+    }
+
+    /* INSIGHTS */
+    .insights-grid {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+      margin-top:12px;
+    }
+    @media (max-width:960px) {
+      .insights-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width:640px) {
+      .insights-grid { grid-template-columns:1fr; }
+    }
+    .insight-card {
+      background:#fff;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      padding:12px 12px 14px;
+      font-size:14px;
+      color:var(--muted);
+      box-shadow:0 8px 18px rgba(0,0,0,.04);
+    }
+    .insight-card h3 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:17px;
+      margin-bottom:4px;
+      color:var(--deep-2);
+    }
+    .insight-card a {
+      font-size:13px;
+      font-weight:600;
+      color:var(--deep-2);
+      margin-top:4px;
+      display:inline-block;
+    }
 
     /* CTA + LOI */
-    .cta-area{margin:56px 0 28px}
-    .cta-card{
-      width:clamp(680px, 70vw, 1040px);             /* <-- wider on desktop */
-      margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:18px;
-      box-shadow:0 10px 24px rgb(0 0 0 / .08);padding:30px 26px
+    .cta-wrap {
+      padding-block:40px 32px;
     }
-    .cta-card h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,38px);text-align:center;margin-bottom:12px}
-    .cta-card p{margin:0 auto 10px;max-width:75ch;text-align:left}
-    .loi-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px}
-    .field label{font-weight:600;display:block;margin-bottom:6px}
-    .field input{width:100%;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff}
-    .agree{display:flex;gap:10px;align-items:flex-start;margin-top:2px}
-    .btn{background:var(--deep);color:var(--beige);border:none;border-radius:12px;padding:16px 20px;font-weight:800;cursor:pointer;width:100%}
-    .btn:hover{background:var(--deep-2)}
-    .success{color:#0a6d3a;font-weight:700;margin-top:8px;display:none}
-
-    @media(min-width:900px){
-      .loi-grid{grid-template-columns:repeat(2, minmax(420px,1fr))}  /* <-- bigger fields */
-      .btn{width:auto;padding:14px 24px}
-      .cta-card{padding:34px}
+    .cta-card {
+      max-width:900px;
+      margin:0 auto;
+      background:#fff;
+      border-radius:20px;
+      border:1px solid var(--border);
+      box-shadow:0 12px 34px rgba(0,0,0,.07);
+      padding:22px 18px 20px;
+    }
+    @media (min-width:900px) {
+      .cta-card { padding:26px 26px 24px; }
+    }
+    .cta-card h2 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:24px;
+      text-align:left;
+      color:var(--deep);
+      margin-bottom:8px;
+    }
+    .cta-card p {
+      font-size:14px;
+      color:var(--muted);
+      max-width:58rem;
+      margin-bottom:10px;
+    }
+    .loi-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+      margin-top:10px;
+    }
+    @media (max-width:720px) {
+      .loi-grid { grid-template-columns:1fr; }
+    }
+    .field label {
+      display:block;
+      font-size:13px;
+      font-weight:600;
+      margin-bottom:5px;
+      color:#333;
+    }
+    .field input[type="text"],
+    .field input[type="email"] {
+      width:100%;
+      border-radius:12px;
+      border:1px solid var(--border);
+      padding:10px 11px;
+      font-size:14px;
+      background:#fff;
+    }
+    .field input:focus {
+      outline:none;
+      border-color:var(--deep-2);
+      box-shadow:0 0 0 1px rgba(6,46,33,.12);
+    }
+    .agree {
+      display:flex;
+      align-items:flex-start;
+      gap:8px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .agree input { margin-top:3px; }
+    .loi-actions {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-top:4px;
+      flex-wrap:wrap;
+    }
+    .success {
+      font-size:13px;
+      font-weight:600;
+      color:#0a6d3a;
+      display:none;
     }
 
-    /* Full-bleed image (scrollbar-safe) */
-    .full-bleed{
-      height:360px;background:url('pic_one.AVIF') center/cover no-repeat;margin:40px 0;
-      position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;width:100vw;
+    /* SUBSCRIBE */
+    .subscribe {
+      max-width:900px;
+      margin:0 auto 54px;
+      background:#fff;
+      border-radius:16px;
+      border:1px solid var(--border);
+      padding:18px 18px 20px;
+      box-shadow:0 10px 26px rgba(0,0,0,.06);
     }
-    @media(min-width:1000px){.full-bleed{height:430px}}
+    .subscribe h3 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:20px;
+      margin-bottom:4px;
+      color:var(--deep);
+    }
+    .subscribe p {
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+    .sub-row {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .sub-row input[type="email"] {
+      flex:1 1 220px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      padding:10px 11px;
+      font-size:14px;
+      background:#fff;
+    }
+    .sub-row input:focus {
+      outline:none;
+      border-color:var(--deep-2);
+      box-shadow:0 0 0 1px rgba(6,46,33,.12);
+    }
 
-    /* Subscribe */
-    .subscribe{max-width:900px;margin:40px auto 72px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;box-shadow:0 10px 24px rgb(0 0 0 / .06)}
-    .subscribe h3{font-family:'Cormorant Garamond',serif;font-size:26px}
-    .subscribe p{color:var(--muted);margin:4px 0 12px}
-    .sub-row{display:flex;gap:12px;flex-wrap:wrap}
-    .sub-row input{flex:1 1 260px;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff}
-    .sub-row button{padding:12px 18px}
-
-    /* Footer */
-    footer{background:var(--deep);color:var(--beige)}
-    .footer-inner{max-width:var(--container);margin:0 auto;padding:40px 20px;display:grid;gap:26px;grid-template-columns:repeat(4,1fr)}
-    .f-col h4{font-family:'Cormorant Garamond',serif;font-size:18px;margin-bottom:10px}
-    .f-col a{display:block;color:var(--beige);opacity:.9;margin:6px 0}
-    .f-col a:hover{opacity:1;text-decoration:underline}
-    .subfoot{background:#042519;color:#cfd7cf;text-align:center;padding:14px 10px;font-size:14px}
+    /* FOOTER */
+    footer {
+      background:var(--deep);
+      color:var(--beige);
+    }
+    .footer-inner {
+      max-width:var(--container);
+      margin:0 auto;
+      padding:28px 18px 26px;
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+      font-size:13px;
+    }
+    @media (max-width:900px) {
+      .footer-inner { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width:640px) {
+      .footer-inner { grid-template-columns:1fr; }
+    }
+    .f-col h4 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:17px;
+      margin-bottom:8px;
+    }
+    .f-col a {
+      display:block;
+      margin-bottom:5px;
+      color:var(--beige);
+      opacity:.9;
+    }
+    .f-col a:hover { opacity:1; text-decoration:underline; }
+    .subfoot {
+      background:#042519;
+      color:#cfd7cf;
+      text-align:center;
+      font-size:12px;
+      padding:10px 8px 11px;
+    }
   </style>
 </head>
 <body>
-  <!-- NAV -->
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="nav-inner">
       <div class="nav-left">
         <div id="hamburger" class="hamburger">☰</div>
-        <div class="brand"><span class="top">GANT</span><span class="bottom">EXCHANGE</span></div>
+        <div class="brand">
+          <span class="top">GANT</span>
+          <span class="bottom">EXCHANGE</span>
+        </div>
       </div>
       <div id="navLinks" class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="exchange.html">Exchange</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="warehouse.html">Warehouse</a>
+        <a href="buyer.html">For Buyers</a>
+        <a href="farmer.html">For Farmers</a>
         <a href="contact.html">Contact</a>
       </div>
-      <a class="login-btn" href="https://preview--gant-prototype.lovable.app/login">Login</a>
+      <div class="nav-cta">
+        <a class="login-btn" href="https://preview--gant-prototype.lovable.app/login">Platform Login</a>
+      </div>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-overlay">
-      <h5>Welcome to GANT</h5>
-      <h1>Transforming Global Agritrade Through Innovative Technologies</h1>
-    </div>
-  </section>
-
-  <!-- INSIGHTS -->
-  <section class="container">
-    <h2 class="section-title">Insights &amp; Policies</h2>
-    <div class="carousel">
-      <button class="chev prev" id="prevBtn">‹</button>
-      <div class="viewport">
-        <div class="track" id="track">
-          <article class="card">
-            <img src="Pic_2.JPG" alt="Smallholder Protection">
-            <h3>Smallholder Protection Policy</h3>
-            <p>Every farmer deserves a fair chance. Explore how GANT safeguards smallholders with algorithmic preference, progressive pricing, and real market governance.</p>
-            <a class="read" href="policy.html">Read Full Policy →</a>
-          </article>
-          <article class="card">
-            <img src="cre1.WEBP" alt="Corridor Risk Engine">
-            <h3>Corridor Risk Engine</h3>
-            <p>Real-time corridor scoring with on-chain verification and instant settlement built into every trade.</p>
-            <a class="read" href="corridorengine.html">Explore Corridor Engine →</a>
-          </article>
-          <article class="card">
-            <img src="pic_3.JPG" alt="Climate Impact">
-            <h3>Climate Impact Analysis</h3>
-            <p>How GANT reduces emissions through corridor choices, smallholder uplift and a ring-fenced ESG transition fund.</p>
-            <a class="read" href="climate.html">Read More →</a>
-          </article>
-          <article class="card">
-            <img src="hero.jpg.JPG" alt="Pricing Algorithm">
-            <h3>Pricing Algorithm</h3>
-            <p>Visibility, progressive pricing by share-of-market, proximity incentives, and phantom-order protection.</p>
-            <a class="read" href="pricing.html">See How It Works →</a>
-          </article>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h5>Canada-anchored agritrade infrastructure</h5>
+        <h1>Warehouse-verified Canadian grain, ready for global buyers.</h1>
+        <p>
+          GANT Exchange integrates a Calgary warehouse, quality control, identity-preserved pallets,
+          instant settlement and corridor risk intelligence into one governed platform for cross border grain trade.
+        </p>
+        <div class="hero-ctas">
+          <a href="buyer.html" class="btn-primary">Buyer access</a>
+          <a href="farmer.html" class="btn-secondary">Farmer access</a>
+        </div>
+        <div class="hero-meta">
+          <span>Located near CN Calgary Logistics Park</span>
+          <span>MES drying • QC lab • 25 kg bagging • 1 MT pallets</span>
+          <span>Financing and export documentation integrated</span>
         </div>
       </div>
-      <button class="chev next" id="nextBtn">›</button>
+
+      <aside class="hero-panel">
+        <h3>End to end trade, anchored in Canada</h3>
+        <p>
+          A single platform that accepts bulk grain from farmers, delivers processed and verified lots to buyers,
+          and gives governments line of sight on every shipment.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-label">Physical operations</div>
+            <div class="stat-value">Calgary warehouse with MES dryers, QC lab and IoT monitoring.</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Trade assurance</div>
+            <div class="stat-value">Escrow backed bids, traceable pallets and corridor risk scoring per shipment.</div>
+          </div>
+        </div>
+        <p class="hero-note">
+          Designed for farmers, millers, traders, governments and institutional investors who require verified origin, quality and compliance.
+        </p>
+      </aside>
     </div>
-  </section>
+  </header>
 
-  <!-- CTA + LETTER OF INTEREST -->
-  <section class="container cta-area">
-    <div class="cta-card">
-      <h2>Disrupting Big Ag and Middlemen</h2>
-      <p>We are a small but determined business with a bold vision: to disrupt the grip of Big Ag, retail giants, and middlemen who keep food prices high and farmers underpaid. GANT stands with producers and consumers alike.</p>
-      <p>If you share our belief that food should be affordable, transparent, and just, support us by filling out our non-binding <strong>Letter of Interest</strong>.</p>
+  <main>
+    <!-- HOW IT WORKS -->
+    <section class="container">
+      <div class="section-header">
+        <div class="section-kicker">Integrated workflow</div>
+        <h2 class="section-title">How GANT moves grain from farm to global buyer</h2>
+        <p class="section-sub">
+          A four step model that combines warehouse processing, digital listing, instant settlement and risk intelligence.
+        </p>
+      </div>
+      <div class="how-grid">
+        <article class="step-card">
+          <div class="step-tag">Step 1</div>
+          <div class="step-title">Farmer delivers bulk grain</div>
+          <p class="step-text">
+            Farmers deliver bulk loads to the GANT warehouse near CN Calgary Logistics Park.
+            Grain is weighed, sampled and scheduled for processing.
+          </p>
+        </article>
+        <article class="step-card">
+          <div class="step-tag">Step 2</div>
+          <div class="step-title">Processing and quality control</div>
+          <p class="step-text">
+            Grain is dried, cleaned and cooled through MES lines, tested in the QC lab and packaged into
+            25 kg bags on 1 MT pallets, each with a BatchLotID and Serial.
+          </p>
+        </article>
+        <article class="step-card">
+          <div class="step-tag">Step 3</div>
+          <div class="step-title">Listing, pricing and risk scoring</div>
+          <p class="step-text">
+            Verified lots appear on the farmer dashboard and on GANT Exchange, with benchmark linked pricing,
+            quality data, QR traceability and corridor risk scores visible to buyers.
+          </p>
+        </article>
+        <article class="step-card">
+          <div class="step-tag">Step 4</div>
+          <div class="step-title">Purchase, settlement and pickup</div>
+          <p class="step-text">
+            Buyers place escrow backed bids, GANT coordinates export documents and handover to drayage and rail.
+            Container IoT and QR codes provide traceability to port and final buyer.
+          </p>
+        </article>
+      </div>
+      <a href="how-it-works.html" class="section-footer-link">
+        See the full flow in detail →
+      </a>
+    </section>
 
-      <form id="loiForm" class="loi-grid" autocomplete="off">
-        <div class="field">
-          <label for="full_name">Full name *</label>
-          <input id="full_name" name="full_name" required/>
+    <!-- WAREHOUSE AND OPERATIONS -->
+    <section class="container">
+      <div class="section-header">
+        <div class="section-kicker">Calgary based operations</div>
+        <h2 class="section-title">A warehouse built for export grade, identity preserved grain</h2>
+        <p class="section-sub">
+          The GANT warehouse is the operational anchor of the platform. It converts bulk deliveries into
+          export ready, quality controlled and fully traceable lots.
+        </p>
+      </div>
+      <div class="warehouse-block">
+        <div>
+          <p class="warehouse-tag">What is inside</p>
+          <h3 class="warehouse-title">Processing, quality control and storage in one facility</h3>
+          <ul class="warehouse-points">
+            <li><span class="bullet-dot">•</span><span>Two MES dryer and cleaning lines sized for Western Canadian harvest flows.</span></li>
+            <li><span class="bullet-dot">•</span><span>QC lab with NIR, moisture, protein and mycotoxin testing, plus retained samples.</span></li>
+            <li><span class="bullet-dot">•</span><span>Automated 25 kg bagging line, palletizer and shrink wrapping for 1 MT pallets.</span></li>
+            <li><span class="bullet-dot">•</span><span>High density racking with WMS tracking pallets by BatchLotID and Serial.</span></li>
+            <li><span class="bullet-dot">•</span><span>IoT sensors monitoring temperature and humidity, with data stored in cloud time series databases.</span></li>
+            <li><span class="bullet-dot">•</span><span>CFIA integrated workflow for sanitary and phytosanitary documentation.</span></li>
+          </ul>
+          <a href="warehouse.html" class="section-footer-link">View warehouse and operations overview →</a>
         </div>
-        <div class="field">
-          <label for="email">Email *</label>
-          <input id="email" name="email" type="email" required/>
-        </div>
-        <div class="field" style="grid-column:1 / -1">
-          <label class="agree">
-            <input type="checkbox" id="agreed_statement" required/>
-            <span>I understand and agree (non-binding) that I will use GANT Exchange when it launches.</span>
-          </label>
-        </div>
-        <div style="grid-column:1 / -1;display:flex;align-items:center;gap:14px;justify-content:flex-start">
-          <button id="loiBtn" class="btn" type="submit">Submit Letter of Interest</button>
-          <div id="loiMsg" class="success">Thank you — we’ve received your interest.</div>
-        </div>
-      </form>
-    </div>
-  </section>
+        <div class="warehouse-img" aria-label="GANT warehouse operations"></div>
+      </div>
+    </section>
 
-  <!-- FULL-BLEED IMAGE -->
-  <div class="full-bleed"></div>
+    <!-- RISK, TRACEABILITY, FINANCING -->
+    <section class="container">
+      <div class="section-header">
+        <div class="section-kicker">Risk, traceability and capital</div>
+        <h2 class="section-title">Software and capital stacked on top of physical operations</h2>
+        <p class="section-sub">
+          GANT adds digital assurance on top of the warehouse. Every lot carries a traceability profile,
+          a corridor risk score and a defined financing path.
+        </p>
+      </div>
+      <div class="tile-grid">
+        <article class="tile">
+          <div class="tile-label">Traceability</div>
+          <h3 class="tile-title">QR enabled identity preserved lots</h3>
+          <p class="tile-text">
+            Each pallet inherits a BatchLotID and Serial. After purchase, buyers receive a QR code that
+            links to quality data, chain of custody events and container IoT summaries.
+          </p>
+          <a href="traceability.html" class="tile-link">See traceability architecture →</a>
+        </article>
+        <article class="tile">
+          <div class="tile-label">Risk intelligence</div>
+          <h3 class="tile-title">Corridor and shipment risk scoring</h3>
+          <p class="tile-text">
+            The Corridor Risk Engine and Dynamic Shipment Risk Engine ingest rail bulletins, port notices,
+            weather and IoT data to score routes and shipments in near real time.
+          </p>
+          <a href="corridorengine.html" class="tile-link">Learn about the Corridor Risk Engine →</a>
+        </article>
+        <article class="tile">
+          <div class="tile-label">Financing</div>
+          <h3 class="tile-title">Farmer and buyer access to working capital</h3>
+          <p class="tile-text">
+            Farmers can unlock a portion of the value of their stored grain, while buyers rely on escrow backed
+            trades and structured credit for shipments, with all flows tied to verified lots.
+          </p>
+          <a href="financing.html" class="tile-link">View financing model →</a>
+        </article>
+      </div>
+    </section>
 
-  <!-- SUBSCRIBE -->
-  <section class="container subscribe" id="subscribe">
-    <h3>Stay Ahead in Agritrade</h3>
-    <p>Subscribe to our latest insights and policy updates.</p>
-    <form id="subForm" class="sub-row" autocomplete="off">
-      <input id="subEmail" type="email" required/>
-      <button id="subBtn" class="btn" type="submit">Subscribe</button>
-    </form>
-    <div id="subMsg" class="success">Subscribed — welcome!</div>
-  </section>
+    <!-- WHO WE SERVE -->
+    <section class="container">
+      <div class="section-header">
+        <div class="section-kicker">Stakeholders</div>
+        <h2 class="section-title">Designed for farmers, buyers and governments</h2>
+        <p class="section-sub">
+          GANT aligns incentives across producers, buyers and public sector partners. Each stakeholder sees a
+          different surface, built on the same verified data.
+        </p>
+      </div>
+      <div class="split-grid">
+        <article class="role-card">
+          <h3 class="role-title">Farmers and cooperatives</h3>
+          <p class="role-sub">
+            Turn bulk harvest into export grade, identity preserved lots with direct access to buyers.
+          </p>
+          <ul class="role-list">
+            <li>Deliver bulk grain to a warehouse that acts as processor and operator of record.</li>
+            <li>Receive quality results, listing support and access to pre sale financing.</li>
+            <li>Capture more of the export value while remaining anonymous to buyers if preferred.</li>
+          </ul>
+          <a href="farmer.html" class="role-cta">Farmer and co op onboarding →</a>
+        </article>
+        <article class="role-card">
+          <h3 class="role-title">Buyers, millers and traders</h3>
+          <p class="role-sub">
+            Source Canadian grain with verified origin, quality and compliance, plus a clear risk and logistics view.
+          </p>
+          <ul class="role-list">
+            <li>View available lots, corridor risk, benchmark linked pricing and QC information.</li>
+            <li>Place escrow backed trades and rely on GANT for export documentation and warehouse handover.</li>
+            <li>Expose QR and traceability data to downstream customers and auditors if required.</li>
+          </ul>
+          <a href="buyer.html" class="role-cta">Buyer onboarding and platform access →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- INSIGHTS AND POLICIES -->
+    <section class="container">
+      <div class="section-header">
+        <div class="section-kicker">Insights and governance</div>
+        <h2 class="section-title">Policies that sit under the technology</h2>
+        <p class="section-sub">
+          The platform is governed by documented policies on smallholder protection, pricing, climate impact
+          and corridor risk. These frameworks guide future software and rule updates.
+        </p>
+      </div>
+      <div class="insights-grid">
+        <article class="insight-card">
+          <h3>Smallholder protection</h3>
+          <p>How visibility rules, fee design and market share controls are used to protect smaller producers.</p>
+          <a href="policy.html">Read smallholder policy →</a>
+        </article>
+        <article class="insight-card">
+          <h3>Pricing algorithm</h3>
+          <p>How benchmark prices, corridor factors and proximity incentives work together on GANT Exchange.</p>
+          <a href="pricing.html">View pricing logic →</a>
+        </article>
+        <article class="insight-card">
+          <h3>Climate impact analysis</h3>
+          <p>How ESG metadata, corridor choices and a transition fund support lower carbon agritrade.</p>
+          <a href="climate.html">Read climate analysis →</a>
+        </article>
+        <article class="insight-card">
+          <h3>Corridor risk engine</h3>
+          <p>How routes are monitored and scored, and how this intelligence feeds into trade decisions.</p>
+          <a href="corridorengine.html">Explore Corridor Risk Engine →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA + LETTER OF INTEREST -->
+    <section class="cta-wrap">
+      <div class="cta-card">
+        <h2>Signal that you want this infrastructure to exist</h2>
+        <p>
+          If you are a farmer, buyer, government partner or investor who sees value in a Canada anchored,
+          warehouse backed and fully traceable agritrade platform, you can register a non binding letter of interest.
+          This helps us size and structure pilot corridors.
+        </p>
+
+        <form id="loiForm" class="loi-grid" autocomplete="off">
+          <div class="field">
+            <label for="full_name">Full name *</label>
+            <input id="full_name" name="full_name" type="text" required />
+          </div>
+          <div class="field">
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div class="field" style="grid-column:1 / -1">
+            <label class="agree">
+              <input type="checkbox" id="agreed_statement" required />
+              <span>I understand that this letter is non binding and indicates interest in using or supporting GANT Exchange when it launches.</span>
+            </label>
+          </div>
+          <div class="loi-actions" style="grid-column:1 / -1">
+            <button id="loiBtn" class="btn-primary" type="submit">Submit letter of interest</button>
+            <div id="loiMsg" class="success">Thank you. Your interest has been recorded.</div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- SUBSCRIBE -->
+    <section class="container">
+      <div class="subscribe" id="subscribe">
+        <h3>Stay close to the build out</h3>
+        <p>
+          Receive periodic updates on warehouse development, pilot corridors, governance changes and partnership announcements.
+        </p>
+        <form id="subForm" class="sub-row" autocomplete="off">
+          <input id="subEmail" type="email" placeholder="your@email.com" required />
+          <button id="subBtn" type="submit" class="btn-secondary">Subscribe</button>
+        </form>
+        <div id="subMsg" class="success">Subscribed. You will hear from us as milestones are reached.</div>
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div class="f-col">
-        <h4>Product</h4>
-        <a href="pricing.html">Pricing Algorithm</a>
-        <a href="corridorengine.html">Corridor Risk Engine</a>
-        <a href="https://preview--gant-prototype.lovable.app/" target="_blank" rel="noopener">Live Markets (Demo)</a>
-        <a href="#subscribe">Newsletter</a>
+        <h4>Platform</h4>
+        <a href="how-it-works.html">How it works</a>
+        <a href="warehouse.html">Warehouse and operations</a>
+        <a href="buyer.html">Buyer hub</a>
+        <a href="farmer.html">Farmer hub</a>
       </div>
       <div class="f-col">
         <h4>Policies</h4>
-        <a href="policy.html">Smallholder Protection</a>
-        <a href="climate.html">Climate Impact Analysis</a>
-        <a href="Data Compliance Policy *.pdf">Data Compliance</a>
-        <a href="ESG Metadata and annual ESG fund logic *.pdf">ESG Metadata</a>
+        <a href="policy.html">Smallholder protection</a>
+        <a href="pricing.html">Pricing algorithm</a>
+        <a href="climate.html">Climate impact analysis</a>
+        <a href="corridorengine.html">Corridor risk engine</a>
+      </div>
+      <div class="f-col">
+        <h4>Documents</h4>
+        <a href="GANT EXCHANGE PITCHDECK.pdf">Pitch deck</a>
+        <a href="Investor FAQ 1*.pdf">Investor FAQ</a>
+        <a href="GANT GOVERNMENT INTEGRATION PROPOSAL .pdf">Government integration proposal</a>
+        <a href="#subscribe">Newsletter</a>
       </div>
       <div class="f-col">
         <h4>Company</h4>
         <a href="about.html">About</a>
+        <a href="pilot.html">Pilot program</a>
+        <a href="canada.html">Why Canada</a>
         <a href="contact.html">Contact</a>
-        <a href="GANT EXCHANGE PITCHDECK.pdf">Pitch Deck</a>
-        <a href="Investor FAQ 1*.pdf">Investor FAQ</a>
-      </div>
-      <div class="f-col">
-        <h4>For Governments</h4>
-        <a href="GANT GOVERNMENT INTEGRATION PROPOSAL .pdf">Integration Proposal</a>
-        <a href="GANT GEOPOLITICAL DEFENSE STRATEGY *.pdf">Geopolitical Strategy</a>
-        <a href="Grant & Diplomatic Target Strategy *.pdf">Grant Strategy</a>
       </div>
     </div>
     <div class="subfoot">© 2025 GANT Exchange. All rights reserved.</div>
   </footer>
 
+  <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    // NAV
+    // NAV TOGGLE
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => navLinks.classList.toggle('show'));
+    hamburger?.addEventListener('click', () => {
+      navLinks?.classList.toggle('show');
+    });
 
-    // Carousel
-    const prev = document.getElementById('prevBtn');
-    const next = document.getElementById('nextBtn');
-    const cardWidth = 320 + parseInt(getComputedStyle(document.documentElement).getPropertyValue('--gap'));
-    function scrollByCards(dir){ document.querySelector('.viewport').scrollBy({ left: dir * cardWidth, behavior: 'smooth' }); }
-    prev.addEventListener('click', () => scrollByCards(-1));
-    next.addEventListener('click', () => scrollByCards(1));
-    setInterval(() => scrollByCards(1), 6000);
-
-    // Supabase
+    // SUPABASE CLIENT
     const SUPABASE_URL = 'https://djtdmqqsereqkppckjyx.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGRtcXFzZXJlcWtwcGNranl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDM1NjUsImV4cCI6MjA3NDQ3OTU2NX0.f6Qo_xFEHep6A7ulaM9RlP_ILQXCLqdBKPuwPNfATGQ';
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    // LOI submit
+    // LETTER OF INTEREST
     const loiForm = document.getElementById('loiForm');
     const loiBtn  = document.getElementById('loiBtn');
     const loiMsg  = document.getElementById('loiMsg');
-    loiForm.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      if(!document.getElementById('agreed_statement').checked) return;
-      loiBtn.disabled = true;
 
-      const payload = {
-        full_name: document.getElementById('full_name').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        agreed_statement: true
-      };
+    if (loiForm) {
+      loiForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const agreed = document.getElementById('agreed_statement');
+        if (!agreed || !agreed.checked) return;
 
-      const { error } = await supabase.from('letter_of_interest').insert(payload);
-      if(!error){ loiForm.reset(); loiMsg.style.display='block'; }
-      else{ alert('Could not submit. Please try again.'); }
-      loiBtn.disabled = false;
-    });
+        loiBtn.disabled = true;
+        loiBtn.textContent = 'Submitting...';
 
-    // Newsletter
+        const payload = {
+          full_name: document.getElementById('full_name').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          agreed_statement: true
+        };
+
+        const { error } = await supabase.from('letter_of_interest').insert(payload);
+
+        if (!error) {
+          loiForm.reset();
+          loiMsg.style.display = 'block';
+        } else {
+          alert('Could not submit at this time. Please try again.');
+        }
+
+        loiBtn.disabled = false;
+        loiBtn.textContent = 'Submit letter of interest';
+      });
+    }
+
+    // NEWSLETTER
     const subForm = document.getElementById('subForm');
     const subEmail = document.getElementById('subEmail');
     const subBtn = document.getElementById('subBtn');
     const subMsg = document.getElementById('subMsg');
-    subForm.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      subBtn.disabled = true;
-      const { error } = await supabase.from('newsletter_subscription').insert({ email: subEmail.value.trim() });
-      if(!error){ subForm.reset(); subMsg.style.display='block'; }
-      else{ alert('Subscription failed. Please try again.'); }
-      subBtn.disabled = false;
-    });
+
+    if (subForm) {
+      subForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        subBtn.disabled = true;
+        subBtn.textContent = 'Subscribing...';
+
+        const { error } = await supabase
+          .from('newsletter_subscription')
+          .insert({ email: subEmail.value.trim() });
+
+        if (!error) {
+          subForm.reset();
+          subMsg.style.display = 'block';
+        } else {
+          alert('Subscription failed. Please try again.');
+        }
+
+        subBtn.disabled = false;
+        subBtn.textContent = 'Subscribe';
+      });
+    }
   </script>
 </body>
 </html>
