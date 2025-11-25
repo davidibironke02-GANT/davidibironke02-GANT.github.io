@@ -1,1 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buyer Access | GANT Exchange</title>
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --ink:#111;
+      --muted:#3a3a3a;
+      --deep:#062e21;
+      --deep-2:#0c3b2a;
+      --beige:#E9E3D5;
+      --bg:#f9f7f3;
+      --border:#e6e6e6;
+      --container:1120px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:var(--bg);font-family:'IBM Plex Sans',sans-serif;color:var(--ink);line-height:1.65}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--container),94%);margin:auto;padding:20px}
+
+    /* NAVBAR */
+    .navbar{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+    .nav-inner{max-width:var(--container);margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    .brand{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;letter-spacing:.5px}
+    .nav-links{display:flex;gap:22px}
+    .nav-links a{font-weight:600}
+    .nav-links a:hover{color:var(--deep-2)}
+    .login-btn{background:var(--deep);color:var(--beige);padding:10px 18px;border-radius:12px;font-weight:700}
+    .hamburger{display:none;font-size:28px;cursor:pointer}
+
+    @media(max-width:850px){
+      .hamburger{display:block}
+      .nav-links{
+        position:absolute;right:20px;top:62px;background:#fff;border:1px solid var(--border);
+        border-radius:12px;padding:12px;flex-direction:column;gap:14px;width:200px;
+        display:none;box-shadow:0 10px 20px rgb(0 0 0 /.1)
+      }
+      .nav-links.show{display:flex}
+    }
+
+    /* HERO */
+    .hero{
+      background:url('buyer.webp.jpg') center/cover no-repeat;
+      height:360px;display:flex;align-items:center;justify-content:center;padding:40px 10px;
+    }
+    .hero-overlay{
+      background:rgba(255,255,255,.82);padding:28px 34px;border-radius:14px;
+      max-width:780px;text-align:center;
+    }
+    .hero-overlay h1{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(28px,4.5vw,42px);
+      font-weight:700;
+      margin-bottom:10px;
+    }
+    .hero-overlay p{
+      font-size:18px;
+      color:var(--muted);
+      margin-bottom:16px;
+    }
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+      margin-top:6px;
+    }
+    .btn-primary{
+      background:var(--deep);
+      color:var(--beige);
+      padding:14px 22px;
+      border-radius:12px;
+      font-weight:800;
+      font-size:16px;
+      display:inline-block;
+    }
+    .btn-primary:hover{background:var(--deep-2)}
+
+    /* SECTION TITLES */
+    h2.section-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:32px;
+      margin:40px 0 10px;
+      text-align:center;
+    }
+    .section-lead{
+      text-align:center;
+      max-width:680px;
+      margin:0 auto 18px;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    /* GRID CARDS */
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:22px;
+      margin-top:20px;
+    }
+    .card{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:22px;
+      border-radius:14px;
+      box-shadow:0 6px 14px rgb(0 0 0 /.06);
+    }
+    .card h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:22px;
+      margin-bottom:8px;
+    }
+    .card p{
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    /* STEPS */
+    .steps{margin-top:20px;display:grid;gap:22px}
+    .step-box{
+      background:#fff;
+      border-radius:14px;
+      border:1px solid var(--border);
+      padding:22px;
+      box-shadow:0 6px 14px rgb(0 0 0 /.06);
+    }
+    .step-box h4{
+      font-family:'Cormorant Garamond',serif;
+      font-size:22px;
+      margin-bottom:8px;
+    }
+
+    /* CTA SECTION */
+    .cta-block{
+      text-align:center;
+      margin:50px 0 40px;
+    }
+    .cta-block p{
+      max-width:640px;
+      margin:0 auto 14px;
+      color:var(--muted);
+    }
+    .cta-actions{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+      margin-top:10px;
+    }
+
+    footer{
+      background:var(--deep);
+      color:var(--beige);
+      text-align:center;
+      padding:20px 10px;
+      font-size:14px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="brand">GANT EXCHANGE</div>
+    <div id="hamburger" class="hamburger">☰</div>
+    <div id="navLinks" class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="farmer.html">Farmers</a>
+      <a href="buyer.html">Buyers</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a class="login-btn" href="#">Login</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-overlay">
+    <h1>Buyer Access</h1>
+    <p>
+      GANT connects you to verified Canadian grain that is processed, stored and documented in one integrated facility —
+      with route risk scored up front and shipment data available through a single QR code once your cargo arrives.
+    </p>
+    <div class="hero-actions">
+      <a href="buyer-signup.html" class="btn-primary">Sign Up as a Buyer</a>
+      <a href="pilot-program.html" class="btn-primary">Join the 2027 Pilot Program</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY BUYERS WORK WITH GANT -->
+<section class="container">
+  <h2 class="section-title">Why Buyers Work with GANT</h2>
+  <p class="section-lead">
+    Our role is simple: we make it easier to buy Canadian grain with confidence. You keep full control of your logistics and destination handling; we focus on quality, documentation, and risk visibility along the corridor.
+  </p>
+
+  <div class="grid-4">
+    <div class="card">
+      <h3>Consistent, Verified Quality</h3>
+      <p>
+        Every lot is processed through a modern grain facility with drying, cleaning and a dedicated quality testing lab.
+        You see objective results — not marketing language — before you commit.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Export-Ready Documentation</h3>
+      <p>
+        We prepare the core export package for each shipment: commercial invoice, packing list, certificate of origin, phytosanitary certificate and chain-of-custody records linked to your lot.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Simple EXW Pickup</h3>
+      <p>
+        Trades are structured on Ex-Works terms from our Calgary facility. Once your trade is approved, you arrange your own trucking, rail and ocean carriers. You pay only for the grain and your own logistics, duties and port costs.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Real Bids, No Noise</h3>
+      <p>
+        All bids are backed by escrow and must pass corridor-level risk checks before a trade is confirmed. That means fewer surprises, fewer cancelled deals and a cleaner procurement pipeline.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW BUYING WORKS -->
+<section class="container">
+  <h2 class="section-title">How Buying Works</h2>
+  <p class="section-lead">
+    The flow is designed around how procurement decisions are actually made — see the information you need, place a real bid, let the risk engine do its work, then pick up when the cargo is ready.
+  </p>
+
+  <div class="steps">
+    <div class="step-box">
+      <h4>Step 1 — Browse Available Lots</h4>
+      <p>
+        You browse live lots from the GANT warehouse, each with its own quality results, storage history, sustainability information and a Verified Value Index score
+        that summarizes the overall strength of that lot. <a href="vvi.html" style="color:var(--deep)">Learn more about the Verified Value Index →</a>
+      </p>
+    </div>
+
+    <div class="step-box">
+      <h4>Step 2 — Place an Escrow-Backed Bid</h4>
+      <p>
+        When you bid, you are not “testing the market” — you are making a firm offer backed by funds.
+        Our fintech partners lock the required funds in escrow so that both sides know the trade is real.
+      </p>
+    </div>
+
+    <div class="step-box">
+      <h4>Step 3 — Corridor Risk Engine Review</h4>
+      <p>
+        Before the trade is confirmed, the Corridor Risk Engine looks at public information along your chosen route:
+        tariffs, geopolitical conditions, strikes, disruptions and environmental events that can be seen in the news.
+        If the route is within tolerance, the trade is approved. If not, we flag the issue and may suggest alternatives.
+      </p>
+    </div>
+
+    <div class="step-box">
+      <h4>Step 4 — Trade Approval & Preparation</h4>
+      <p>
+        Once approved, the trade is locked in. We prepare your documentation package, schedule warehouse release,
+        and align the lot with your pickup window. You receive a clear view of what is ready, where it is in the warehouse and when it will be available.
+      </p>
+    </div>
+
+    <div class="step-box">
+      <h4>Step 5 — EXW Pickup from Calgary</h4>
+      <p>
+        You send your trucking and logistics partners to our facility to load the container.
+        The pallets are loaded, sealed and accompanied by a single shipment QR code and a small sensor device inside the container
+        (an Internet of Things device) that monitors conditions in transit.
+      </p>
+    </div>
+
+    <div class="step-box">
+      <h4>Step 6 — Delivery, QR Scan & Shipment View</h4>
+      <p>
+        When the container arrives at your facility, you scan the QR code on the pallet.
+        That unlocks the full picture in one place: quality history, storage climate records, documents and a summarized view of the container’s journey from our warehouse to you.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU SEE BEFORE YOU COMMIT -->
+<section class="container">
+  <h2 class="section-title">What You See Before You Commit</h2>
+  <p class="section-lead">
+    At the bidding stage, you do not need traceability for its own sake — you need enough information to make a rational purchase decision. We keep that front and center.
+  </p>
+
+  <div class="steps">
+    <div class="step-box">
+      <h4>Lot-Level Information</h4>
+      <p>
+        For each lot you see:
+        quality test results, grain type and grade, moisture and key parameters, pallet count and total weight,
+        plus the Verified Value Index score.
+      </p>
+    </div>
+
+    <div class="step-box">
+      <h4>Storage and Handling History</h4>
+      <p>
+        You see how long the grain has been in storage, basic temperature and humidity history inside the warehouse,
+        and whether the lot has remained within agreed environmental ranges.
+      </p>
+    </div>
+
+    <div class="step-box">
+      <h4>Practices and Sustainability Signals</h4>
+      <p>
+        You see a summarized view of the farmer’s practices and sustainability profile where available:
+        for example, whether the lot qualifies for specific sustainability claims or sits within a standard baseline.
+      </p>
+    </div>
+
+    <div class="step-box">
+      <h4>Risk Classification for the Route</h4>
+      <p>
+        Each proposed route carries a corridor-level risk indicator — green, yellow, orange or red — based on public news:
+        tariffs, wars or conflict zones, strikes, major disruptions and environmental events.
+        The idea is not to scare you, but to avoid moving blind.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- IN-TRANSIT VISIBILITY & DSRE -->
+<section class="container">
+  <h2 class="section-title">In-Transit Visibility Once the Container Moves</h2>
+  <p class="section-lead">
+    Once your shipment leaves Calgary, the focus shifts from “should we do this trade?” to “is everything still on track?”.
+    That is where our in-transit risk layer becomes useful.
+  </p>
+
+  <div class="steps">
+    <div class="step-box">
+      <h4>Container-Level Monitoring</h4>
+      <p>
+        Each container carries its own small sensor device that tracks temperature, humidity, movement and shocks along the way.
+        This feeds into our Dynamic Shipment Risk Engine, which is designed to spot issues early rather than after the fact.
+      </p>
+    </div>
+
+    <div class="step-box">
+      <h4>Public Corridor and Port Signals</h4>
+      <p>
+        Alongside the sensor data, the same shipment engine reads public information about your route:
+        corridor disruptions, major environmental events, port congestion and rail bulletins.
+      </p>
+    </div>
+
+    <div class="step-box">
+      <h4>Clear, Intuitive Risk Bands</h4>
+      <p>
+        Behind the scenes, the system weighs the sensor environment, container movement, broader corridor conditions and port or rail operations.
+        You do not see the formula — you see the output: green, yellow, orange or red, with short explanations that help your team decide whether to escalate or simply keep watching.
+      </p>
+    </div>
+
+    <div class="step-box">
+      <h4>From Data to Claims Readiness</h4>
+      <p>
+        If something does go wrong, you are not left arguing from memory.
+        You have a record of the shipment’s conditions and route to support your discussions with carriers, insurers and internal stakeholders.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- OPTIONAL BUYER FINANCING -->
+<section class="container">
+  <h2 class="section-title">Optional Buyer Financing</h2>
+  <p class="section-lead">
+    Some buyers prefer to preserve cash while still locking in supply. For those cases, we work with financing partners who can fund a portion of the trade while you contribute an initial deposit.
+  </p>
+
+  <div class="steps">
+    <div class="step-box">
+      <h4>Deposit & Instrument</h4>
+      <p>
+        You place an agreed deposit (for example, 20% of the trade value) and provide a post-dated cheque or another accepted repayment instrument.
+        This creates comfort for the lender while keeping your upfront cash commitment manageable.
+      </p>
+    </div>
+
+    <div class="step-box">
+      <h4>Financing Partner Settlement</h4>
+      <p>
+        Once the trade is approved and you meet the financing conditions, our partner pays into GANT’s Canadian treasury account.
+        From your perspective, the trade proceeds as usual — you manage logistics, we release the cargo when conditions are met.
+      </p>
+    </div>
+
+    <div class="step-box">
+      <h4>Aligned with Corridor and Shipment Risk</h4>
+      <p>
+        The same corridor risk and shipment visibility that you see also informs financing decisions.
+        That means more grounded approvals, not abstract credit decisions detached from how the corridor actually behaves.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="container cta-block">
+  <h2 class="section-title">Start a Conversation with GANT</h2>
+  <p>
+    Whether you are sourcing for a mill, a processing plant or an export program, GANT is designed to give you one thing:
+    a cleaner way to buy Canadian grain — clear information, real bids, prepared documentation and visibility from our warehouse to your gate.
+  </p>
+  <div class="cta-actions">
+    <a href="buyer-signup.html" class="btn-primary">Sign Up as a Buyer</a>
+    <a href="pilot-program.html" class="btn-primary">Join the 2027 Pilot Program</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 GANT Exchange. All rights reserved.
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click',()=>navLinks.classList.toggle('show'));
+</script>
+
+</body>
+</html>
