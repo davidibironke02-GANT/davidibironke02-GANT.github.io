@@ -3,23 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ABOUT | GANT EXCHANGE</title>
+  <title>About | GANT Exchange</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    /* Reset & Base */
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { background-color: #f9f7f3; color: #111; line-height: 1.6; font-family: 'IBM Plex Sans', sans-serif; }
-    a { text-decoration: none; color: inherit; }
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: #f9f7f3;
+      margin: 0;
+      padding: 0;
+      color: #111;
+      line-height: 1.65;
+    }
 
-    /* Navbar */
+    /* NAV */
     .navbar {
-      background-color: #fff;
-      border-bottom: 1px solid #ddd;
+      background: #fff;
+      border-bottom: 1px solid #eee;
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
@@ -34,78 +37,140 @@
       font-weight: 700;
     }
     .navbar a {
-      margin-left: 20px;
-      font-weight: 600;
+      margin-left: 18px;
       color: #111;
+      font-weight: 600;
+      text-decoration: none;
     }
     .navbar a:hover { color: #014421; }
-    @media (max-width:768px){
-      .navbar { flex-direction: column; gap:10px; }
-      .navbar a { margin-left:0; margin-right:15px; }
+
+    /* HERO */
+    .hero {
+      background: url('about.webp.JPG') center/cover no-repeat;
+      height: 330px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.45);
+    }
+    .hero h1 {
+      position: relative;
+      z-index: 2;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      margin: 0;
     }
 
-    /* Hero Image */
-    .hero-about {
-      background: url('about_.AVIF') no-repeat center center/cover;
-      height: 300px;
+    /* SECTIONS */
+    .section {
+      max-width: 1100px;
+      margin: 70px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .section img {
       width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
     }
 
-    /* Section */
-    section { padding: 80px 20px; max-width: 1000px; margin: auto; }
-    section h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; margin-bottom: 25px; text-align: center; color: #014421; }
-    section p { font-size: 18px; margin-bottom: 20px; text-align: justify; }
+    .section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      color: #014421;
+      margin-bottom: 12px;
+    }
 
-    /* Footer */
+    .section p {
+      font-size: 18px;
+      margin-bottom: 18px;
+      text-align: justify;
+    }
+
+    /* FOOTER */
     footer {
-      background-color: #111;
+      background: #111;
       color: white;
       text-align: center;
       padding: 25px 20px;
-      margin-top: 40px;
+      margin-top: 70px;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Navbar -->
+  <!-- NAV -->
   <div class="navbar">
     <div class="brand">GANT EXCHANGE</div>
     <div>
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="exchange.html">Exchange</a>
+      <a href="buyer.html">Buyer Access</a>
+      <a href="how-it-works.html">How It Works</a>
       <a href="contact.html">Contact</a>
     </div>
   </div>
 
-  <!-- Hero Image -->
-  <div class="hero-about"></div>
+  <!-- HERO -->
+  <div class="hero">
+    <h1>About GANT Exchange</h1>
+  </div>
 
-  <!-- About Section -->
-  <section>
-    <h2>ABOUT GANT EXCHANGE</h2>
-    <p>
-      GANT stands as a visionary force in agritrade, harnessing the power of innovation to reshape the global agricultural landscape. 
-      Born from a bold commitment to transparency, equity, and sustainability, we are crafting a future where farmers, co-operatives, 
-      and buyers are united through a cutting-edge, blockchain-secured exchange platform. Our mission is clear: to dismantle inefficiencies, 
-      empower producers with fair access to markets, and deliver resilient, traceable supply chains that meet the demands of a changing world.
-    </p>
-    <p>
-      At the heart of GANT lies a fusion of advanced technologies—blockchain for immutable trust, federated data for sovereign insights, 
-      and AI-driven analytics to navigate complex trade dynamics. Our Market Matching Engine facilitates real-time commodity trading, 
-      while IoT-enabled Collection Centers ensure precision in quality and origin verification. Smart contracts streamline settlements, 
-      and our Corridor Risk Engine anticipates and mitigates risks with unparalleled foresight.
-    </p>
-    <p>
-      GANT is more than a platform—it is a movement toward a sustainable, interconnected future. 
-      Join us as we redefine the possibilities of global agriculture.
-    </p>
-  </section>
+  <!-- VISION -->
+  <div class="section">
+    <img src="about-vision.webp.jpg" alt="Vision Image">
+    <div>
+      <h2>Our Vision</h2>
+      <p>
+        To build the world’s most trusted agricultural trade infrastructure by enabling farmers and buyers to transact through verified value rather than commodity speculation. GANT aims to redefine global agritrade with a system where origin, quality, and compliance are transparent, where financing is instant, and where the integrity of every shipment is measurable from farm to buyer.
+      </p>
+    </div>
+  </div>
 
-  <!-- Footer -->
+  <!-- MISSION -->
+  <div class="section">
+    <div>
+      <h2>Our Mission</h2>
+      <p>
+        Our mission is to provide farmers with export-grade processing, secure storage, and direct access to global buyers supported by fintech-backed liquidity and verifiable traceability. We operate a platform that removes opacity from agricultural markets by combining processing, blockchain auditability, IoT-enabled risk intelligence, and structured settlement. GANT is committed to building a scalable and compliant trade environment that improves farmer incomes, enhances buyer confidence, and strengthens the reliability of international food supply chains.
+      </p>
+    </div>
+    <img src="about-mission.webp.jpg" alt="Mission Image">
+  </div>
+
+  <!-- WHAT WE DO -->
+  <div class="section">
+    <img src="about-work.webp.jpg" alt="What We Do Image">
+    <div>
+      <h2>What We Do</h2>
+      <p>
+        GANT Exchange connects farmers and buyers through a transparent agricultural marketplace anchored in Canada. Farmers deliver grain to our Calgary processing and storage facility where it is cleaned, dried, bagged, palletized, and batch-tracked. Each lot is listed with structured metadata covering quality results, storage conditions, sustainability practices, and the Verified Value Index score.
+      </p>
+      <p>
+        Buyers place backed bids or use an 80/20 credit line supported by our financial partner. Trades are reviewed through corridor-level checks using publicly available information. Once approved, GANT prepares the documentation package and issues each shipment with a QR code and a sealed monitoring device that captures key conditions during transit. Buyers arrange their own logistics under EXW Calgary while GANT ensures that the product is verified, documented, and traceable.
+      </p>
+      <p>
+        GANT is building the foundation for trusted agricultural trade. Our focus is reliability, compliance, and measurable integrity across every shipment.
+      </p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
   <footer>
-    &copy; 2025 GANT EXCHANGE. All rights reserved.
+    © 2025 GANT EXCHANGE. All rights reserved.
   </footer>
 
 </body>
