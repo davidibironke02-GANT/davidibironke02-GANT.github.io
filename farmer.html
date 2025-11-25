@@ -62,10 +62,12 @@
     }
     .hero-overlay p{font-size:18px;color:var(--muted)}
 
-    /* SECTIONS */
+    /* SECTION TITLES */
     h2.section-title{
       font-family:'Cormorant Garamond',serif;font-size:32px;margin:40px 0 10px;text-align:center;
     }
+
+    /* CARDS */
     .grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:20px}
     .card{
       background:#fff;border:1px solid var(--border);padding:22px;border-radius:14px;
@@ -74,13 +76,15 @@
     .card h3{font-family:'Cormorant Garamond',serif;font-size:22px;margin-bottom:8px}
     .card p{color:var(--muted);font-size:15px}
 
+    /* STEPS */
     .steps{margin-top:20px;display:grid;gap:22px}
     .step-box{
-      background:#fff;border-radius:14px;padding:22px;border:1px solid var(--border);
+      background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px;
       box-shadow:0 6px 14px rgb(0 0 0 /.06)
     }
     .step-box h4{font-family:'Cormorant Garamond',serif;font-size:22px;margin-bottom:8px}
 
+    /* CTA */
     .cta-block{text-align:center;margin:50px 0}
     .cta-btn{
       background:var(--deep);color:var(--beige);padding:16px 26px;border-radius:12px;
@@ -112,7 +116,10 @@
 <section class="hero">
   <div class="hero-overlay">
     <h1>Farmer & Cooperative Access</h1>
-    <p>Convert bulk grain into warehouse-verified, identity-preserved lots with instant settlement and global buyer access — while remaining fully anonymous to buyers through your unique Farmer Unique ID (FUID).</p>
+    <p>
+      Transform bulk grain into warehouse-verified, identity-preserved lots. 
+      Receive instant settlement once trades are approved by the Corridor Risk Engine — all while staying completely anonymous to buyers through your Farmer Unique ID (FUID).
+    </p>
   </div>
 </section>
 
@@ -122,19 +129,27 @@
   <div class="grid-4">
     <div class="card">
       <h3>Benchmark-Linked Pricing</h3>
-      <p>Set your own price based on regulated benchmarks and corridor conditions, with premiums determined by objective quality and logistics factors.</p>
+      <p>
+        Set your own price using transparent market benchmarks and corridor conditions. No hidden discounts or forced downgrades.
+      </p>
     </div>
     <div class="card">
       <h3>Instant Settlement</h3>
-      <p>Payment is released immediately after your trade passes through the Corridor Risk Engine and is approved — eliminating delays and uncertainty.</p>
+      <p>
+        Payment is released immediately after your trade is approved by the Corridor Risk Engine. No delays and no negotiation risks.
+      </p>
     </div>
     <div class="card">
       <h3>Verified Processing</h3>
-      <p>Your grain is dried, cleaned, tested, bagged into 25-kilogram units, palletized, serialized, and stored under IoT-monitored conditions.</p>
+      <p>
+        Your grain is dried, cleaned, quality-tested, bagged into 25-kilogram units, palletized, serialized, and stored under continuous IoT monitoring.
+      </p>
     </div>
     <div class="card">
-      <h3>Global Buyer Access</h3>
-      <p>Access international buyers without revealing your identity. Buyers see only your Farmer Unique ID (FUID), ensuring privacy and fairness.</p>
+      <h3>Anonymous Global Access</h3>
+      <p>
+        Buyers never see your identity. They only see your system-generated Farmer Unique ID (FUID), ensuring fairness across the market.
+      </p>
     </div>
   </div>
 </section>
@@ -147,27 +162,39 @@
 
     <div class="step-box">
       <h4>Step 1 — Deliver Grain to the Warehouse</h4>
-      <p>Farmers deliver bulk grain to the Calgary warehouse. Grain is offloaded, moisture-tested, and assigned a temporary holding bin for processing.</p>
+      <p>
+        Farmers deliver bulk grain to the Calgary warehouse. Grain is offloaded, moisture-tested, and placed in the processing queue.
+      </p>
     </div>
 
     <div class="step-box">
       <h4>Step 2 — Processing & Quality Verification</h4>
-      <p>Your grain is dried, cleaned, cooled, and tested in the on-site quality laboratory. Each 25-kilogram bag receives a BatchLotID and Serial Number for traceability.</p>
+      <p>
+        Grain is dried, cleaned, cooled, and fully tested. Each 25-kilogram bag receives a BatchLotID and Serial Number for traceability.
+      </p>
     </div>
 
     <div class="step-box">
       <h4>Step 3 — Review Your Verified Value Index</h4>
-      <p>Once processing is complete, you receive a private Verified Value Index (VVI) score based on quality, processing outcomes, sustainability, and corridor risk factors. <a href="vvi.html" style="color:var(--deep)">Learn more about the Verified Value Index →</a></p>
+      <p>
+        You receive a private Verified Value Index based on quality, sustainability, processing outcomes, and corridor risk data. 
+        <a href="vvi.html" style="color:var(--deep)">Learn more about the Verified Value Index →</a>
+      </p>
     </div>
 
     <div class="step-box">
       <h4>Step 4 — List Your Grain on the Exchange</h4>
-      <p>After reviewing your VVI score, you set your desired price and make your lot available to global buyers on the GANT Exchange.</p>
+      <p>
+        You set your selling price and list your lot directly to global buyers. Your FUID ensures anonymity throughout the process.
+      </p>
     </div>
 
     <div class="step-box">
       <h4>Step 5 — Trade Approval & Instant Settlement</h4>
-      <p>When a buyer places a bid, the Corridor Risk Engine evaluates the transaction. If approved, settlement occurs immediately and your funds are released without delay.</p>
+      <p>
+        When a buyer submits a bid, the Corridor Risk Engine evaluates route conditions and compliance. 
+        If the trade is approved, payment is released instantly.
+      </p>
     </div>
 
   </div>
@@ -179,26 +206,33 @@
   <div class="steps">
     <div class="step-box">
       <h4>14 Days Free Storage</h4>
-      <p>Every pallet receives 14 days of free storage after processing. Storage fees apply thereafter, deducted after sale.</p>
+      <p>
+        Every pallet receives 14 days of free storage. Storage charges only begin after this period and are deducted after your sale.
+      </p>
     </div>
 
     <div class="step-box">
-      <h4>Transparent Fees</h4>
-      <p>Processing, handling, logistics coordination, and platform fees are clearly displayed in your dashboard and deducted only after a successful sale.</p>
+      <h4>Transparent Fee Structure</h4>
+      <p>
+        Processing, handling, warehousing, and platform fees are displayed clearly in your dashboard. 
+        All charges are applied only after a successful transaction.
+      </p>
     </div>
 
     <div class="step-box">
-      <h4>Full Privacy</h4>
-      <p>Buyers do not see your name or location. They only see your system-generated Farmer Unique ID (FUID), ensuring an unbiased marketplace.</p>
+      <h4>Guaranteed Privacy</h4>
+      <p>
+        Your personal identity is never revealed to buyers. Only your Farmer Unique ID (FUID) appears in the marketplace.
+      </p>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="container cta-block">
-  <a class="cta-btn" href="#">Book Delivery Slot</a>
-  <a class="cta-btn" href="#">Apply for Pre-Sale Financing</a>
-  <a class="cta-btn" href="#">Join the 2027 Pilot Program</a>
+  <a class="cta-btn" href="delivery-slot.html">Book Delivery Slot</a>
+  <a class="cta-btn" href="financing-application.html">Apply for Pre-Sale Financing</a>
+  <a class="cta-btn" href="pilot-program.html">Join the 2027 Pilot Program</a>
 </section>
 
 <!-- FOOTER -->
@@ -207,8 +241,8 @@
 </footer>
 
 <script>
-  const hamburger=document.getElementById('hamburger');
-  const navLinks=document.getElementById('navLinks');
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
   hamburger.addEventListener('click',()=>navLinks.classList.toggle('show'));
 </script>
 
