@@ -1,1 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works | GANT Exchange</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: #f9f7f3;
+      color: #111;
+      margin: 0;
+      padding: 0;
+      line-height: 1.65;
+    }
+
+    /* NAV */
+    .navbar {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .navbar a {
+      margin-left: 18px;
+      color: #111;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .navbar a:hover { color: #014421; }
+
+    /* HERO */
+    .hero {
+      background: url('howitworks-hero.webp.jpg') center/cover no-repeat;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.45);
+    }
+    .hero h1 {
+      position: relative;
+      z-index: 2;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    /* CONTENT BLOCKS */
+    .section {
+      max-width: 1100px;
+      margin: 70px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .section img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+
+    .section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      color: #014421;
+      margin-bottom: 15px;
+    }
+
+    .section p {
+      font-size: 18px;
+      margin-bottom: 18px;
+      text-align: justify;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      margin: 80px 0;
+    }
+    .cta a {
+      display: inline-block;
+      padding: 16px 28px;
+      background: #014421;
+      color: white;
+      font-weight: 700;
+      border-radius: 10px;
+      margin: 10px;
+      text-decoration: none;
+    }
+    .cta a:hover { background: #0b2d18; }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <div class="navbar">
+    <div class="brand">GANT EXCHANGE</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="buyer.html">Buyer Access</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>How Buying on GANT Works</h1>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <img src="browse-lots.webp.jpg" alt="Browse Lots">
+    <div>
+      <h2>1 — Browse Verified Lots</h2>
+      <p>
+        Every listing gives you the essentials upfront: grain type, quality test results, moisture levels,
+        storage conditions, sustainability practices, and the Verified Value Index score. You see the total tonnage,
+        pallet count, and all metadata needed to make a confident buying decision.
+      </p>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <div>
+      <h2>2 — Place a Backed Bid or Use the Credit Line</h2>
+      <p>
+        When you're ready to buy, you can either place a full escrow-backed bid or use our financing option.
+      </p>
+
+      <p><strong>Option A — Full Escrow Bid</strong><br>
+        You fund the full bid amount upfront. A 20% portion is held as a commitment deposit to secure the lot.
+      </p>
+
+      <p><strong>Option B — 80/20 Credit Line</strong><br>
+        Our financial partner can fund up to 80% of the trade value, including logistics if needed.
+        You simply provide a 20% deposit and a post-dated cheque or another accepted repayment instrument.
+      </p>
+
+      <p>
+        After your bid is submitted, the trade moves to corridor review.
+      </p>
+    </div>
+
+    <img src="buyer-bid.webp.jpg" alt="Financing and Bidding">
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <img src="corridor-check.webp.jpg" alt="Corridor Check">
+    <div>
+      <h2>3 — Corridor Check</h2>
+      <p>
+        Before approving a trade, we review the basic conditions along the route using publicly available information.
+        This includes tariffs, geopolitical events, strikes, disruptions, and environmental conditions that may affect
+        movement. If the corridor looks stable, the trade is approved.
+      </p>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <div>
+      <h2>4 — Trade Approval</h2>
+      <p>
+        Once the corridor is cleared, your trade is confirmed. We prepare the cargo at our facility and begin assembling
+        your export documentation. You receive a clear pickup schedule and the final details for dispatch.
+      </p>
+    </div>
+    <img src="trade-approval.webp.jpg" alt="Trade Approval">
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section">
+    <img src="pickup.webp.jpg" alt="Pickup">
+    <div>
+      <h2>5 — Pickup (EXW Calgary)</h2>
+      <p>
+        You handle your own trucking, rail, ocean shipment, and import pathway. At pickup, your pallets are loaded,
+        sealed, and issued with a single QR code for the shipment. A monitoring device is placed inside the container
+        to track conditions throughout the journey.
+      </p>
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section">
+    <div>
+      <h2>6 — Delivery & QR Scan</h2>
+      <p>
+        Once your container arrives, you simply scan the QR code on the pallet. This unlocks the complete shipment
+        package in one place: quality test history, climate summary, export documents, and a route summary generated
+        from the container’s monitoring device.
+      </p>
+      <p>
+        This gives you clarity and assurance the moment your goods arrive.
+      </p>
+    </div>
+    <img src="qr-scan.webp.jpg" alt="QR Scan">
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <a href="buyer-signup.html">Sign Up as a Buyer</a>
+    <a href="pilot-program.html">Join the 2027 Pilot Program</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 GANT EXCHANGE. All rights reserved.
+  </footer>
+
+</body>
+</html>
