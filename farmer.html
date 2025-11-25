@@ -1,1 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farmer Access | GANT Exchange</title>
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --ink:#111; 
+      --muted:#3a3a3a;
+      --deep:#062e21; 
+      --deep-2:#0c3b2a;
+      --beige:#E9E3D5;
+      --bg:#f9f7f3;
+      --border:#e6e6e6;
+      --radius:14px;
+      --container:1120px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:var(--bg);font-family:'IBM Plex Sans',sans-serif;color:var(--ink);line-height:1.65}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+
+    .container{width:min(var(--container),94%);margin:auto;padding:20px}
+
+    /* NAVBAR */
+    .navbar{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+    .nav-inner{max-width:var(--container);margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    .brand{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;letter-spacing:.5px}
+    .nav-links{display:flex;gap:22px}
+    .nav-links a{font-weight:600}
+    .nav-links a:hover{color:var(--deep-2)}
+    .login-btn{background:var(--deep);color:var(--beige);padding:10px 18px;border-radius:12px;font-weight:700}
+    .hamburger{display:none;font-size:28px;cursor:pointer}
+    @media(max-width:850px){
+      .hamburger{display:block}
+      .nav-links{
+        position:absolute;right:20px;top:62px;background:#fff;border:1px solid var(--border);
+        border-radius:12px;padding:12px;flex-direction:column;gap:14px;width:200px;
+        display:none;box-shadow:0 10px 20px rgb(0 0 0 /.1)
+      }
+      .nav-links.show{display:flex}
+    }
+
+    /* HERO */
+    .hero{
+      background:url('farmer.webp') center/cover no-repeat;
+      height:360px;display:flex;align-items:center;justify-content:center;padding:40px 10px;
+    }
+    .hero-overlay{
+      background:rgba(255,255,255,.78);padding:28px 34px;border-radius:14px;
+      max-width:760px;text-align:center;
+    }
+    .hero-overlay h1{
+      font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,42px);font-weight:700;margin-bottom:10px;
+    }
+    .hero-overlay p{font-size:18px;color:var(--muted)}
+
+    /* SECTIONS */
+    h2.section-title{
+      font-family:'Cormorant Garamond',serif;font-size:32px;margin:40px 0 10px;text-align:center;
+    }
+    .grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:20px}
+    .card{
+      background:#fff;border:1px solid var(--border);padding:22px;border-radius:14px;
+      box-shadow:0 6px 14px rgb(0 0 0 /.06);
+    }
+    .card h3{font-family:'Cormorant Garamond',serif;font-size:22px;margin-bottom:8px}
+    .card p{color:var(--muted);font-size:15px}
+
+    .steps{margin-top:20px;display:grid;gap:22px}
+    .step-box{
+      background:#fff;border-radius:14px;padding:22px;border:1px solid var(--border);
+      box-shadow:0 6px 14px rgb(0 0 0 /.06)
+    }
+    .step-box h4{font-family:'Cormorant Garamond',serif;font-size:22px;margin-bottom:8px}
+
+    .cta-block{text-align:center;margin:50px 0}
+    .cta-btn{
+      background:var(--deep);color:var(--beige);padding:16px 26px;border-radius:12px;
+      font-weight:800;font-size:17px;display:inline-block;margin:8px 12px;
+    }
+    .cta-btn:hover{background:var(--deep-2)}
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="brand">GANT EXCHANGE</div>
+    <div id="hamburger" class="hamburger">☰</div>
+    <div id="navLinks" class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="farmer.html">Farmers</a>
+      <a href="buyer.html">Buyers</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a class="login-btn" href="#">Login</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-overlay">
+    <h1>Farmer & Cooperative Access</h1>
+    <p>Convert bulk grain into warehouse-verified, identity-preserved lots with instant settlement and global buyer access — while remaining fully anonymous to buyers through your unique Farmer Unique ID (FUID).</p>
+  </div>
+</section>
+
+<!-- WHY FARMERS USE GANT -->
+<section class="container">
+  <h2 class="section-title">Why Farmers Use GANT</h2>
+  <div class="grid-4">
+    <div class="card">
+      <h3>Benchmark-Linked Pricing</h3>
+      <p>Set your own price based on regulated benchmarks and corridor conditions, with premiums determined by objective quality and logistics factors.</p>
+    </div>
+    <div class="card">
+      <h3>Instant Settlement</h3>
+      <p>Payment is released immediately after your trade passes through the Corridor Risk Engine and is approved — eliminating delays and uncertainty.</p>
+    </div>
+    <div class="card">
+      <h3>Verified Processing</h3>
+      <p>Your grain is dried, cleaned, tested, bagged into 25-kilogram units, palletized, serialized, and stored under IoT-monitored conditions.</p>
+    </div>
+    <div class="card">
+      <h3>Global Buyer Access</h3>
+      <p>Access international buyers without revealing your identity. Buyers see only your Farmer Unique ID (FUID), ensuring privacy and fairness.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW -->
+<section class="container">
+  <h2 class="section-title">How the Process Works</h2>
+
+  <div class="steps">
+
+    <div class="step-box">
+      <h4>Step 1 — Deliver Grain to the Warehouse</h4>
+      <p>Farmers deliver bulk grain to the Calgary warehouse. Grain is offloaded, moisture-tested, and assigned a temporary holding bin for processing.</p>
+    </div>
+
+    <div class="step-box">
+      <h4>Step 2 — Processing & Quality Verification</h4>
+      <p>Your grain is dried, cleaned, cooled, and tested in the on-site quality laboratory. Each 25-kilogram bag receives a BatchLotID and Serial Number for traceability.</p>
+    </div>
+
+    <div class="step-box">
+      <h4>Step 3 — Review Your Verified Value Index</h4>
+      <p>Once processing is complete, you receive a private Verified Value Index (VVI) score based on quality, processing outcomes, sustainability, and corridor risk factors. <a href="vvi.html" style="color:var(--deep)">Learn more about the Verified Value Index →</a></p>
+    </div>
+
+    <div class="step-box">
+      <h4>Step 4 — List Your Grain on the Exchange</h4>
+      <p>After reviewing your VVI score, you set your desired price and make your lot available to global buyers on the GANT Exchange.</p>
+    </div>
+
+    <div class="step-box">
+      <h4>Step 5 — Trade Approval & Instant Settlement</h4>
+      <p>When a buyer places a bid, the Corridor Risk Engine evaluates the transaction. If approved, settlement occurs immediately and your funds are released without delay.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- STORAGE & FEES -->
+<section class="container">
+  <h2 class="section-title">Storage, Fees & Privacy</h2>
+  <div class="steps">
+    <div class="step-box">
+      <h4>14 Days Free Storage</h4>
+      <p>Every pallet receives 14 days of free storage after processing. Storage fees apply thereafter, deducted after sale.</p>
+    </div>
+
+    <div class="step-box">
+      <h4>Transparent Fees</h4>
+      <p>Processing, handling, logistics coordination, and platform fees are clearly displayed in your dashboard and deducted only after a successful sale.</p>
+    </div>
+
+    <div class="step-box">
+      <h4>Full Privacy</h4>
+      <p>Buyers do not see your name or location. They only see your system-generated Farmer Unique ID (FUID), ensuring an unbiased marketplace.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="container cta-block">
+  <a class="cta-btn" href="#">Book Delivery Slot</a>
+  <a class="cta-btn" href="#">Apply for Pre-Sale Financing</a>
+  <a class="cta-btn" href="#">Join the 2027 Pilot Program</a>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--deep);color:var(--beige);text-align:center;padding:20px 10px;">
+  © 2025 GANT Exchange. All rights reserved.
+</footer>
+
+<script>
+  const hamburger=document.getElementById('hamburger');
+  const navLinks=document.getElementById('navLinks');
+  hamburger.addEventListener('click',()=>navLinks.classList.toggle('show'));
+</script>
+
+</body>
+</html>
