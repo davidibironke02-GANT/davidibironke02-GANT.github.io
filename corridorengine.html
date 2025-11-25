@@ -3,192 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Corridor Risk Engine | GANT Exchange</title>
+  <title>Corridor & Shipment Risk Intelligence | GANT Exchange</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     body {
       font-family: 'IBM Plex Sans', sans-serif;
-      background: #f9f7f3;
+      background-color: #f9f7f3;
+      color: #111;
       margin: 0;
       padding: 0;
-      color: #111;
       line-height: 1.7;
     }
-    header {
-      position: relative;
-      background: url('cre1.WEBP') no-repeat center center/cover;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-    }
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.55);
-    }
-    header h1 {
-      position: relative;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 42px;
-      font-weight: 700;
-      padding: 12px 24px;
-      border-radius: 6px;
-      z-index: 2;
-    }
-    main {
+
+    .container {
       max-width: 900px;
-      margin: 40px auto;
-      padding: 30px 20px;
+      margin: 50px auto;
       background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
-    main h2 {
-      font-family: 'Cormorant Garamond', serif;
-      margin-top: 40px;
-      margin-bottom: 15px;
-      color: #014421;
-    }
-    main p {
-      margin-bottom: 20px;
-      font-size: 16px;
-      color: #222;
-      text-align: justify;
-    }
-    strong {
-      color: #014421;
-    }
-    .illustration {
-      margin: 40px 0;
+
+    h1 {
       text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      margin-bottom: 30px;
+      color: #014421;
     }
-    .illustration img {
-      width: 100%;
-      max-width: 750px;
-      border-radius: 8px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      margin-top: 40px;
+      margin-bottom: 12px;
+      color: #014421;
     }
+
+    p {
+      font-size: 17px;
+      text-align: justify;
+      margin-bottom: 20px;
+    }
+
     footer {
       background: #111;
       color: white;
       text-align: center;
       padding: 25px 20px;
-      margin-top: 50px;
+      margin-top: 60px;
     }
-    a.back-link {
+
+    .back-link {
       display: inline-block;
       margin-top: 30px;
       color: #014421;
       font-weight: 600;
       text-decoration: none;
+      font-size: 17px;
     }
-    a.back-link:hover {
+
+    .back-link:hover {
       text-decoration: underline;
     }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <h1>Corridor Risk Engine</h1>
-  </header>
+  <div class="container">
+    <h1>Corridor & Shipment Risk Intelligence</h1>
 
-  <main>
-    <h2>Introduction</h2>
-    <p>Agricultural trade is the backbone of global food security. Every day, millions of tons of grain, produce, and livestock move across borders to feed populations and support economies. Yet the way this trade is conducted remains fragile and opaque. Payment cycles often stretch to 30 or even 90 days, leaving farmers cash-strapped. Buyers face uncertainty over compliance and quality, while governments lack the real-time visibility necessary to safeguard supply chains.</p>
-    <p>These risks are not abstract. They manifest in price volatility, wasted harvests, and geopolitical vulnerability. In an era of climate disruption and rising protectionism, the world cannot afford fragile food corridors. GANT Exchange has developed the <strong>Corridor Risk Engine (CRE)</strong> to address these challenges. This patent-pending technology embeds transparency, risk scoring, and instant settlement into every transaction — transforming agritrade into a resilient, data-driven system.</p>
+    <p>
+      Every agricultural trade moves through a corridor with its own realities. Tariffs change, ports slow down, weather disrupts rail, and geopolitical conditions shift without warning. GANT’s risk intelligence framework was designed to help buyers and governments operate confidently in this environment. Instead of reacting after disruptions occur, the system provides a clear view of corridor stability before and during every shipment.
+    </p>
 
-    <h2>The Risk Landscape in Agritrade</h2>
-    <p>The inefficiencies of global food trade can be traced to three persistent problems:</p>
-    <p><strong>1. Payment Delays:</strong> Farmers are routinely trapped in T+30 or T+60 settlement cycles. By the time payment arrives, cash flow has already constrained their ability to reinvest in seeds, inputs, or labor.</p>
-    <p><strong>2. Compliance Bottlenecks:</strong> Each corridor operates under overlapping frameworks — from USMCA and FSMA in North America, to AAFC standards in Canada, to Codex Alimentarius globally. Manual verification creates uncertainty, slows transactions, and often excludes smallholders.</p>
-    <p><strong>3. Logistics Fragility:</strong> From port strikes to climate shocks, disruptions cascade quickly through supply chains. Without predictive data, neither buyers nor regulators can anticipate these shocks.</p>
-    <p>Traditional trade platforms digitize listings or offer traceability, but they do not solve the underlying risks. The Corridor Risk Engine is designed to do exactly that.</p>
+    <h2>Understanding Corridors</h2>
+    <p>
+      A corridor is the pathway your goods travel from our facility to your country. It includes the rail route, the port terminal, and the ocean lane leading to your destination. Each corridor carries risks that are entirely outside the farmer’s or buyer’s control, but deeply relevant to the outcome of trade. Our responsibility is to make these risks visible in a structured, decision-ready way.
+    </p>
 
-    <h2>Why Corridors Matter</h2>
-    <p>Food does not move randomly. It flows along <strong>corridors</strong> — structured pathways connecting regions of production with centers of consumption. A wheat shipment from Saskatchewan to Lagos, or a soybean cargo from Brazil to Shanghai, is not just a contract; it is the activation of a corridor with its own political, environmental, and logistical realities.</p>
-    <p>Each corridor carries unique risks:</p>
-    <ul>
-      <li><strong>Geopolitical:</strong> Tariffs, sanctions, or sudden trade bans.</li>
-      <li><strong>Environmental:</strong> Droughts, floods, or pest infestations.</li>
-      <li><strong>Logistical:</strong> Port congestion, cold-chain failures, or inadequate infrastructure.</li>
-    </ul>
-    <p>Ignoring these corridor-specific risks has long been the Achilles’ heel of global agritrade. The CRE makes corridors the <em>unit of analysis</em> and the <em>unit of trust</em>.</p>
+    <h2>The Corridor Risk Engine</h2>
+    <p>
+      The Corridor Risk Engine (CRE) summarizes publicly available information into a simple signal that buyers can use when placing bids. It evaluates three types of macro conditions:
+      <br><br>
+      • <strong>Tariff and regulatory environment</strong> including sudden duties, restrictions, or policy changes.<br>
+      • <strong>Geopolitical developments</strong> such as conflicts, strikes, instability, and regional disruptions reported by reliable news agencies.<br>
+      • <strong>Environmental conditions</strong> that could impact transport or export operations.
+      <br><br>
+      The result is a corridor-level stability score used to confirm whether a trade can proceed. Buyers do not need to interpret raw data, search for news, or follow multiple channels. The CRE consolidates and simplifies the information for them.
+    </p>
 
-    <div class="illustration">
-      <img src="cre2.JPG" alt="Global Trade Corridor">
-      <p style="font-size:14px; color:#555; margin-top:8px;">Trade corridors monitored in real-time — ensuring food security from farm to port.</p>
-    </div>
+    <h2>The Dynamic Shipment Risk Engine</h2>
+    <p>
+      Once a shipment leaves our facility, the Dynamic Shipment Risk Engine (DSRE) monitors its journey. It combines container sensor readings with publicly available operational data from ports and rail networks. The goal is to give buyers a reliable summary of how their shipment behaved in transit.
+    </p>
 
-    <h2>Designing the Corridor Risk Engine</h2>
-    <p>The CRE is built on three foundational principles:</p>
-    <ul>
-      <li><strong>Comprehensive Data Ingestion:</strong> The system ingests data streams from climate satellites, logistics networks, financial markets, and regulatory bodies.</li>
-      <li><strong>AI-Driven Risk Scoring:</strong> Machine learning models evaluate corridor stability across categories — compliance, logistics, financial, and ESG. Each corridor is dynamically assigned a risk score.</li>
-      <li><strong>Smart Contract Integration:</strong> Trades only execute when corridor risks are within tolerance. Payment, compliance certification, and logistics initiation are bound into one workflow.</li>
-    </ul>
-    <p>This is not just an incremental improvement — it is a re-architecture of agritrade from reactive trust to proactive assurance.</p>
+    <p>The DSRE evaluates four risk areas:</p>
 
-    <h2>How the Engine Works Step by Step</h2>
-    <p><strong>1. Listing & Escrow:</strong> A farmer lists produce on GANT Exchange. When a buyer places a bid, funds are immediately placed in escrow through fintech aggregators. Phantom orders are eliminated.</p>
-    <p><strong>2. Risk Scoring:</strong> The Corridor Risk Engine evaluates the proposed trade. It pulls climate data, compliance frameworks, and logistics records to generate a corridor-specific score.</p>
-    <p><strong>3. Trade Matching:</strong> Only if the score meets risk thresholds does the system confirm the match. If risks are elevated, CRE recommends alternative corridors or pricing adjustments.</p>
-    <p><strong>4. Verification at Collection Center:</strong> Goods are delivered to a GANT Collection Center. IoT devices and physical inspection verify quantity and quality, with results written on-chain.</p>
-    <p><strong>5. Instant Settlement:</strong> Smart contracts release payment instantly once verification is complete. Farmers receive funds immediately — even in cross-border trades.</p>
-    <p><strong>6. Continuous Monitoring:</strong> CRE continues to monitor corridors in real time, alerting stakeholders to emerging risks and enabling adaptive logistics.</p>
+    <p>
+      • <strong>Environmental conditions inside the container</strong> (temperature and humidity behaviour over time) – 35 percent of the score.<br>
+      • <strong>Movement and route alignment</strong> including prolonged stops, unexpected diversions, or physical shock alerts – 25 percent.<br>
+      • <strong>Macro conditions from the corridor</strong> such as geopolitical or environmental events affecting the route – 25 percent.<br>
+      • <strong>Port and rail operational performance</strong> drawn from publicly available sources – 15 percent.
+    </p>
 
-    <h2>Integration with Smart Contracts and Fintech Aggregators</h2>
-    <p>Legacy trade systems rely on letters of credit, clearinghouses, and bank intermediaries. These are slow and expensive. By integrating smart contracts with fintech aggregators in both exporting and importing countries, GANT Exchange enables <strong>instant, cross-border settlement</strong>.</p>
-    <p>This is revolutionary for two reasons:</p>
-    <ul>
-      <li>It <strong>erases settlement delays</strong>, giving farmers liquidity the moment their goods are verified.</li>
-      <li>It <strong>anchors trust in the system itself</strong>, rather than in intermediaries, reducing costs for all participants.</li>
-    </ul>
-    <p>The CRE ensures that every smart contract is executed against corridor-specific risk data. Settlement is no longer just fast; it is intelligent.</p>
+    <p>
+      The DSRE does not overwhelm buyers with raw numbers. Instead, it provides a single risk colour with a concise interpretation:
+      <br><br>
+      • <strong>Green (0–30 percent)</strong> – No significant issues detected.<br>
+      • <strong>Yellow (31–60 percent)</strong> – Minor deviations or environmental fluctuation.<br>
+      • <strong>Orange (61–75 percent)</strong> – Noticeable behaviour that may require review.<br>
+      • <strong>Red (76 percent and above)</strong> – Significant deviations or multiple alerts.
+    </p>
 
-    <h2>ESG and Climate Data in Risk Scoring</h2>
-    <p>Modern agritrade cannot ignore environmental, social, and governance factors. Climate change is already reshaping corridor reliability. A single drought can eliminate millions of tons of exports; a flood can wipe out entire logistics nodes.</p>
-    <p>The Corridor Risk Engine integrates ESG metrics into every risk score:</p>
-    <ul>
-      <li><strong>Carbon Intensity:</strong> Assessing the emissions footprint of logistics.</li>
-      <li><strong>Water Use:</strong> Evaluating the sustainability of production regions.</li>
-      <li><strong>Labor Standards:</strong> Verifying adherence to ethical supply chains.</li>
-    </ul>
-    <p>By embedding these metrics, GANT ensures that trades are not only profitable but also sustainable. Governments and institutional buyers gain verifiable ESG compliance “by default,” aligning trade flows with climate commitments.</p>
+    <h2>How Buyers Use This Information</h2>
+    <p>
+      Corridor intelligence is used before bidding. Shipment intelligence is used after your goods are dispatched. Together, these tools help buyers strengthen internal compliance, improve procurement decisions, and resolve disputes more efficiently. The result is a more predictable trade environment and a clearer understanding of how each shipment performed.
+    </p>
 
-    <h2>Stakeholder Benefits</h2>
-    <p><strong>For Farmers:</strong> Instant liquidity after delivery. Access to global buyers without fear of delayed settlement. Transparent corridor-level data to guide planting and sales decisions.</p>
-    <p><strong>For Buyers:</strong> Reduced counterparty risk. Automated compliance certifications (USMCA, FSMA, AAFC, Codex). Dynamic corridor intelligence to diversify sourcing.</p>
-    <p><strong>For Logistics Providers:</strong> Clear risk visibility along their assigned corridors. Integration of IoT verification into settlement flows.</p>
-    <p><strong>For Governments:</strong> Real-time corridor-level trade data. Enhanced food security monitoring. Assurance that exports and imports align with regulatory and climate objectives.</p>
-
-    <h2>Future Roadmap</h2>
-    <p>The Corridor Risk Engine is not static. Its roadmap includes:</p>
-    <ul>
-      <li><strong>Predictive Analytics:</strong> AI models that anticipate disruptions before they happen.</li>
-      <li><strong>Satellite Imagery Integration:</strong> Real-time crop monitoring to anticipate supply shocks.</li>
-      <li><strong>Scenario Modeling:</strong> Governments and buyers can run “what-if” analyses to plan for disruptions.</li>
-      <li><strong>Global Corridor Registry:</strong> A standardized database of corridor scores accessible to regulators and institutions worldwide.</li>
-    </ul>
-    <p>These developments will make the CRE not just a risk management tool, but the global benchmark for resilient agritrade.</p>
-
-    <h2>Conclusion</h2>
-    <p>Agricultural trade stands at a crossroads. The old model — opaque, slow, and fragile — cannot meet the demands of a warming planet and a growing population. Trust can no longer be outsourced to intermediaries or delayed through bureaucratic processes.</p>
-    <p>The Corridor Risk Engine offers a new foundation. By embedding risk scoring, instant settlement, and ESG compliance into every trade, it transforms agritrade from a gamble into a governed system. Farmers, buyers, governments, and consumers all stand to benefit.</p>
-    <p>With its patent-pending architecture, GANT Exchange is not just building a platform — it is setting the standard for the future of global food trade.</p>
+    <h2>Aligned With Real Trade, Not Theory</h2>
+    <p>
+      Both systems are built for practical application. We only use data that is legitimately obtainable and ethically accessible. There is no proprietary surveillance, no private tracking beyond the container device placed inside your shipment, and no sensitive information exposed. Buyers get exactly what they need: visibility, assurance, and an objective record of the corridor and the shipment they purchased.
+    </p>
 
     <a href="index.html" class="back-link">← Back to Home</a>
-  </main>
+  </div>
 
   <footer>
     &copy; 2025 GANT EXCHANGE. All rights reserved.
