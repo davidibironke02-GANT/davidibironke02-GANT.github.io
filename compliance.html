@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compliance and Documentation | GANT Exchange</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --beige:#E9E3D5;
+      --ink:#111;
+      --muted:#4a4a4a;
+      --deep:#062e21;
+      --deep-2:#0c3b2a;
+      --border:#e2e2e2;
+      --radius:16px;
+      --container:1120px;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'IBM Plex Sans',sans-serif;
+      background:#f9f7f3;
+      color:var(--ink);
+      line-height:1.6;
+    }
+    img { max-width:100%; display:block; }
+    a { text-decoration:none; color:inherit; }
+    .container {
+      width:min(var(--container), 92%);
+      margin-inline:auto;
+      padding-inline:16px;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:#fff;
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner {
+      max-width:var(--container);
+      margin:auto;
+      padding:12px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand { display:flex; flex-direction:column; line-height:1; }
+    .brand .top {
+      font-family:'Cormorant Garamond',serif;
+      font-size:24px;
+      font-weight:700;
+    }
+    .brand .bottom {
+      font-family:'Cormorant Garamond',serif;
+      font-size:20px;
+    }
+    .nav-links {
+      display:flex;
+      gap:18px;
+      font-size:15px;
+      font-weight:600;
+    }
+    .login-btn {
+      background:var(--deep);
+      color:var(--beige);
+      padding:9px 16px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    /* HERO */
+    .hero {
+      background:url('compliance.webp.jpg') center/cover no-repeat;
+      min-height:320px;
+      position:relative;
+      display:flex;
+      align-items:center;
+    }
+    .hero::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.45);
+    }
+    .hero-inner {
+      position:relative;
+      z-index:1;
+      padding:60px 16px;
+      max-width:var(--container);
+      margin:auto;
+    }
+    .hero-inner h1 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:40px;
+      color:#fff;
+      margin-bottom:10px;
+    }
+    .hero-inner p {
+      font-size:16px;
+      max-width:40rem;
+      color:#f2f0ea;
+    }
+
+    /* SECTION */
+    section { padding-block:40px; }
+    .section-header { margin-bottom:20px; }
+    .section-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:26px;
+      color:var(--deep);
+      margin-bottom:4px;
+    }
+    .section-sub {
+      font-size:15px;
+      color:var(--muted);
+      max-width:48rem;
+    }
+
+    /* BLOCKS */
+    .block {
+      background:#fff;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      padding:20px 18px;
+      margin-bottom:18px;
+      box-shadow:0 10px 26px rgba(0,0,0,.05);
+    }
+    .block h3 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:20px;
+      margin-bottom:6px;
+      color:var(--deep-2);
+    }
+    .block p {
+      font-size:15px;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+    .block a {
+      color:var(--deep-2);
+      font-weight:600;
+      font-size:14px;
+      text-decoration:underline;
+    }
+
+    /* FOOTER */
+    footer {
+      background:var(--deep);
+      color:var(--beige);
+      padding:26px 16px;
+      margin-top:40px;
+    }
+    .subfoot {
+      text-align:center;
+      background:#042519;
+      padding:10px;
+      font-size:12px;
+      color:#cfd7cf;
+      margin-top:16px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="top">GANT</span>
+        <span class="bottom">EXCHANGE</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="warehouse.html">Warehouse</a>
+        <a href="buyer.html">For Buyers</a>
+        <a href="farmer.html">For Farmers</a>
+        <a href="compliance.html">Compliance</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a class="login-btn" href="https://preview--gant-prototype.lovable.app/login">Platform Login</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Compliance and Documentation</h1>
+      <p>A structured documentation system that removes uncertainty and ensures every shipment complies with destination-country requirements.</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- SECTION -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">A predictable documentation framework</h2>
+        <p class="section-sub">
+          GANT provides buyers and regulators with a complete, verified documentation pack for every trade. All records originate from our controlled warehouse environment to ensure accuracy and consistency.
+        </p>
+      </div>
+    </section>
+
+    <!-- BLOCKS -->
+    <div class="block">
+      <h3>Documentation generated from verified warehouse data</h3>
+      <p>
+        Every lot listed on GANT comes from processed and quality tested grain inside our Calgary facility. All documentation is produced from structured, verified data rather than self-reported information, which removes uncertainty for buyers and auditors.
+      </p>
+    </div>
+
+    <div class="block">
+      <h3>Export-ready documents included with every trade</h3>
+      <p>The platform prepares all required export documents automatically, including commercial invoice, packing list, certificate of origin, quality certificate, compliance summary and phytosanitary documentation when required.</p>
+    </div>
+
+    <div class="block">
+      <h3>Phytosanitary certification with CFIA</h3>
+      <p>
+        The Canadian Food Inspection Agency certifies grain that leaves our warehouse, ensuring alignment with destination sanitary requirements.
+      </p>
+      <a href="https://inspection.canada.ca" target="_blank">Visit Canadian Food Inspection Agency →</a>
+    </div>
+
+    <div class="block">
+      <h3>QR linked documentation for buyers</h3>
+      <p>
+        After a trade, buyers receive a single QR code for all pallets in their order. Scanning the QR provides instant access to quality test summaries, compliance documents and post delivery shipment condition summaries.
+      </p>
+    </div>
+
+    <div class="block">
+      <h3>Five year digital record retention</h3>
+      <p>
+        All shipment documentation is stored securely for five years. Buyers and regulators can retrieve records at any time without requesting files from sellers.
+      </p>
+    </div>
+
+    <div class="block">
+      <h3>Government and institutional visibility</h3>
+      <p>
+        Approved government partners and institutional buyers can access structured documentation records for shipments moving through their corridors, supporting oversight and food safety processes.
+      </p>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="subfoot">© 2025 GANT Exchange. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
