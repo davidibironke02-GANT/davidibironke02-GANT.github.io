@@ -11,82 +11,138 @@
   <style>
     :root {
       --beige:#E9E3D5;
+      --beige-soft:#f3eee4;
+      --deep:#062e21;
+      --deep-2:#0b3a29;
       --ink:#111;
       --muted:#4a4a4a;
-      --deep:#062e21;
-      --deep-2:#0c3b2a;
-      --border:#e2e2e2;
-      --container:1120px;
+      --border:rgba(255,255,255,0.2);
+      --glass:rgba(255,255,255,0.08);
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
+
+    /* Background + subtle animated texture */
     body {
       font-family:'IBM Plex Sans',sans-serif;
-      background:#f9f7f3;
+      background:var(--deep-2);
       color:var(--ink);
-      line-height:1.6;
+      min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      min-height:100vh;
-      padding:20px;
+      padding:24px;
+      position:relative;
+      overflow:hidden;
     }
 
+    /* Grain-like data texture */
+    body::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image:url('https://www.transparenttextures.com/patterns/foggy-birds.png');
+      opacity:0.06;
+      animation: drift 24s linear infinite;
+      pointer-events:none;
+    }
+
+    @keyframes drift {
+      from { transform: translate(0,0); }
+      to { transform: translate(120px, 80px); }
+    }
+
+    /* Card */
     .card {
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:34px 26px 30px;
-      width:min(540px, 94%);
-      box-shadow:0 14px 40px rgba(0,0,0,.08);
+      background:var(--beige-soft);
+      border-radius:22px;
+      padding:42px 32px 38px;
+      width:min(520px, 94%);
       text-align:center;
+      position:relative;
+      animation:fadeIn 0.9s ease-out forwards;
+
+      /* subtle glass layer */
+      backdrop-filter:blur(6px);
+      border:1px solid rgba(255,255,255,0.28);
+      box-shadow:
+        0 30px 70px rgba(0,0,0,0.42),
+        0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    @keyframes fadeIn {
+      from { opacity:0; transform:translateY(25px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* Pilot Badge */
+    .badge {
+      position:absolute;
+      top:-14px;
+      right:-14px;
+      background:var(--deep);
+      color:var(--beige);
+      padding:8px 16px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:1px;
+      border-radius:999px;
+      box-shadow:0 6px 16px rgba(0,0,0,0.25);
+      border:1px solid rgba(255,255,255,0.2);
+    }
+
+    .coming {
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:1.8px;
+      color:#555;
+      margin-bottom:6px;
     }
 
     h1 {
       font-family:'Cormorant Garamond',serif;
       font-size:34px;
-      color:var(--deep);
-      margin-bottom:14px;
+      color:var(--deep-2);
+      margin-bottom:10px;
+      line-height:1.2;
     }
 
     p {
       font-size:15px;
       color:var(--muted);
-      margin-bottom:20px;
-    }
-
-    .coming {
-      font-size:13px;
-      letter-spacing:1.8px;
-      text-transform:uppercase;
-      color:#777;
-      margin-bottom:4px;
+      margin-bottom:22px;
+      line-height:1.6;
     }
 
     .btn-primary {
       display:inline-block;
-      margin-top:8px;
       background:var(--deep);
       color:var(--beige);
-      padding:12px 20px;
+      padding:12px 22px;
       font-size:14px;
       font-weight:700;
       border-radius:999px;
+      transition:0.2s ease;
     }
     .btn-primary:hover {
       background:var(--deep-2);
+      transform:translateY(-1px);
     }
   </style>
 </head>
 
 <body>
   <div class="card">
+    <div class="badge">PILOT 2027</div>
+
     <div class="coming">Platform access</div>
+
     <h1>Enterprise login coming soon</h1>
     <p>
-      The authenticated interface for buyers, farmers and government partners is currently in
-      development. Access will open as part of the 2027 pilot rollout.
+      The secure interface for buyers, farmers and government partners is currently in development.
+      Access will open as part of the 2027 pilot rollout.
     </p>
+
     <a href="pilot.html" class="btn-primary">Join 2027 Pilot Program</a>
   </div>
 </body>
