@@ -387,6 +387,8 @@
       margin-bottom:6px;
       color:var(--deep-2);
     }
+
+    /* FIXED IMAGE CLASS */
     .warehouse-img {
       border-radius:14px;
       background:url('hero2.webp.jpg') center/cover no-repeat;
@@ -675,6 +677,7 @@
     }
   </style>
 </head>
+
 <body>
   <!-- NAVBAR -->
   <nav class="navbar">
@@ -718,7 +721,8 @@
         <div class="hero-meta">
           <span>Located near CN Calgary Logistics Park</span>
           <span>GRAIN drying • 25 kg bagging • 1 MT pallets</span>
-          <span>Financing and export documentation integrated</span> <span>Full IoT traceability</span>
+          <span>Financing and export documentation integrated</span> 
+          <span>Full IoT traceability</span>
         </div>
       </div>
 
@@ -735,7 +739,9 @@
           </div>
           <div class="stat">
             <div class="stat-label">Trade assurance</div>
-            <div class="stat-value">Escrow backed bids, traceable pallets and corridor risk scoring per shipment.</div>
+            <div class="stat-value">
+              Escrow backed bids, traceable pallets and corridor risk scoring per shipment.
+            </div>
           </div>
         </div>
         <p class="hero-note">
@@ -746,6 +752,7 @@
   </header>
 
   <main>
+
     <!-- HOW IT WORKS -->
     <section class="container">
       <div class="section-header">
@@ -755,6 +762,7 @@
           A four step model that combines warehouse processing, digital listing, instant settlement and risk intelligence.
         </p>
       </div>
+
       <div class="how-grid">
         <article class="step-card">
           <div class="step-tag">Step 1</div>
@@ -764,6 +772,7 @@
             Grain is weighed, sampled and scheduled for processing.
           </p>
         </article>
+
         <article class="step-card">
           <div class="step-tag">Step 2</div>
           <div class="step-title">Processing and quality control</div>
@@ -772,6 +781,7 @@
             25 kg bags on 1 MT pallets, each with a BatchLotID and Serial.
           </p>
         </article>
+
         <article class="step-card">
           <div class="step-tag">Step 3</div>
           <div class="step-title">Listing, pricing and risk scoring</div>
@@ -780,6 +790,7 @@
             quality data, QR traceability and corridor risk scores visible to buyers.
           </p>
         </article>
+
         <article class="step-card">
           <div class="step-tag">Step 4</div>
           <div class="step-title">Purchase, settlement and pickup</div>
@@ -789,12 +800,11 @@
           </p>
         </article>
       </div>
-      <a href="how-it-works.html" class="section-footer-link">
-        See the full flow in detail →
-      </a>
+
+      <a href="how-it-works.html" class="section-footer-link">See the full flow in detail →</a>
     </section>
 
-    <!-- WAREHOUSE AND OPERATIONS -->
+    <!-- WAREHOUSE SECTION -->
     <section class="container">
       <div class="section-header">
         <div class="section-kicker">Calgary based operations</div>
@@ -804,10 +814,12 @@
           export ready, quality controlled and fully traceable lots.
         </p>
       </div>
+
       <div class="warehouse-block">
         <div>
           <p class="warehouse-tag">What is inside</p>
           <h3 class="warehouse-title">Processing, quality control and storage in one facility</h3>
+
           <ul class="warehouse-points">
             <li><span class="bullet-dot">•</span><span>Grain dryer and cleaning lines sized for Western Canadian harvest flows.</span></li>
             <li><span class="bullet-dot">•</span><span>QC lab with NIR, moisture, protein and mycotoxin testing, plus retained samples.</span></li>
@@ -816,9 +828,12 @@
             <li><span class="bullet-dot">•</span><span>IoT sensors monitoring temperature and humidity, with data stored in cloud time series databases.</span></li>
             <li><span class="bullet-dot">•</span><span>CFIA integrated workflow for sanitary and phytosanitary documentation.</span></li>
           </ul>
+
           <a href="warehouse.html" class="section-footer-link">View warehouse and operations overview →</a>
         </div>
-        <div class="hero2.webp.jpg"aria-label="GANT warehouse operations"></div>
+
+        <!-- FIXED IMAGE BLOCK -->
+        <div class="warehouse-img" aria-label="GANT warehouse operations"></div>
       </div>
     </section>
 
@@ -832,6 +847,7 @@
           a corridor risk score and a defined financing path.
         </p>
       </div>
+
       <div class="tile-grid">
         <article class="tile">
           <div class="tile-label">Traceability</div>
@@ -842,6 +858,7 @@
           </p>
           <a href="traceability.html" class="tile-link">See traceability architecture →</a>
         </article>
+
         <article class="tile">
           <div class="tile-label">Risk intelligence</div>
           <h3 class="tile-title">Corridor and shipment risk scoring</h3>
@@ -851,6 +868,7 @@
           </p>
           <a href="corridorengine.html" class="tile-link">Learn about the Corridor Risk Engine →</a>
         </article>
+
         <article class="tile">
           <div class="tile-label">Financing</div>
           <h3 class="tile-title">Farmer and buyer access to working capital</h3>
@@ -873,6 +891,7 @@
           different surface, built on the same verified data.
         </p>
       </div>
+
       <div class="split-grid">
         <article class="role-card">
           <h3 class="role-title">Farmers and cooperatives</h3>
@@ -886,6 +905,7 @@
           </ul>
           <a href="farmer.html" class="role-cta">Farmer and co op onboarding →</a>
         </article>
+
         <article class="role-card">
           <h3 class="role-title">Buyers, millers and traders</h3>
           <p class="role-sub">
@@ -911,43 +931,45 @@
           and corridor risk. These frameworks guide future software and rule updates.
         </p>
       </div>
+
       <div class="insights-grid">
-  <article class="insight-card">
-    <h3>Compliance and documentation</h3>
-    <p>
-      How export documentation, phytosanitary workflows and structured data validation
-      ensure every pallet meets destination-country requirements.
-    </p>
-    <a href="compliance.html">Read compliance architecture →</a>
-  </article>
 
-  <article class="insight-card">
-    <h3>Verified Value Index (VVI)</h3>
-    <p>
-      How GANT evaluates each lot using a weighted model covering quality, identity
-      preservation, environmental data and logistics integrity.
-    </p>
-     <a href="vvi.html">Explore VVI methodology →</a>
-  </article>
+        <article class="insight-card">
+          <h3>Compliance and documentation</h3>
+          <p>
+            How export documentation, phytosanitary workflows and structured data validation
+            ensure every pallet meets destination-country requirements.
+          </p>
+          <a href="compliance.html">Read compliance architecture →</a>
+        </article>
 
-  <article class="insight-card">
-    <h3>Settlement and governance</h3>
-    <p>
-      How escrow-backed bids, corridor thresholds and platform rules interact to ensure
-      predictable, trusted settlement for both sides of a trade.
-    </p>
-    <a href="settlement.html">View governance model →</a>
-  </article>
+        <article class="insight-card">
+          <h3>Verified Value Index (VVI)</h3>
+          <p>
+            How GANT evaluates each lot using a weighted model covering quality, identity
+            preservation, environmental data and logistics integrity.
+          </p>
+          <a href="vvi.html">Explore VVI methodology →</a>
+        </article>
 
-  <article class="insight-card">
-    <h3>Corridor risk engine</h3>
-    <p>
-      How routes are monitored and scored, and how this intelligence feeds into trade decisions.
-    </p>
-    <a href="corridorengine.html">Explore Corridor Risk Engine →</a>
-  </article>
-</div>
+        <article class="insight-card">
+          <h3>Settlement and governance</h3>
+          <p>
+            How escrow-backed bids, corridor thresholds and platform rules interact to ensure
+            predictable, trusted settlement for both sides of a trade.
+          </p>
+          <a href="settlement.html">View governance model →</a>
+        </article>
 
+        <article class="insight-card">
+          <h3>Corridor risk engine</h3>
+          <p>
+            How routes are monitored and scored, and how this intelligence feeds into trade decisions.
+          </p>
+          <a href="corridorengine.html">Explore Corridor Risk Engine →</a>
+        </article>
+
+      </div>
     </section>
 
     <!-- CTA + LETTER OF INTEREST -->
@@ -969,12 +991,14 @@
             <label for="email">Email *</label>
             <input id="email" name="email" type="email" required />
           </div>
+
           <div class="field" style="grid-column:1 / -1">
             <label class="agree">
               <input type="checkbox" id="agreed_statement" required />
               <span>I understand that this letter is non binding and indicates interest in using or supporting GANT Exchange when it launches.</span>
             </label>
           </div>
+
           <div class="loi-actions" style="grid-column:1 / -1">
             <button id="loiBtn" class="btn-primary" type="submit">Submit letter of interest</button>
             <div id="loiMsg" class="success">Thank you. Your interest has been recorded.</div>
@@ -997,11 +1021,13 @@
         <div id="subMsg" class="success">Subscribed. You will hear from us as milestones are reached.</div>
       </div>
     </section>
+
   </main>
 
-  <!-- FOOTER -->
+  <!-- CLEANED FOOTER -->
   <footer>
     <div class="footer-inner">
+
       <div class="f-col">
         <h4>Platform</h4>
         <a href="how-it-works.html">How it works</a>
@@ -1009,20 +1035,23 @@
         <a href="buyer.html">Buyer hub</a>
         <a href="farmer.html">Farmer hub</a>
       </div>
+
       <div class="f-col">
-        <h4>Policies</h4>
-        <a href="policy.html">Smallholder protection</a>
-        <a href="pricing.html">Pricing algorithm</a>
-        <a href="climate.html">Climate impact analysis</a>
+        <h4>Policies & Architecture</h4>
+        <a href="compliance.html">Compliance architecture</a>
+        <a href="vvi.html">Verified Value Index</a>
+        <a href="settlement.html">Settlement and governance</a>
         <a href="corridorengine.html">Corridor risk engine</a>
       </div>
+
       <div class="f-col">
         <h4>Documents</h4>
         <a href="GANT EXCHANGE PITCHDECK.pdf">Pitch deck</a>
         <a href="Investor FAQ 1*.pdf">Investor FAQ</a>
-        <a href="GANT GOVERNMENT INTEGRATION PROPOSAL .pdf">Government integration proposal</a>
+        <a href="GANT GOVERNMENT INTEGRATION PROPOSAL .pdf">Government proposal</a>
         <a href="#subscribe">Newsletter</a>
       </div>
+
       <div class="f-col">
         <h4>Company</h4>
         <a href="about.html">About</a>
@@ -1030,6 +1059,7 @@
         <a href="canada.html">Why Canada</a>
         <a href="contact.html">Contact</a>
       </div>
+
     </div>
     <div class="subfoot">© 2025 GANT Exchange. All rights reserved.</div>
   </footer>
@@ -1044,7 +1074,7 @@
       navLinks?.classList.toggle('show');
     });
 
-    // SUPABASE CLIENT
+    // SUPABASE SETUP
     const SUPABASE_URL = 'https://djtdmqqsereqkppckjyx.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGRtcXFzZXJlcWtwcGNranl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDM1NjUsImV4cCI6MjA3NDQ3OTU2NX0.f6Qo_xFEHep6A7ulaM9RlP_ILQXCLqdBKPuwPNfATGQ';
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -1111,5 +1141,6 @@
       });
     }
   </script>
+
 </body>
 </html>
