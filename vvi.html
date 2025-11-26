@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verified Value Index (VVI) | GANT Exchange</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --beige:#E9E3D5;
+      --ink:#111;
+      --muted:#4a4a4a;
+      --deep:#062e21;
+      --deep-2:#0c3b2a;
+      --border:#e2e2e2;
+      --card:#fff;
+      --container:1120px;
+      --radius:16px;
+    }
+
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html, body { max-width:100%; overflow-x:hidden; }
+    body {
+      font-family:'IBM Plex Sans',sans-serif;
+      background:#f9f7f3;
+      color:var(--ink);
+      line-height:1.7;
+    }
+    a { text-decoration:none; color:inherit; }
+    img { max-width:100%; display:block; }
+    .container {
+      width:min(var(--container), 94%);
+      margin-inline:auto;
+      padding-inline:18px;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:#fff;
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner {
+      max-width:var(--container);
+      margin-inline:auto;
+      padding:12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .nav-left { display:flex; align-items:center; gap:12px; }
+    .brand {
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+    }
+    .brand .top,
+    .brand .bottom {
+      font-family:'Cormorant Garamond',serif;
+      font-weight:700;
+      font-size:24px;
+      letter-spacing:1px;
+    }
+    .brand .bottom {
+      font-size:20px;
+      opacity:.9;
+    }
+    .hamburger {
+      font-size:26px;
+      cursor:pointer;
+      display:none;
+      user-select:none;
+    }
+    .nav-links {
+      display:flex;
+      align-items:center;
+      gap:18px;
+      font-size:15px;
+      font-weight:600;
+    }
+    .nav-links a { color:#222; }
+    .nav-links a:hover { color:var(--deep); }
+    .nav-cta {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .login-btn {
+      background:var(--deep);
+      color:var(--beige);
+      border-radius:999px;
+      padding:9px 16px;
+      font-size:14px;
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .login-btn:hover { background:var(--deep-2); }
+
+    @media (max-width:860px) {
+      .hamburger { display:block; }
+      .nav-links {
+        position:absolute;
+        top:58px;
+        right:18px;
+        flex-direction:column;
+        background:#fff;
+        border:1px solid var(--border);
+        border-radius:14px;
+        padding:10px 14px;
+        box-shadow:0 10px 24px rgba(0,0,0,.08);
+        display:none;
+        min-width:210px;
+      }
+      .nav-links.show { display:flex; }
+    }
+
+    /* HERO HEADER */
+    .hero-vvi {
+      position:relative;
+      height:260px;
+      background:url('vvi.webp.jpg') center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      text-align:center;
+    }
+    .hero-vvi::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.55);
+    }
+    .hero-vvi-inner {
+      position:relative;
+      max-width:var(--container);
+      margin-inline:auto;
+      padding:0 18px;
+    }
+    .hero-kicker {
+      font-family:'Montserrat',sans-serif;
+      font-size:12px;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+      margin-bottom:6px;
+      opacity:.9;
+    }
+    .hero-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(28px, 4vw, 40px);
+      margin-bottom:6px;
+    }
+    .hero-sub {
+      font-size:14px;
+      max-width:40rem;
+      margin:0 auto;
+      opacity:.94;
+    }
+
+    main {
+      max-width:var(--container);
+      margin:32px auto 40px;
+      padding:0 18px;
+    }
+
+    h2 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:26px;
+      color:var(--deep);
+      margin-bottom:8px;
+    }
+    h3 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:20px;
+      color:var(--deep-2);
+      margin-bottom:4px;
+    }
+    p {
+      font-size:15px;
+      color:var(--muted);
+      margin-bottom:16px;
+      text-align:justify;
+    }
+    strong { color:var(--deep-2); }
+
+    .section-block {
+      background:#fff;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      padding:18px 16px 18px;
+      box-shadow:0 10px 24px rgba(0,0,0,.04);
+      margin-bottom:18px;
+    }
+
+    .pillars-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-top:10px;
+    }
+    @media (max-width:760px) {
+      .pillars-grid { grid-template-columns:1fr; }
+    }
+    .pillar-card {
+      background:#faf7f1;
+      border-radius:14px;
+      border:1px solid var(--border);
+      padding:12px 12px 12px;
+    }
+    .pillar-tag {
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:1.6px;
+      color:#777;
+      margin-bottom:2px;
+    }
+    .pillar-weight {
+      font-size:12px;
+      color:#555;
+      margin-bottom:4px;
+    }
+    .pillar-card p {
+      font-size:14px;
+      margin-bottom:0;
+    }
+
+    .two-col {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+    }
+    @media (max-width:760px) {
+      .two-col { grid-template-columns:1fr; }
+    }
+
+    .note {
+      font-size:13px;
+      color:#666;
+      margin-top:4px;
+    }
+
+    .back-link {
+      display:inline-block;
+      margin-top:10px;
+      font-size:13px;
+      font-weight:600;
+      color:var(--deep-2);
+    }
+
+    /* FOOTER */
+    footer {
+      background:var(--deep);
+      color:var(--beige);
+      margin-top:32px;
+    }
+    .footer-inner {
+      max-width:var(--container);
+      margin:0 auto;
+      padding:24px 18px 22px;
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+      font-size:13px;
+    }
+    @media (max-width:900px) {
+      .footer-inner { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width:640px) {
+      .footer-inner { grid-template-columns:1fr; }
+    }
+    .f-col h4 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:17px;
+      margin-bottom:8px;
+    }
+    .f-col a {
+      display:block;
+      margin-bottom:5px;
+      color:var(--beige);
+      opacity:.9;
+    }
+    .f-col a:hover { opacity:1; text-decoration:underline; }
+    .subfoot {
+      background:#042519;
+      color:#cfd7cf;
+      text-align:center;
+      font-size:12px;
+      padding:9px 8px 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <div id="hamburger" class="hamburger">☰</div>
+        <div class="brand">
+          <span class="top">GANT</span>
+          <span class="bottom">EXCHANGE</span>
+        </div>
+      </div>
+      <div id="navLinks" class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="warehouse.html">Warehouse</a>
+        <a href="buyer.html">For Buyers</a>
+        <a href="farmer.html">For Farmers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a class="login-btn" href="https://preview--gant-prototype.lovable.app/login">Platform Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO HEADER -->
+  <header class="hero-vvi">
+    <div class="hero-vvi-inner">
+      <div class="hero-kicker">Trade engine</div>
+      <h1 class="hero-title">Verified Value Index for Canadian grain lots</h1>
+      <p class="hero-sub">
+        The Verified Value Index (VVI) gives farmers and buyers a shared view of intrinsic value based on measured
+        quality, traceability, compliance and ESG data, while keeping pricing decisions with farmers.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <!-- OVERVIEW -->
+    <section class="section-block">
+      <h2>1. What the VVI does</h2>
+      <p>
+        The Verified Value Index sits inside the GANT Trade Engine. It is the scoring framework that turns each processed lot
+        into a structured, comparable product instead of a generic commodity. Farmers list their grain and set prices themselves.
+        The VVI then quantifies the verified integrity of that lot using certified quality data, traceability signals, export
+        compliance readiness and ESG indicators.
+      </p>
+      <p>
+        Buyers can filter and compare lots based on these verified attributes rather than on price alone. The result is a market
+        where value is grounded in measurable properties of the shipment, not in opaque discounts or speculative spreads.
+      </p>
+    </section>
+
+    <!-- FORMULA AND PILLARS -->
+    <section class="section-block">
+      <h2>2. The five pillar model</h2>
+      <p>
+        The VVI score is calculated using a five component model designed for cross border agricultural trade:
+      </p>
+      <p><strong>VVI = Pref + Q + T + C + E</strong></p>
+      <p class="note">
+        Each component is normalized and weighted so that the final score reflects both physical quality and documentation integrity.
+      </p>
+
+      <div class="pillars-grid">
+        <article class="pillar-card">
+          <div class="pillar-tag">Price reference</div>
+          <div class="pillar-weight">Weight: 10 percent</div>
+          <p>
+            A corridor specific commodity benchmark is used as a reference point. It anchors expectations for both sides
+            without dictating the listing price. Farmers still decide their own price, but buyers can see how that price
+            sits in relation to recognized market benchmarks.
+          </p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-tag">Quality score</div>
+          <div class="pillar-weight">Weight: 40 percent</div>
+          <p>
+            The quality component is built from certified lab results produced in the GANT warehouse. Inputs include
+            protein, moisture, falling number, mycotoxin checks and NIR profiles. These are normalized against corridor
+            requirements so that the score reflects export grade expectations, not just raw numbers.
+          </p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-tag">Traceability integrity</div>
+          <div class="pillar-weight">Weight: 25 percent</div>
+          <p>
+            This measures how strong the identity preserved chain is around the lot. It looks at QC record hashing,
+            pallet level serialization, warehouse telemetry such as temperature and humidity and the consistency of
+            chain of custody records. Higher traceability integrity means fewer questions at handover and at destination.
+          </p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-tag">Compliance readiness</div>
+          <div class="pillar-weight">Weight: 20 percent</div>
+          <p>
+            This reflects how prepared a lot is for export into target markets. It captures the status of phytosanitary
+            eligibility, certificates of origin, pesticide declarations and alignment with frameworks such as AAFC and FSMA.
+            A higher compliance score signals lower friction at border and inspection points.
+          </p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-tag">ESG alignment</div>
+          <div class="pillar-weight">Weight: 5 percent</div>
+          <p>
+            ESG alignment is a light but meaningful signal. It takes into account low input practices, sustainability
+            measures and environmental compliance indicators where these are documented. It does not override the other
+            factors but rewards producers who are investing in long term resilience.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FARMERS VS BUYERS -->
+    <section class="section-block">
+      <h2>3. How farmers use the VVI</h2>
+      <div class="two-col">
+        <div>
+          <p>
+            Farmers see the final VVI score for each lot alongside their own price settings. They do not have to manage
+            the underlying calculation. Instead, the platform provides an AI assisted pricing recommendation that takes
+            into account benchmark levels, current corridor conditions and the relative strength of the lot’s VVI.
+          </p>
+          <p>
+            This gives farmers a reference point when deciding whether to price above benchmark, align with prevailing
+            levels or hold inventory for a stronger window, while keeping price control firmly in their hands.
+          </p>
+        </div>
+        <div>
+          <p>
+            Over time, farmers can see patterns: which practices or quality outcomes tend to improve VVI scores and
+            how buyers respond to those changes. This feedback loop helps them decide where to invest in equipment,
+            agronomy and documentation to capture more value from export grade grain.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <h2>4. How buyers use the VVI</h2>
+      <div class="two-col">
+        <div>
+          <p>
+            Buyers do not use VVI to set prices on behalf of farmers. They use it as a filter and comparison tool. Within
+            the Trade Engine, they can prioritise lots with stronger quality, higher traceability integrity or better
+            compliance readiness for a specific corridor.
+          </p>
+          <p>
+            This reduces the time spent on manual due diligence and simplifies internal approvals when procurement teams
+            need to justify why a particular shipment is being selected.
+          </p>
+        </div>
+        <div>
+          <p>
+            For institutional buyers and traders, the VVI score can be mapped directly into internal risk and quality
+            frameworks. Lots with higher scores can be flagged as preferred candidates for long term contracts or
+            higher value destinations, while lower scoring lots can still be used in less demanding channels.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section class="section-block">
+      <h2>5. Effect on the exchange</h2>
+      <p>
+        The VVI does not change settlement rules, counterparty protections or the way bids are escrow backed. It runs
+        alongside those systems as a visibility layer that makes each trade easier to understand. By exposing how quality,
+        traceability, compliance and ESG interact for every lot, the VVI helps move the market away from opaque discounts
+        and towards a cleaner view of verified value.
+      </p>
+      <p>
+        For farmers, that means a clearer path to differentiating their grain. For buyers, it means a more defensible
+        sourcing process. For the broader system, it is a step toward treating agricultural exports as a structured,
+        trust backed asset class rather than an undifferentiated bulk commodity.
+      </p>
+
+      <a href="how-it-works.html" class="back-link">← Back to how the platform works</a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="f-col">
+        <h4>Platform</h4>
+        <a href="how-it-works.html">How it works</a>
+        <a href="warehouse.html">Warehouse and operations</a>
+        <a href="buyer.html">Buyer hub</a>
+        <a href="farmer.html">Farmer hub</a>
+      </div>
+      <div class="f-col">
+        <h4>Documents</h4>
+        <a href="GANT EXCHANGE PITCHDECK.pdf">Pitch deck</a>
+        <a href="Investor FAQ 1*.pdf">Investor FAQ</a>
+        <a href="GANT GOVERNMENT INTEGRATION PROPOSAL .pdf">Government integration proposal</a>
+      </div>
+      <div class="f-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="pilot.html">Pilot program</a>
+        <a href="canada.html">Why Canada</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="f-col">
+        <h4>Policies</h4>
+        <a href="compliance.html">Compliance and documentation</a>
+        <a href="vvi.html">Verified Value Index</a>
+        <a href="settlement.html">Settlement and governance</a>
+        <a href="corridorengine.html">Corridor risk engine</a>
+      </div>
+    </div>
+    <div class="subfoot">© 2025 GANT Exchange. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger?.addEventListener('click', () => {
+      navLinks?.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>
