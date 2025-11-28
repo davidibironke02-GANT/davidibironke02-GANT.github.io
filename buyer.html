@@ -56,12 +56,6 @@
       background:rgba(255,255,255,.82);padding:28px 34px;border-radius:14px;
       max-width:780px;text-align:center;
     }
-    .hero-overlay h1{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(28px,4.5vw,42px);
-      font-weight:700;
-      margin-bottom:10px;
-    }
     .hero-overlay p{
       font-size:18px;
       color:var(--muted);
@@ -119,10 +113,7 @@
       font-size:22px;
       margin-bottom:8px;
     }
-    .card p{
-      color:var(--muted);
-      font-size:15px;
-    }
+    .card p{color:var(--muted);font-size:15px}
 
     /* STEPS */
     .steps{margin-top:20px;display:grid;gap:22px}
@@ -137,24 +128,6 @@
       font-family:'Cormorant Garamond',serif;
       font-size:22px;
       margin-bottom:8px;
-    }
-
-    /* CTA SECTION */
-    .cta-block{
-      text-align:center;
-      margin:50px 0 40px;
-    }
-    .cta-block p{
-      max-width:640px;
-      margin:0 auto 14px;
-      color:var(--muted);
-    }
-    .cta-actions{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:12px;
-      margin-top:10px;
     }
 
     footer{
@@ -186,13 +159,12 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-overlay">    
+  <div class="hero-overlay">
     <p>
       GANT connects buyers to verified Canadian grain that is processed, stored and documented in one integrated facility, 
-      with route risk scored up front and shipment data available through a single QR code once your cargo arrives.
+      with corridor risk scored up front and shipment data available through a single QR code once your cargo arrives.
     </p>
     <div class="hero-actions">
-      <a href="pilot.html" class="btn-primary">Sign Up as a Buyer</a>
       <a href="pilot.html" class="btn-primary">Join the 2027 Pilot Program</a>
     </div>
   </div>
@@ -202,34 +174,25 @@
 <section class="container">
   <h2 class="section-title">Why Buyers Work with GANT</h2>
   <p class="section-lead">
-    Our role is simple: we make it easier to buy Canadian grain with confidence. You keep full control of your logistics and destination handling; we focus on quality, financing, documentation, and risk visibility along the corridor.
+    Our role is simple: we make it easier to buy Canadian grain with confidence. You keep full control of your logistics and destination handling; we focus on quality, financing, documentation and risk visibility along the corridor.
   </p>
 
   <div class="grid-4">
     <div class="card">
       <h3>Consistent, Verified Quality</h3>
-      <p>
-        Every lot is processed through a modern grain facility with drying, cleaning and a dedicated quality testing lab.
-        You see objective results before you commit.
-      </p>
+      <p>Every lot is processed through a modern grain facility with drying, cleaning and a dedicated quality testing lab.</p>
     </div>
     <div class="card">
       <h3>Export-Ready Documentation</h3>
-      <p>
-        We prepare the core export package for each shipment: commercial invoice, packing list, certificate of origin, phytosanitary certificate and chain-of-custody records linked to your lot.
-      </p>
+      <p>We prepare the core export documents: invoice, packing list, certificate of origin, phytosanitary certificate and chain-of-custody records.</p>
     </div>
     <div class="card">
       <h3>Ex Works Pickup</h3>
-      <p>
-        Trades are structured on Ex-Works terms from our processing facility. Once your trade is approved, you arrange your own trucking, rail and ocean carriers. You pay only for the grain and your own logistics, duties and port costs.
-      </p>
+      <p>You handle trucking, rail and ocean carriers. You pay only for grain and your own logistics, duties and port costs.</p>
     </div>
     <div class="card">
       <h3>Risk Assessment</h3>
-      <p>
-        All bids are backed by escrow and must pass corridor-level risk checks before a trade is confirmed. That means fewer surprises, fewer cancelled deals and a cleaner procurement pipeline.
-      </p>
+      <p>All bids are escrow-backed and must pass corridor-level risk checks before approval.</p>
     </div>
   </div>
 </section>
@@ -238,185 +201,65 @@
 <section class="container">
   <h2 class="section-title">How Buying Works</h2>
   <p class="section-lead">
-    The flow is designed around procurement best practices. You see the information you need, place a real bid, let the risk engine do its work, then pick up when the cargo is ready.
+    You see the information you need, place a real bid, let the risk engine do its work, then pick up when the cargo is ready.
   </p>
 
   <div class="steps">
+
     <div class="step-box">
       <h4>Step 1 — Browse Available Lots</h4>
       <p>
-        You browse live lots from the GANT warehouse, each with its own quality results, storage history, sustainability information and a Verified Value Index score
-        that summarizes the overall strength of that lot. <a href="vvi.html" style="color:var(--deep)">Learn more about the Verified Value Index →</a>
+        Lots include quality tests, warehouse history, sustainability indicators and a Verified Value Index score.
+        <a href="vvi.html" style="color:var(--deep)">Learn more →</a>
       </p>
     </div>
 
     <div class="step-box">
-      <h4>Step 2 — Place an Escrow-Backed Bid</h4>
+      <h4>Step 2 — Place 20% Escrow Deposit</h4>
       <p>
-        To protect our farmers from phantom orders, we require every buyer to deposit 20% of the trade cost before they can bid.
-        Our fintech partners lock the required funds in escrow so that both sides know the trade is real.
+        You deposit 20% of trade value to prevent phantom orders. Funds are held by fintech partners.
       </p>
     </div>
 
     <div class="step-box">
-      <h4>Step 3 — Corridor Risk Engine Review</h4>
+      <h4>Step 3 — Corridor Risk Engine</h4>
       <p>
-        Before the trade is confirmed, our Risk Engine gathers intelligence along the trade corridor:
-        tariffs, geopolitical conditions, strikes, disruptions and environmental events.
-        If the route is within tolerance, the trade is approved. If not, we flag the issue and may suggest alternatives.
+        We assess tariffs, geopolitical events, disruptions and environmental conditions before approval.
       </p>
     </div>
 
     <div class="step-box">
-      <h4>Step 4 — Trade Approval and Preparation</h4>
+      <h4>Step 4 — Documentation and Release</h4>
       <p>
-        Once approved, the trade is locked in. We prepare your export documentation package, schedule warehouse release,
-        and align the lot with your pickup window. You receive a clear view of what is ready, where it is in the warehouse and when it will be available.
+        Once approved, we prepare your export documentation and schedule warehouse release.
       </p>
     </div>
 
     <div class="step-box">
-      <h4>Step 5 — EXW Pickup from our processing facility</h4>
+      <h4>Step 5 — EXW Pickup</h4>
       <p>
-        You send your trucking and logistics partners to our facility to load the container.
-        The pallets are loaded, sealed and accompanied by a single shipment QR code and a single use IoT device inside the container
-        that monitors conditions in transit.
+        You pick up from our processing facility. Containers include a QR code and a single use IoT monitor.
       </p>
     </div>
 
     <div class="step-box">
-      <h4>Step 6 — Delivery, QR Scan and Shipment View</h4>
+      <h4>Step 6 — Delivery and QR Scan</h4>
       <p>
-        When the container arrives at your facility, you scan the QR code on the pallet.
-        That unlocks the full picture in one place: quality history, storage climate records, farmer sustainability practices, export documents and a summarized view of the container’s journey from our warehouse to you.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT YOU SEE BEFORE YOU COMMIT -->
-<section class="container">
-  <h2 class="section-title">What You See Before You Commit</h2>
-  <p class="section-lead">
-    At the bidding stage, you need enough information to make a rational purchase decision. We keep that front and center.
-  </p>
-
-  <div class="steps">
-    <div class="step-box">
-      <h4>Lot-Level Information</h4>
-      <p>
-        For each lot you see:
-        quality test results, grain type and grade, moisture and key parameters, pallet count and total weight,
-        plus the Verified Value Index score.
+        Scanning the QR unlocks quality history, storage records and the container’s journey.
       </p>
     </div>
 
-    <div class="step-box">
-      <h4>Storage and Handling History</h4>
-      <p>
-        You see how long the grain has been in storage, basic temperature and humidity history inside the warehouse,
-        and whether the lot has remained within agreed environmental ranges.
-      </p>
-    </div>
-
-    <div class="step-box">
-      <h4>Practices and Sustainability Signals</h4>
-      <p>
-        You see a summarized view of the farmer’s practices and sustainability profile where available:
-        for example, whether the lot qualifies for specific sustainability claims or sits within a standard baseline.
-      </p>
-    </div>
-
-    <div class="step-box">
-      <h4>Risk Classification for the Route</h4>
-      <p>
-        Each proposed route carries a corridor-level risk indicator—green, yellow, orange or red—covering:
-        tariffs, wars or conflict zones, strikes, major disruptions and environmental events.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- IN-TRANSIT VISIBILITY & DSRE -->
-<section class="container">
-  <h2 class="section-title">In-Transit Visibility Once the Container Moves</h2>
-  <p class="section-lead">
-    Once your shipment leaves our processing facility, our Dynamic Shipment Risk Engine tracks the shipment and provides early warnings until delivery.
-  </p>
-
-  <div class="steps">
-    <div class="step-box">
-      <h4>Container-Level Monitoring</h4>
-      <p>
-        Each container carries a small sensor device that tracks temperature, humidity, movement and shocks along the way.
-        This feeds into our Dynamic Shipment Risk Engine.
-      </p>
-    </div>
-
-    <div class="step-box">
-      <h4>Public Corridor and Port Signals</h4>
-      <p>
-        The same shipment engine reads public information about the route:
-        corridor disruptions, major environmental events, port congestion and rail bulletins.
-      </p>
-    </div>
-
-    <div class="step-box">
-      <h4>Clear, Intuitive Risk Bands</h4>
-      <p>
-        The system weighs sensor data, movement patterns, corridor conditions and port or rail signals.
-        It outputs a clear risk level—green, yellow, orange or red.
-      </p>
-    </div>
-
-    <div class="step-box">
-      <h4>From Data to Claims Readiness</h4>
-      <p>
-        If there is a problem, you have a record of the shipment’s conditions and route to support your discussions with carriers or insurers.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- OPTIONAL BUYER FINANCING -->
-<section class="container">
-  <h2 class="section-title">Optional Buyer Financing</h2>
-  <p class="section-lead">
-    Some buyers prefer to preserve cash while still locking in supply. We work with financing partners in your country who can fund up to 80% of the trade while you contribute an initial 20% deposit.
-  </p>
-
-  <div class="steps">
-    <div class="step-box">
-      <h4>Deposit and Instrument</h4>
-      <p>
-        You place an agreed deposit (minimum 20% of the trade value) and provide a post-dated cheque or another accepted repayment instrument.
-      </p>
-    </div>
-
-    <div class="step-box">
-      <h4>Financing Partner Settlement</h4>
-      <p>
-        Once the trade is approved and you meet the financing conditions, the fintech provider pays for the trade on your behalf.
-      </p>
-    </div>
-
-    <div class="step-box">
-      <h4>Aligned with Corridor and Shipment Risk</h4>
-      <p>
-        The same corridor and shipment visibility also informs financing decisions.
-      </p>
-    </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="container cta-block">
-  <h2 class="section-title">Start a Conversation with GANT</h2>
+  <h2 class="section-title">Begin Your Engagement with GANT</h2>
   <p>
-    Whether you are sourcing for a mill, a processing plant or an export program, GANT is designed to give you a cleaner way to buy Canadian grain—clear information, real bids, prepared export documentation and visibility from our warehouse to your gate.
+    Whether you are sourcing for a mill, a processing plant or an export program, GANT offers a cleaner way to buy Canadian grain—verified information, real bids and full visibility from our warehouse to your gate.
   </p>
+
   <div class="cta-actions">
-    <a href="pilot.html" class="btn-primary">Sign Up as a Buyer</a>
     <a href="pilot.html" class="btn-primary">Join the 2027 Pilot Program</a>
   </div>
 </section>
