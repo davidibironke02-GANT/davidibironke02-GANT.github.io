@@ -222,6 +222,7 @@
 </head>
 
 <body>
+
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="nav-inner">
@@ -397,20 +398,19 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <script>
-    // NAV TOGGLE
+    // NAV
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
-    hamburger?.addEventListener('click', () => {
-      navLinks?.classList.toggle('show');
-    });
+    hamburger?.addEventListener('click', () => navLinks?.classList.toggle('show'));
 
-    // SUPABASE CLIENT
+    // SUPABASE CLIENT (CORRECT + FULL KEY)
     const SUPABASE_URL = "https://djtdmqqsereqkppckjyx.supabase.co";
     const SUPABASE_ANON_KEY =
-      "eyJhbGciOiJIUzI1NiIsI...PNfATGQ"; // shortened for readability; use your full key
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGRtcXFzZXJlcWtwcGNranl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDM1NjUsImV4cCI6MjA3NDQ3OTU2NX0.f6Qo_xFEHep6A7ulaM9RlP_ILQXCLqdBKPuwPNfATGQ";
+
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    // CONDITIONAL FIELDS
+    // CONDITIONAL UI LOGIC
     const categorySelect = document.getElementById("category");
     const farmerFields = document.getElementById("farmerFields");
     const buyerFields = document.getElementById("buyerFields");
@@ -419,7 +419,6 @@
 
     categorySelect.addEventListener("change", () => {
       const val = categorySelect.value;
-
       farmerFields.classList.toggle("hidden", val !== "farmer");
       buyerFields.classList.toggle("hidden", val !== "buyer");
       governmentFields.classList.toggle("hidden", val !== "government");
@@ -461,7 +460,7 @@
         pilotForm.reset();
         pilotMsg.style.display = "inline";
       } else {
-        alert("Could not submit, please try again. Check console for details.");
+        alert("Could not submit, please try again.");
         console.error(error);
       }
 
