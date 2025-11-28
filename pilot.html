@@ -17,23 +17,24 @@
       --muted:#4a4a4a;
       --deep:#062e21;
       --deep-2:#0c3b2a;
-      --border:#d6d2c6;
+      --border:#e2e2e2;
       --card:#fff;
       --container:1120px;
-      --radius:18px;
+      --radius:16px;
     }
 
     * { box-sizing:border-box; margin:0; padding:0; }
+    html, body { max-width:100%; overflow-x:hidden; }
     body {
       font-family:'IBM Plex Sans',sans-serif;
-      background:var(--deep);
+      background:#f9f7f3;
       color:var(--ink);
       line-height:1.7;
     }
     a { text-decoration:none; color:inherit; }
 
     .container {
-      width:min(var(--container), 92%);
+      width:min(var(--container), 94%);
       margin-inline:auto;
       padding-inline:18px;
     }
@@ -42,7 +43,7 @@
     .navbar {
       position:sticky;
       top:0;
-      z-index:100;
+      z-index:80;
       background:#fff;
       border-bottom:1px solid var(--border);
     }
@@ -67,115 +68,111 @@
     }
     .brand .bottom { font-size:20px; opacity:.9; }
 
+    .hamburger {
+      font-size:26px;
+      cursor:pointer;
+      display:none;
+    }
+    @media (max-width:860px) {
+      .hamburger { display:block; }
+    }
+
     .nav-links {
       display:flex;
-      align-items:center;
       gap:18px;
       font-size:15px;
       font-weight:600;
-      color:#222;
     }
-    .nav-links a:hover { color:var(--deep); }
-
-    .login-btn {
-      background:var(--deep);
-      color:var(--beige);
-      border-radius:999px;
-      padding:9px 16px;
-      font-size:14px;
-      font-weight:700;
+    @media (max-width:860px) {
+      .nav-links {
+        position:absolute;
+        top:58px;
+        right:18px;
+        flex-direction:column;
+        background:#fff;
+        border:1px solid var(--border);
+        padding:12px;
+        border-radius:12px;
+        display:none;
+      }
+      .nav-links.show { display:flex; }
     }
 
     /* HERO */
     .hero {
-      padding:50px 18px;
+      background:#062e21;
+      color:#f0ede5;
+      padding:60px 18px;
       text-align:center;
-      color:var(--beige);
     }
     .hero h1 {
       font-family:'Cormorant Garamond',serif;
-      font-size:clamp(30px, 4vw, 46px);
-      margin-bottom:8px;
+      font-size:clamp(32px, 4vw, 44px);
+      margin-bottom:10px;
     }
     .hero p {
       font-size:15px;
-      max-width:40rem;
+      max-width:620px;
       margin:0 auto;
-      opacity:.92;
+      opacity:.9;
     }
 
     /* FORM CARD */
-    .card {
-      background:var(--beige);
-      border-radius:var(--radius);
-      padding:24px 22px 26px;
-      margin:32px auto;
+    .form-card {
       max-width:800px;
+      margin:40px auto;
+      background:var(--card);
       border:1px solid var(--border);
-      box-shadow:0 12px 34px rgba(0,0,0,.25);
+      border-radius:var(--radius);
+      padding:26px 22px;
+      box-shadow:0 12px 34px rgba(0,0,0,.07);
     }
-    .card h2 {
+    h2.section-title {
       font-family:'Cormorant Garamond',serif;
       font-size:26px;
       margin-bottom:6px;
-      color:var(--deep-2);
+      color:var(--deep);
     }
-    .card p {
-      font-size:14px;
+    .intro {
+      font-size:15px;
       color:var(--muted);
-      margin-bottom:16px;
-      text-align:justify;
+      margin-bottom:18px;
     }
 
-    .form-grid {
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:16px;
-    }
-    @media (max-width:720px) {
-      .form-grid { grid-template-columns:1fr; }
-    }
-
-    label {
-      font-size:13px;
-      font-weight:600;
-      color:#333;
-      margin-bottom:4px;
+    .field { margin-bottom:14px; }
+    .field label {
       display:block;
+      font-size:14px;
+      font-weight:600;
+      margin-bottom:4px;
     }
-    input[type="text"],
-    input[type="email"],
-    select,
-    textarea {
+    .field input,
+    .field select,
+    .field textarea {
       width:100%;
+      padding:10px 11px;
       border-radius:12px;
       border:1px solid var(--border);
-      padding:10px 11px;
       font-size:14px;
       background:#fff;
     }
-    textarea {
-      height:90px;
-      resize:vertical;
-    }
-    input:focus, select:focus, textarea:focus {
-      outline:none;
-      border-color:var(--deep-2);
-      box-shadow:0 0 0 1px rgba(6,46,33,.12);
-    }
+    .field textarea { min-height:90px; }
 
-    #role_other_field {
-      display:none;
-    }
+    .hidden { display:none; }
 
+    .submit-row {
+      margin-top:16px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
     .btn-primary {
       background:var(--deep);
       color:var(--beige);
-      border:none;
-      font-size:14px;
-      font-weight:700;
       padding:11px 16px;
       border-radius:999px;
+      border:none;
+      font-weight:700;
       cursor:pointer;
     }
     .btn-primary:hover { background:var(--deep-2); }
@@ -183,223 +180,293 @@
     .success {
       display:none;
       font-size:14px;
-      margin-top:8px;
       color:#0a6d3a;
       font-weight:600;
     }
 
     /* FOOTER */
     footer {
+      background:var(--deep);
+      color:var(--beige);
+      margin-top:40px;
+    }
+    .footer-inner {
+      max-width:var(--container);
+      margin:auto;
+      padding:26px 18px;
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+      font-size:13px;
+    }
+    @media (max-width:860px) {
+      .footer-inner { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:600px) {
+      .footer-inner { grid-template-columns:1fr; }
+    }
+    .f-col h4 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:17px;
+      margin-bottom:8px;
+    }
+    .f-col a { display:block; margin-bottom:4px; opacity:.9; }
+    .subfoot {
       background:#042519;
       color:#cfd7cf;
-      margin-top:40px;
-      padding:24px 18px 22px;
+      padding:10px;
       text-align:center;
       font-size:12px;
     }
-
   </style>
 </head>
 
 <body>
-
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="nav-inner">
-      <div class="brand">
-        <span class="top">GANT</span>
-        <span class="bottom">EXCHANGE</span>
+      <div class="nav-left">
+        <div id="hamburger" class="hamburger">☰</div>
+        <div class="brand">
+          <span class="top">GANT</span>
+          <span class="bottom">EXCHANGE</span>
+        </div>
       </div>
-      <div class="nav-links">
+
+      <div id="navLinks" class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="pilot.html">Pilot program</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="warehouse.html">Warehouse</a>
+        <a href="buyer.html">For Buyers</a>
+        <a href="farmer.html">For Farmers</a>
         <a href="contact.html">Contact</a>
       </div>
-      <a class="login-btn" href="comingsoon.html">Platform Login</a>
     </div>
   </nav>
 
   <!-- HERO -->
   <header class="hero">
-    <h1>2027 Pilot Program Expression of Interest</h1>
-    <p>
-      This form helps us structure the first operational corridors, onboard partners,
-      and size the physical and digital infrastructure required to run the 2027 export pilot.
-    </p>
+    <h1>2027 Pilot Program</h1>
+    <p>Help shape how Canadian grain moves across borders by registering your interest in the 2027 pilot. This form helps us understand corridor demand, stakeholder categories and operational priorities.</p>
   </header>
 
-  <!-- FORM CARD -->
-  <main>
-    <div class="card">
-      <h2>Register your interest</h2>
-      <p>
-        Participation is non binding. Your submission helps determine which corridors,
-        commodities, financing tiers and government integrations will be prioritised.
+  <!-- FORM -->
+  <main class="container">
+    <div class="form-card">
+      <h2 class="section-title">Register your pilot interest</h2>
+      <p class="intro">
+        This information helps us design the first corridor, establish operational sizing and align participating farmers, buyers, government partners and investors.
       </p>
 
-      <form id="pilotForm" autocomplete="off">
-        <div class="form-grid">
-          <div>
-            <label>Full name *</label>
-            <input id="full_name" type="text" required />
+      <form id="pilotForm">
+
+        <!-- BASIC FIELDS -->
+        <div class="field">
+          <label for="full_name">Full name *</label>
+          <input type="text" id="full_name" required />
+        </div>
+
+        <div class="field">
+          <label for="email">Email *</label>
+          <input type="email" id="email" required />
+        </div>
+
+        <div class="field">
+          <label for="org">Organization</label>
+          <input type="text" id="org" />
+        </div>
+
+        <div class="field">
+          <label for="role">Role or position</label>
+          <input type="text" id="role" />
+        </div>
+
+        <div class="field">
+          <label for="country">Country</label>
+          <input type="text" id="country" />
+        </div>
+
+        <!-- CATEGORY -->
+        <div class="field">
+          <label for="category">I am a *</label>
+          <select id="category" required>
+            <option value="">Select</option>
+            <option value="farmer">Farmer or cooperative</option>
+            <option value="buyer">Buyer, miller or trader</option>
+            <option value="investor">Investor</option>
+            <option value="government">Government partner</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <!-- CONDITIONAL: FARMER -->
+        <div id="farmerFields" class="hidden">
+          <div class="field">
+            <label for="volume">Annual grain volume handled</label>
+            <input type="text" id="volume" placeholder="e.g. 100 MT+" />
           </div>
 
-          <div>
-            <label>Email *</label>
-            <input id="email" type="email" required />
-          </div>
-
-          <div>
-            <label>Organisation</label>
-            <input id="org" type="text" />
-          </div>
-
-          <div>
-            <label>Your role *</label>
-            <select id="role" required>
-              <option value="">Select</option>
-              <option>Founder</option>
-              <option>Farmer</option>
-              <option>Trader</option>
-              <option>Buyer</option>
-              <option>Government</option>
-              <option>Investor</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-          <!-- ROLE OTHER FIELD -->
-          <div id="role_other_field">
-            <label>Specify role</label>
-            <input id="role_other" type="text" />
-          </div>
-
-          <div>
-            <label>Country *</label>
-            <input id="country" type="text" required />
-          </div>
-
-          <div>
-            <label>Category *</label>
-            <select id="category" required>
-              <option value="">Select</option>
-              <option>Farmer</option>
-              <option>Buyer</option>
-              <option>Government</option>
-              <option>Investor</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-          <div>
-            <label>Annual volume (if applicable)</label>
-            <input id="volume" type="text" />
-          </div>
-
-          <div>
-            <label>Primary commodities</label>
-            <input id="commodities" type="text" />
-          </div>
-
-          <div>
-            <label>Corridor interest</label>
-            <input id="corridor_interest" type="text" />
-          </div>
-
-          <div>
-            <label>Financing interest</label>
-            <input id="financing_interest" type="text" />
-          </div>
-
-          <div>
-            <label>Government focus</label>
-            <input id="government_focus" type="text" />
-          </div>
-
-          <div>
-            <label>Investment focus</label>
-            <input id="investment_focus" type="text" />
-          </div>
-
-          <div style="grid-column:1 / -1">
-            <label>Additional notes</label>
-            <textarea id="notes"></textarea>
+          <div class="field">
+            <label for="commodities">Primary commodities</label>
+            <input type="text" id="commodities" placeholder="e.g. Wheat, barley, pulses" />
           </div>
         </div>
 
-        <button id="pilotBtn" class="btn-primary" type="submit">Submit</button>
-        <div id="pilotMsg" class="success">Thank you. Your interest has been recorded.</div>
+        <!-- CONDITIONAL: BUYER -->
+        <div id="buyerFields" class="hidden">
+          <div class="field">
+            <label for="corridor_interest">Corridor interest</label>
+            <input type="text" id="corridor_interest" placeholder="e.g. Asia, Africa, NAFTA Corridor" />
+          </div>
+
+          <div class="field">
+            <label for="financing_interest">Would you use financing</label>
+            <select id="financing_interest">
+              <option value="">Select</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+              <option value="depends">Depends</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- CONDITIONAL: GOVERNMENT -->
+        <div id="governmentFields" class="hidden">
+          <div class="field">
+            <label for="government_focus">Key focus areas</label>
+            <input type="text" id="government_focus" placeholder="e.g. Food security, export development" />
+          </div>
+        </div>
+
+        <!-- CONDITIONAL: INVESTOR -->
+        <div id="investorFields" class="hidden">
+          <div class="field">
+            <label for="investment_focus">Investment focus</label>
+            <input type="text" id="investment_focus" placeholder="e.g. Agritech, logistics, risk systems" />
+          </div>
+        </div>
+
+        <!-- NOTES -->
+        <div class="field">
+          <label for="notes">Additional notes</label>
+          <textarea id="notes"></textarea>
+        </div>
+
+        <!-- SUBMIT -->
+        <div class="submit-row">
+          <button type="submit" id="pilotBtn" class="btn-primary">Submit interest</button>
+          <span id="pilotMsg" class="success">Submitted. Thank you for registering.</span>
+        </div>
+
       </form>
     </div>
   </main>
 
   <!-- FOOTER -->
   <footer>
-    © 2025 GANT Exchange. All rights reserved.
+    <div class="footer-inner">
+      <div class="f-col">
+        <h4>Platform</h4>
+        <a href="how-it-works.html">How it works</a>
+        <a href="warehouse.html">Warehouse and operations</a>
+        <a href="buyer.html">Buyer hub</a>
+        <a href="farmer.html">Farmer hub</a>
+      </div>
+      <div class="f-col">
+        <h4>Documents</h4>
+        <a href="GANT EXCHANGE PITCHDECK.pdf">Pitch deck</a>
+        <a href="Investor FAQ 1*.pdf">Investor FAQ</a>
+        <a href="GANT GOVERNMENT INTEGRATION PROPOSAL .pdf">Government integration proposal</a>
+      </div>
+      <div class="f-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="canada.html">Why Canada</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="f-col">
+        <h4>Pilot</h4>
+        <a href="pilot.html">Pilot program</a>
+      </div>
+    </div>
+    <div class="subfoot">© 2025 GANT Exchange. All rights reserved.</div>
   </footer>
 
-  <!-- SUPABASE SCRIPT -->
+  <!-- SUPABASE + SCRIPT -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <script>
-    const SUPABASE_URL = "https://djtdmqqsereqkppckjyx.supabase.co";
-    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGRtcXFzZXJlcWtwcGNranl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDM1NjUsImV4cCI6MjA3NDQ3OTU2NX0.f6Qo_xFEHep6A7ulaM9RlP_ILQXCLqdBKPuwPNfATGQ";
-
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    // ROLE OTHER LOGIC
-    const roleSelect = document.getElementById("role");
-    const roleOtherField = document.getElementById("role_other_field");
-
-    roleSelect.addEventListener("change", function () {
-      roleOtherField.style.display = this.value === "Other" ? "block" : "none";
+    // NAV TOGGLE
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger?.addEventListener('click', () => {
+      navLinks?.classList.toggle('show');
     });
 
-    // FORM SUBMISSION
-    const form = document.getElementById("pilotForm");
-    const btn = document.getElementById("pilotBtn");
-    const msg = document.getElementById("pilotMsg");
+    // SUPABASE CLIENT
+    const SUPABASE_URL = "https://djtdmqqsereqkppckjyx.supabase.co";
+    const SUPABASE_ANON_KEY =
+      "eyJhbGciOiJIUzI1NiIsI...PNfATGQ"; // shortened for readability; use your full key
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    form.addEventListener("submit", async (e) => {
+    // CONDITIONAL FIELDS
+    const categorySelect = document.getElementById("category");
+    const farmerFields = document.getElementById("farmerFields");
+    const buyerFields = document.getElementById("buyerFields");
+    const governmentFields = document.getElementById("governmentFields");
+    const investorFields = document.getElementById("investorFields");
+
+    categorySelect.addEventListener("change", () => {
+      const val = categorySelect.value;
+
+      farmerFields.classList.toggle("hidden", val !== "farmer");
+      buyerFields.classList.toggle("hidden", val !== "buyer");
+      governmentFields.classList.toggle("hidden", val !== "government");
+      investorFields.classList.toggle("hidden", val !== "investor");
+    });
+
+    // FORM SUBMIT
+    const pilotForm = document.getElementById("pilotForm");
+    const pilotBtn = document.getElementById("pilotBtn");
+    const pilotMsg = document.getElementById("pilotMsg");
+
+    pilotForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      btn.disabled = true;
-      btn.textContent = "Submitting...";
-
-      const roleValue = roleSelect.value === "Other"
-        ? document.getElementById("role_other").value.trim()
-        : roleSelect.value;
+      pilotBtn.disabled = true;
+      pilotBtn.textContent = "Submitting...";
 
       const payload = {
-        full_name: document.getElementById("full_name").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        org: document.getElementById("org").value.trim(),
-        role: roleValue,
-        country: document.getElementById("country").value.trim(),
-        category: document.getElementById("category").value,
-        volume: document.getElementById("volume").value.trim(),
-        commodities: document.getElementById("commodities").value.trim(),
-        corridor_interest: document.getElementById("corridor_interest").value.trim(),
-        financing_interest: document.getElementById("financing_interest").value.trim(),
-        government_focus: document.getElementById("government_focus").value.trim(),
-        investment_focus: document.getElementById("investment_focus").value.trim(),
-        notes: document.getElementById("notes").value.trim()
+        full_name: full_name.value.trim(),
+        email: email.value.trim(),
+        org: org.value.trim(),
+        role: role.value.trim(),
+        country: country.value.trim(),
+        category: category.value,
+        volume: volume?.value || null,
+        commodities: commodities?.value || null,
+        corridor_interest: corridor_interest?.value || null,
+        financing_interest: financing_interest?.value || null,
+        government_focus: government_focus?.value || null,
+        investment_focus: investment_focus?.value || null,
+        notes: notes.value.trim()
       };
 
       const { error } = await supabase
         .from("pilot_2027_interest")
         .insert(payload);
 
-      if (error) {
-        alert("Could not submit. Check console.");
-        console.error(error);
+      if (!error) {
+        pilotForm.reset();
+        pilotMsg.style.display = "inline";
       } else {
-        form.reset();
-        msg.style.display = "block";
+        alert("Could not submit, please try again. Check console for details.");
+        console.error(error);
       }
 
-      btn.disabled = false;
-      btn.textContent = "Submit";
+      pilotBtn.disabled = false;
+      pilotBtn.textContent = "Submit interest";
     });
   </script>
 
