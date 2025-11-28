@@ -3,255 +3,362 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pilot Program 2027 | GANT Exchange</title>
+  <title>2027 Pilot Program | GANT Exchange</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --deep: #062e21;
-      --deep-2: #0c3b2a;
-      --beige: #f7f3ea;
-      --ink: #111;
-      --muted: #4a4a4a;
-      --border: #ddd8c8;
-      --radius: 16px;
-      --container: 720px;
+      --beige:#E9E3D5;
+      --ink:#111;
+      --muted:#4a4a4a;
+      --deep:#062e21;
+      --deep-2:#0c3b2a;
+      --border:#d6d2c6;
+      --card:#fff;
+      --container:1120px;
+      --radius:18px;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
+    * { box-sizing:border-box; margin:0; padding:0; }
     body {
-      background: var(--deep);
-      font-family: "IBM Plex Sans", sans-serif;
-      color: var(--ink);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+      font-family:'IBM Plex Sans',sans-serif;
+      background:var(--deep);
+      color:var(--ink);
+      line-height:1.7;
+    }
+    a { text-decoration:none; color:inherit; }
+
+    .container {
+      width:min(var(--container), 92%);
+      margin-inline:auto;
+      padding-inline:18px;
     }
 
+    /* NAVBAR */
+    .navbar {
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:#fff;
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner {
+      max-width:var(--container);
+      margin-inline:auto;
+      padding:12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand {
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+    }
+    .brand .top,
+    .brand .bottom {
+      font-family:'Cormorant Garamond',serif;
+      font-weight:700;
+      font-size:24px;
+    }
+    .brand .bottom { font-size:20px; opacity:.9; }
+
+    .nav-links {
+      display:flex;
+      align-items:center;
+      gap:18px;
+      font-size:15px;
+      font-weight:600;
+      color:#222;
+    }
+    .nav-links a:hover { color:var(--deep); }
+
+    .login-btn {
+      background:var(--deep);
+      color:var(--beige);
+      border-radius:999px;
+      padding:9px 16px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    /* HERO */
+    .hero {
+      padding:50px 18px;
+      text-align:center;
+      color:var(--beige);
+    }
+    .hero h1 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(30px, 4vw, 46px);
+      margin-bottom:8px;
+    }
+    .hero p {
+      font-size:15px;
+      max-width:40rem;
+      margin:0 auto;
+      opacity:.92;
+    }
+
+    /* FORM CARD */
     .card {
-      background: var(--beige);
-      width: min(var(--container), 94%);
-      padding: 32px 26px;
-      border-radius: var(--radius);
-      box-shadow: 0 16px 38px rgba(0,0,0,0.25);
-      border: 1px solid var(--border);
+      background:var(--beige);
+      border-radius:var(--radius);
+      padding:24px 22px 26px;
+      margin:32px auto;
+      max-width:800px;
+      border:1px solid var(--border);
+      box-shadow:0 12px 34px rgba(0,0,0,.25);
+    }
+    .card h2 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:26px;
+      margin-bottom:6px;
+      color:var(--deep-2);
+    }
+    .card p {
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:16px;
+      text-align:justify;
     }
 
-    h1 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 32px;
-      margin-bottom: 6px;
-      color: var(--deep);
+    .form-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
     }
-
-    .subheader {
-      font-size: 15px;
-      color: var(--muted);
-      margin-bottom: 22px;
-      line-height: 1.6;
+    @media (max-width:720px) {
+      .form-grid { grid-template-columns:1fr; }
     }
 
     label {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: var(--deep-2);
+      font-size:13px;
+      font-weight:600;
+      color:#333;
+      margin-bottom:4px;
+      display:block;
     }
-
-    input, select, textarea {
-      width: 100%;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      padding: 11px 12px;
-      margin-bottom: 16px;
-      font-size: 14px;
-      background: #fff;
-    }
-
+    input[type="text"],
+    input[type="email"],
+    select,
     textarea {
-      height: 110px;
-      resize: vertical;
+      width:100%;
+      border-radius:12px;
+      border:1px solid var(--border);
+      padding:10px 11px;
+      font-size:14px;
+      background:#fff;
+    }
+    textarea {
+      height:90px;
+      resize:vertical;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline:none;
+      border-color:var(--deep-2);
+      box-shadow:0 0 0 1px rgba(6,46,33,.12);
     }
 
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: var(--deep);
-      box-shadow: 0 0 0 1px rgba(6,46,33,0.12);
+    #role_other_field {
+      display:none;
     }
 
     .btn-primary {
-      background: var(--deep);
-      color: var(--beige);
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: none;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 4px;
+      background:var(--deep);
+      color:var(--beige);
+      border:none;
+      font-size:14px;
+      font-weight:700;
+      padding:11px 16px;
+      border-radius:999px;
+      cursor:pointer;
     }
-    .btn-primary:hover { background: var(--deep-2); }
+    .btn-primary:hover { background:var(--deep-2); }
 
-    .success-wrap {
-      text-align: center;
-      padding: 20px 10px;
-    }
-
-    .success-wrap h2 {
-      color: var(--deep);
-      font-family: "Cormorant Garamond", serif;
-      font-size: 26px;
-      margin-bottom: 8px;
-    }
-    .success-wrap p {
-      color: var(--muted);
-      font-size: 15px;
-      margin-bottom: 22px;
+    .success {
+      display:none;
+      font-size:14px;
+      margin-top:8px;
+      color:#0a6d3a;
+      font-weight:600;
     }
 
-    .back-link {
-      display: inline-block;
-      font-size: 14px;
-      color: var(--deep-2);
-      font-weight: 600;
-      text-align: center;
-      margin-top: 12px;
-      width: 100%;
+    /* FOOTER */
+    footer {
+      background:#042519;
+      color:#cfd7cf;
+      margin-top:40px;
+      padding:24px 18px 22px;
+      text-align:center;
+      font-size:12px;
     }
+
   </style>
 </head>
+
 <body>
 
-  <div class="card" id="formCard">
-
-    <h1>Pilot Program 2027</h1>
-    <p class="subheader">
-      This form helps us understand who is interested in participating in the 2027 cross border
-      agritrade pilot. Your information is confidential and used only for corridor planning.
-    </p>
-
-    <form id="pilotForm" autocomplete="off">
-
-      <!-- Full Name -->
-      <label for="full_name">Full name *</label>
-      <input id="full_name" type="text" required />
-
-      <!-- Email -->
-      <label for="email">Email *</label>
-      <input id="email" type="email" required />
-
-      <!-- Organization -->
-      <label for="org">Organization (optional)</label>
-      <input id="org" type="text" />
-
-      <!-- Country -->
-      <label for="country">Country *</label>
-      <input id="country" type="text" required />
-
-      <!-- Role -->
-      <label for="role">I am a *</label>
-      <select id="role" required>
-        <option value="">Select one</option>
-        <option value="Farmer">Farmer</option>
-        <option value="Buyer">Buyer</option>
-        <option value="Government / Public Sector">Government / Public Sector</option>
-        <option value="Investor">Investor</option>
-        <option value="Logistics provider">Logistics provider</option>
-        <option value="Other">Other</option>
-      </select>
-
-      <!-- Other text -->
-      <div id="otherRoleWrap" style="display:none;">
-        <label for="other_role">Please specify *</label>
-        <input id="other_role" type="text" />
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="top">GANT</span>
+        <span class="bottom">EXCHANGE</span>
       </div>
-
-      <!-- Conditional: Volume interest -->
-      <div id="volumeWrap" style="display:none;">
-        <label for="volume">Estimated annual volume you may participate with *</label>
-        <input id="volume" type="text" />
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="pilot.html">Pilot program</a>
+        <a href="contact.html">Contact</a>
       </div>
-
-      <!-- Corridor interest -->
-      <label for="corridor">Corridors you are most interested in *</label>
-      <input id="corridor" type="text" placeholder="Example: Canada → Africa / Canada → Asia / Domestic" required />
-
-      <!-- Financing -->
-      <label for="finance">Are you interested in financing support? *</label>
-      <select id="finance" required>
-        <option value="">Select one</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-        <option value="Unsure">Unsure</option>
-      </select>
-
-      <!-- Crops -->
-      <label for="crops">Crops you are primarily interested in *</label>
-      <input id="crops" type="text" required />
-
-      <!-- Notes -->
-      <label for="notes">Additional notes or context (optional)</label>
-      <textarea id="notes"></textarea>
-
-      <!-- Submit -->
-      <button class="btn-primary" id="pilotBtn" type="submit">Submit interest</button>
-    </form>
-
-  </div>
-
-
-  <!-- SUCCESS SCREEN -->
-  <div class="card" id="successCard" style="display:none;">
-    <div class="success-wrap">
-      <h2>Thank you</h2>
-      <p>Your interest in the 2027 pilot has been recorded. We will reach out as planning milestones are reached.</p>
-      <a href="index.html" class="back-link">← Back to home</a>
+      <a class="login-btn" href="comingsoon.html">Platform Login</a>
     </div>
-  </div>
+  </nav>
 
+  <!-- HERO -->
+  <header class="hero">
+    <h1>2027 Pilot Program Expression of Interest</h1>
+    <p>
+      This form helps us structure the first operational corridors, onboard partners,
+      and size the physical and digital infrastructure required to run the 2027 export pilot.
+    </p>
+  </header>
 
-  <!-- SUPABASE -->
+  <!-- FORM CARD -->
+  <main>
+    <div class="card">
+      <h2>Register your interest</h2>
+      <p>
+        Participation is non binding. Your submission helps determine which corridors,
+        commodities, financing tiers and government integrations will be prioritised.
+      </p>
+
+      <form id="pilotForm" autocomplete="off">
+        <div class="form-grid">
+          <div>
+            <label>Full name *</label>
+            <input id="full_name" type="text" required />
+          </div>
+
+          <div>
+            <label>Email *</label>
+            <input id="email" type="email" required />
+          </div>
+
+          <div>
+            <label>Organisation</label>
+            <input id="org" type="text" />
+          </div>
+
+          <div>
+            <label>Your role *</label>
+            <select id="role" required>
+              <option value="">Select</option>
+              <option>Founder</option>
+              <option>Farmer</option>
+              <option>Trader</option>
+              <option>Buyer</option>
+              <option>Government</option>
+              <option>Investor</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <!-- ROLE OTHER FIELD -->
+          <div id="role_other_field">
+            <label>Specify role</label>
+            <input id="role_other" type="text" />
+          </div>
+
+          <div>
+            <label>Country *</label>
+            <input id="country" type="text" required />
+          </div>
+
+          <div>
+            <label>Category *</label>
+            <select id="category" required>
+              <option value="">Select</option>
+              <option>Farmer</option>
+              <option>Buyer</option>
+              <option>Government</option>
+              <option>Investor</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Annual volume (if applicable)</label>
+            <input id="volume" type="text" />
+          </div>
+
+          <div>
+            <label>Primary commodities</label>
+            <input id="commodities" type="text" />
+          </div>
+
+          <div>
+            <label>Corridor interest</label>
+            <input id="corridor_interest" type="text" />
+          </div>
+
+          <div>
+            <label>Financing interest</label>
+            <input id="financing_interest" type="text" />
+          </div>
+
+          <div>
+            <label>Government focus</label>
+            <input id="government_focus" type="text" />
+          </div>
+
+          <div>
+            <label>Investment focus</label>
+            <input id="investment_focus" type="text" />
+          </div>
+
+          <div style="grid-column:1 / -1">
+            <label>Additional notes</label>
+            <textarea id="notes"></textarea>
+          </div>
+        </div>
+
+        <button id="pilotBtn" class="btn-primary" type="submit">Submit</button>
+        <div id="pilotMsg" class="success">Thank you. Your interest has been recorded.</div>
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 GANT Exchange. All rights reserved.
+  </footer>
+
+  <!-- SUPABASE SCRIPT -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const SUPABASE_URL = "https://djtdmqqsereqkppckjyx.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGRtcXFzZXJlcWtwcGNranl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDM1NjUsImV4cCI6MjA3NDQ3OTU2NX0.f6Qo_xFEHep6A7ulaM9RlP_ILQXCLqdBKPuwPNfATGQ";
 
-    const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    const role = document.getElementById("role");
-    const otherRoleWrap = document.getElementById("otherRoleWrap");
-    const volumeWrap = document.getElementById("volumeWrap");
+    // ROLE OTHER LOGIC
+    const roleSelect = document.getElementById("role");
+    const roleOtherField = document.getElementById("role_other_field");
 
-    // CONDITIONAL DISPLAY
-    role.addEventListener("change", () => {
-      const value = role.value;
-
-      if (value === "Other") {
-        otherRoleWrap.style.display = "block";
-      } else {
-        otherRoleWrap.style.display = "none";
-      }
-
-      if (value === "Farmer" || value === "Buyer") {
-        volumeWrap.style.display = "block";
-      } else {
-        volumeWrap.style.display = "none";
-      }
+    roleSelect.addEventListener("change", function () {
+      roleOtherField.style.display = this.value === "Other" ? "block" : "none";
     });
-
 
     // FORM SUBMISSION
     const form = document.getElementById("pilotForm");
     const btn = document.getElementById("pilotBtn");
+    const msg = document.getElementById("pilotMsg");
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -259,32 +366,40 @@
       btn.disabled = true;
       btn.textContent = "Submitting...";
 
+      const roleValue = roleSelect.value === "Other"
+        ? document.getElementById("role_other").value.trim()
+        : roleSelect.value;
+
       const payload = {
         full_name: document.getElementById("full_name").value.trim(),
         email: document.getElementById("email").value.trim(),
-        organization: document.getElementById("org").value.trim(),
+        org: document.getElementById("org").value.trim(),
+        role: roleValue,
         country: document.getElementById("country").value.trim(),
-        role: role.value === "Other"
-          ? "Other – " + document.getElementById("other_role").value.trim()
-          : role.value,
+        category: document.getElementById("category").value,
         volume: document.getElementById("volume").value.trim(),
-        corridor_interest: document.getElementById("corridor").value.trim(),
-        financing_interest: document.getElementById("finance").value,
-        crops: document.getElementById("crops").value.trim(),
+        commodities: document.getElementById("commodities").value.trim(),
+        corridor_interest: document.getElementById("corridor_interest").value.trim(),
+        financing_interest: document.getElementById("financing_interest").value.trim(),
+        government_focus: document.getElementById("government_focus").value.trim(),
+        investment_focus: document.getElementById("investment_focus").value.trim(),
         notes: document.getElementById("notes").value.trim()
       };
 
-      const { error } = await db.from("pilot_2027_interest").insert(payload);
+      const { error } = await supabase
+        .from("pilot_2027_interest")
+        .insert(payload);
 
-      if (!error) {
-        document.getElementById("formCard").style.display = "none";
-        document.getElementById("successCard").style.display = "block";
+      if (error) {
+        alert("Could not submit. Check console.");
+        console.error(error);
       } else {
-        alert("Could not submit, please try again.");
+        form.reset();
+        msg.style.display = "block";
       }
 
       btn.disabled = false;
-      btn.textContent = "Submit interest";
+      btn.textContent = "Submit";
     });
   </script>
 
