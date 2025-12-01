@@ -1,76 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-   <!-- Main Pages -->
-   <url>
-      <loc>https://gantexchange.com/index.html</loc>
-      <lastmod>2025-10-01</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-   </url>
-   <url>
-      <loc>https://gantexchange.com/about.html</loc>
-      <lastmod>2025-10-01</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://gantexchange.com/exchange.html</loc>
-      <lastmod>2025-10-01</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://gantexchange.com/contact.html</loc>
-      <lastmod>2025-10-01</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
+  <!-- ROOT -->
+  <url>
+    <loc>https://gantexchange.com/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>1.00</priority>
+  </url>
 
-   <!-- Insights & Policy Articles -->
-   <url>
-      <loc>https://gantexchange.com/policy.html</loc>
-      <lastmod>2025-10-01</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-   </url>
-   <url>
-      <loc>https://gantexchange.com/corridorengine.html</loc>
-      <lastmod>2025-10-01</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-   </url>
-   <url>
-      <loc>https://gantexchange.com/climate.html</loc>
-      <lastmod>2025-10-01</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-   </url>
-   <url>
-      <loc>https://gantexchange.com/pricing.html</loc>
-      <lastmod>2025-10-01</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-   </url>
+  <!-- CORPORATE PAGES -->
+  <url>
+    <loc>https://gantexchange.com/about.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.90</priority>
+  </url>
 
-   <!-- Key Documents -->
-   <url>
-      <loc>https://gantexchange.com/GANT%20EXCHANGE%20PITCHDECK.pdf</loc>
-      <lastmod>2025-10-01</lastmod>
-      <changefreq>yearly</changefreq>
-      <priority>0.5</priority>
-   </url>
-   <url>
-      <loc>https://gantexchange.com/Investor%20FAQ%201*.pdf</loc>
-      <lastmod>2025-10-01</lastmod>
-      <changefreq>yearly</changefreq>
-      <priority>0.5</priority>
-   </url>
-   <url>
-      <loc>https://gantexchange.com/GANT%20GOVERNMENT%20INTEGRATION%20PROPOSAL%20.pdf</loc>
-      <lastmod>2025-10-01</lastmod>
-      <changefreq>yearly</changefreq>
-      <priority>0.5</priority>
-   </url>
+  <url>
+    <loc>https://gantexchange.com/contact.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://gantexchange.com/canada.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- PLATFORM ARCHITECTURE -->
+  <url>
+    <loc>https://gantexchange.com/how-it-works.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://gantexchange.com/warehouse.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://gantexchange.com/traceability.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://gantexchange.com/corridorengine.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://gantexchange.com/financing.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://gantexchange.com/settlement.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://gantexchange.com/vvi.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://gantexchange.com/compliance.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- USER ACCESS -->
+  <url>
+    <loc>https://gantexchange.com/farmer.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://gantexchange.com/buyer.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://gantexchange.com/login.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <!-- PILOT PROGRAM -->
+  <url>
+    <loc>https://gantexchange.com/pilot.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- DOCUMENTS -->
+  <url>
+    <loc>https://gantexchange.com/GANT%20EXCHANGE%20PITCHDECK.pdf</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.40</priority>
+  </url>
+
+  <url>
+    <loc>https://gantexchange.com/Investor%20FAQ%201*.pdf</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.40</priority>
+  </url>
+
+  <url>
+    <loc>https://gantexchange.com/GANT%20GOVERNMENT%20INTEGRATION%20PROPOSAL%20.pdf</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.40</priority>
+  </url>
 
 </urlset>
