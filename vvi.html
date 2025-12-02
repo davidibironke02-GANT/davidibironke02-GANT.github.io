@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -64,7 +64,6 @@
       gap:14px;
     }
     .nav-left { display:flex; align-items:center; gap:12px; }
-
     .brand {
       display:flex;
       flex-direction:column;
@@ -81,14 +80,12 @@
       font-size:20px;
       opacity:.9;
     }
-
     .hamburger {
       font-size:26px;
       cursor:pointer;
       display:none;
       user-select:none;
     }
-
     .nav-links {
       display:flex;
       align-items:center;
@@ -96,9 +93,14 @@
       font-size:15px;
       font-weight:600;
     }
+    .nav-links a { color:#222; }
     .nav-links a:hover { color:var(--deep); }
-
-    .nav-cta .login-btn {
+    .nav-cta {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .login-btn {
       background:var(--deep);
       color:var(--beige);
       border-radius:999px;
@@ -107,6 +109,7 @@
       font-weight:700;
       white-space:nowrap;
     }
+    .login-btn:hover { background:var(--deep-2); }
 
     @media (max-width:860px) {
       .hamburger { display:block; }
@@ -149,10 +152,24 @@
       margin-inline:auto;
       padding:0 18px;
     }
+    .hero-kicker {
+      font-family:'Montserrat',sans-serif;
+      font-size:12px;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+      margin-bottom:6px;
+      opacity:.9;
+    }
     .hero-title {
       font-family:'Cormorant Garamond',serif;
       font-size:clamp(28px, 4vw, 40px);
       margin-bottom:6px;
+    }
+    .hero-sub {
+      font-size:14px;
+      max-width:40rem;
+      margin:0 auto;
+      opacity:.94;
     }
 
     main {
@@ -179,12 +196,13 @@
       margin-bottom:16px;
       text-align:justify;
     }
+    strong { color:var(--deep-2); }
 
     .section-block {
       background:#fff;
       border-radius:var(--radius);
       border:1px solid var(--border);
-      padding:18px 16px;
+      padding:18px 16px 18px;
       box-shadow:0 10px 24px rgba(0,0,0,.04);
       margin-bottom:18px;
     }
@@ -198,12 +216,11 @@
     @media (max-width:760px) {
       .pillars-grid { grid-template-columns:1fr; }
     }
-
     .pillar-card {
       background:#faf7f1;
       border-radius:14px;
       border:1px solid var(--border);
-      padding:12px;
+      padding:12px 12px 12px;
     }
     .pillar-tag {
       font-size:11px;
@@ -229,6 +246,12 @@
     }
     @media (max-width:760px) {
       .two-col { grid-template-columns:1fr; }
+    }
+
+    .note {
+      font-size:13px;
+      color:#666;
+      margin-top:4px;
     }
 
     .back-link {
@@ -260,20 +283,29 @@
     @media (max-width:640px) {
       .footer-inner { grid-template-columns:1fr; }
     }
-
+    .f-col h4 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:17px;
+      margin-bottom:8px;
+    }
+    .f-col a {
+      display:block;
+      margin-bottom:5px;
+      color:var(--beige);
+      opacity:.9;
+    }
+    .f-col a:hover { opacity:1; text-decoration:underline; }
     .subfoot {
       background:#042519;
       color:#cfd7cf;
       text-align:center;
       font-size:12px;
-      padding:9px 8px;
+      padding:9px 8px 10px;
     }
   </style>
 </head>
-
 <body>
-
-  <!-- NAV -->
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="nav-inner">
       <div class="nav-left">
@@ -283,7 +315,6 @@
           <span class="bottom">EXCHANGE</span>
         </div>
       </div>
-
       <div id="navLinks" class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -293,104 +324,168 @@
         <a href="farmer.html">For Farmers</a>
         <a href="contact.html">Contact</a>
       </div>
-
       <div class="nav-cta">
         <a class="login-btn" href="pilot.html">Join Pilot</a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO HEADER -->
   <header class="hero-vvi">
     <div class="hero-vvi-inner">
+      <div class="hero-kicker"></div>
       <h1 class="hero-title">Verified Value Index for Canadian grain lots</h1>
+      <p class="hero-sub">
+      </p>
     </div>
   </header>
 
   <main>
-
-    <!-- 1. WHAT THE VVI DOES -->
+    <!-- OVERVIEW -->
     <section class="section-block">
       <h2>1. What the VVI does</h2>
       <p>
-        The Verified Value Index sits inside the GANT Trade Engine. It transforms every processed lot into a structured, comparable
-        product instead of a generic commodity. Farmers still set their own prices. The VVI simply quantifies the verified
-        integrity of each lot using certified quality data, traceability strength, export compliance readiness and ESG signals.
+        The Verified Value Index sits inside the GANT Trade Engine. It is the scoring framework that turns each processed lot
+        into a structured, comparable product instead of a generic commodity. Farmers list their grain and set prices themselves.
+        The VVI then quantifies the verified integrity of that lot using certified quality data, traceability signals, export
+        compliance readiness and ESG indicators.
       </p>
       <p>
-        Buyers use the score as a filter and comparison tool, not as a pricing mechanism. The result is a market where value is
-        grounded in measurable attributes, not opaque discounts or speculation.
+        Buyers can filter and compare lots based on these verified attributes rather than on price alone. The result is a market
+        where value is grounded in measurable properties of the shipment, not in opaque discounts or speculative spreads.
       </p>
     </section>
 
-    <!-- 2. PILLARS -->
+    <!-- FORMULA AND PILLARS -->
     <section class="section-block">
       <h2>2. The five pillar model</h2>
-      <p>The VVI formula is:</p>
+      <p>
+        The VVI score is calculated using a five component model designed for cross border agricultural trade:
+      </p>
       <p><strong>VVI = Pref + Q + T + C + E</strong></p>
+      <p class="note">
+        Each component is normalized and weighted so that the final score reflects both physical quality and documentation integrity.
+      </p>
 
       <div class="pillars-grid">
-
         <article class="pillar-card">
           <div class="pillar-tag">Price reference</div>
           <div class="pillar-weight">Weight: 10 percent</div>
-          <p>A corridor benchmark anchors expectations without dictating price. Farmers still determine their own pricing.</p>
+          <p>
+            A corridor specific commodity benchmark is used as a reference point. It anchors expectations for both sides
+            without dictating the listing price. Farmers still decide their own price, but buyers can see how that price
+            sits in relation to recognized market benchmarks.
+          </p>
         </article>
 
         <article class="pillar-card">
           <div class="pillar-tag">Quality score</div>
           <div class="pillar-weight">Weight: 40 percent</div>
-          <p>Built from certified lab results: protein, moisture, falling number, mycotoxin tests and NIR profiles.</p>
+          <p>
+            The quality component is built from certified lab results produced in the GANT warehouse. Inputs include
+            protein, moisture, falling number, mycotoxin checks and NIR profiles. These are normalized against corridor
+            requirements so that the score reflects export grade expectations, not just raw numbers.
+          </p>
         </article>
 
         <article class="pillar-card">
           <div class="pillar-tag">Traceability integrity</div>
           <div class="pillar-weight">Weight: 25 percent</div>
-          <p>Evaluates QC record hashing, pallet serialization, warehouse telemetry and chain-of-custody consistency.</p>
+          <p>
+            This measures how strong the identity preserved chain is around the lot. It looks at QC record hashing,
+            pallet level serialization, warehouse telemetry such as temperature and humidity and the consistency of
+            chain of custody records. Higher traceability integrity means fewer questions at handover and at destination.
+          </p>
         </article>
 
         <article class="pillar-card">
           <div class="pillar-tag">Compliance readiness</div>
           <div class="pillar-weight">Weight: 20 percent</div>
-          <p>Captures phytosanitary eligibility, origin documentation, pesticide declarations and alignment with AAFC/FSMA frameworks.</p>
+          <p>
+            This reflects how prepared a lot is for export into target markets. It captures the status of phytosanitary
+            eligibility, certificates of origin, pesticide declarations and alignment with frameworks such as AAFC and FSMA.
+            A higher compliance score signals lower friction at border and inspection points.
+          </p>
         </article>
 
         <article class="pillar-card">
           <div class="pillar-tag">ESG alignment</div>
           <div class="pillar-weight">Weight: 5 percent</div>
-          <p>Rewards sustainable and low-input farming practices where documented.</p>
+          <p>
+            ESG alignment is a light but meaningful signal. It takes into account low input practices, sustainability
+            measures and environmental compliance indicators where these are documented. It does not override the other
+            factors but rewards producers who are investing in long term resilience.
+          </p>
         </article>
-
       </div>
     </section>
 
-    <!-- 3. HOW FARMERS USE IT -->
+    <!-- FARMERS VS BUYERS -->
     <section class="section-block">
       <h2>3. How farmers use the VVI</h2>
       <div class="two-col">
-        <p>Farmers see only the final VVI alongside their price. The platform recommends pricing ranges using benchmarks, corridor conditions and VVI strength—but pricing authority stays with farmers.</p>
-        <p>Over time, farmers understand what practices improve VVI scores and use the insight to plan agronomy, equipment investments and documentation improvements.</p>
+        <div>
+          <p>
+            Farmers see the final VVI score for each lot alongside their own price settings. They do not have to manage
+            the underlying calculation. Instead, the platform provides an AI assisted pricing recommendation that takes
+            into account benchmark levels, current corridor conditions and the relative strength of the lot’s VVI.
+          </p>
+          <p>
+            This gives farmers a reference point when deciding whether to price above benchmark, align with prevailing
+            levels or hold inventory for a stronger window, while keeping price control firmly in their hands.
+          </p>
+        </div>
+        <div>
+          <p>
+            Over time, farmers can see patterns: which practices or quality outcomes tend to improve VVI scores and
+            how buyers respond to those changes. This feedback loop helps them decide where to invest in equipment,
+            agronomy and documentation to capture more value from export grade grain.
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- 4. HOW BUYERS USE IT -->
     <section class="section-block">
       <h2>4. How buyers use the VVI</h2>
       <div class="two-col">
-        <p>Procurement teams filter lots using VVI. Higher scoring lots reduce due-diligence time and ease internal approvals, especially for mills, processors and institutional buyers.</p>
-        <p>Large buyers map VVI into internal frameworks, flagging stronger lots for premium channels or long-term contracts.</p>
+        <div>
+          <p>
+            Buyers do not use VVI to set prices on behalf of farmers. They use it as a filter and comparison tool. Within
+            the Trade Engine, they can prioritise lots with stronger quality, higher traceability integrity or better
+            compliance readiness for a specific corridor.
+          </p>
+          <p>
+            This reduces the time spent on manual due diligence and simplifies internal approvals when procurement teams
+            need to justify why a particular shipment is being selected.
+          </p>
+        </div>
+        <div>
+          <p>
+            For institutional buyers and traders, the VVI score can be mapped directly into internal risk and quality
+            frameworks. Lots with higher scores can be flagged as preferred candidates for long term contracts or
+            higher value destinations, while lower scoring lots can still be used in less demanding channels.
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- 5. SYSTEM IMPACT -->
+    <!-- IMPACT -->
     <section class="section-block">
       <h2>5. Effect on the exchange</h2>
-      <p>The VVI does not affect settlement rules or escrow protections. It operates as a visibility layer that makes each trade easier to evaluate.</p>
-      <p>For farmers, it opens a path to value-based differentiation. For buyers, it strengthens procurement decisions. For the system, it turns Canadian agricultural exports into structured, trust-anchored products rather than undifferentiated commodities.</p>
+      <p>
+        The VVI does not change settlement rules, counterparty protections or the way bids are escrow backed. It runs
+        alongside those systems as a visibility layer that makes each trade easier to understand. By exposing how quality,
+        traceability, compliance and ESG interact for every lot, the VVI helps move the market away from opaque discounts
+        and towards a cleaner view of verified value.
+      </p>
+      <p>
+        For farmers, that means a clearer path to differentiating their grain. For buyers, it means a more defensible
+        sourcing process. For the broader system, it is a step toward treating agricultural exports as a structured,
+        trust backed asset class rather than an undifferentiated bulk commodity.
+      </p>
 
       <a href="how-it-works.html" class="back-link">← Back to how the platform works</a>
     </section>
-
   </main>
 
   <!-- FOOTER -->
@@ -403,14 +498,12 @@
         <a href="buyer.html">Buyer hub</a>
         <a href="farmer.html">Farmer hub</a>
       </div>
-
       <div class="f-col">
         <h4>Documents</h4>
         <a href="GANT EXCHANGE PITCHDECK.pdf">Pitch deck</a>
         <a href="Investor FAQ 1*.pdf">Investor FAQ</a>
         <a href="GANT GOVERNMENT INTEGRATION PROPOSAL .pdf">Government integration proposal</a>
       </div>
-
       <div class="f-col">
         <h4>Company</h4>
         <a href="about.html">About</a>
@@ -418,7 +511,6 @@
         <a href="canada.html">Why Canada</a>
         <a href="contact.html">Contact</a>
       </div>
-
       <div class="f-col">
         <h4>Policies</h4>
         <a href="compliance.html">Compliance and documentation</a>
@@ -427,7 +519,6 @@
         <a href="corridorengine.html">Corridor risk engine</a>
       </div>
     </div>
-
     <div class="subfoot">© 2025 GANT Exchange. All rights reserved.</div>
   </footer>
 
@@ -438,6 +529,5 @@
       navLinks?.classList.toggle('show');
     });
   </script>
-
 </body>
 </html>
