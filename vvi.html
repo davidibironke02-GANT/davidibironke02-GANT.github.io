@@ -64,6 +64,7 @@
       gap:14px;
     }
     .nav-left { display:flex; align-items:center; gap:12px; }
+
     .brand {
       display:flex;
       flex-direction:column;
@@ -80,12 +81,14 @@
       font-size:20px;
       opacity:.9;
     }
+
     .hamburger {
       font-size:26px;
       cursor:pointer;
       display:none;
       user-select:none;
     }
+
     .nav-links {
       display:flex;
       align-items:center;
@@ -93,14 +96,9 @@
       font-size:15px;
       font-weight:600;
     }
-    .nav-links a { color:#222; }
     .nav-links a:hover { color:var(--deep); }
-    .nav-cta {
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .login-btn {
+
+    .nav-cta .login-btn {
       background:var(--deep);
       color:var(--beige);
       border-radius:999px;
@@ -109,7 +107,6 @@
       font-weight:700;
       white-space:nowrap;
     }
-    .login-btn:hover { background:var(--deep-2); }
 
     @media (max-width:860px) {
       .hamburger { display:block; }
@@ -187,7 +184,7 @@
       background:#fff;
       border-radius:var(--radius);
       border:1px solid var(--border);
-      padding:18px 16px 18px;
+      padding:18px 16px;
       box-shadow:0 10px 24px rgba(0,0,0,.04);
       margin-bottom:18px;
     }
@@ -269,14 +266,14 @@
       color:#cfd7cf;
       text-align:center;
       font-size:12px;
-      padding:9px 8px 10px;
+      padding:9px 8px;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAV -->
   <nav class="navbar">
     <div class="nav-inner">
       <div class="nav-left">
@@ -298,7 +295,6 @@
       </div>
 
       <div class="nav-cta">
-        <!-- FIXED BROKEN LINE -->
         <a class="login-btn" href="pilot.html">Join Pilot</a>
       </div>
     </div>
@@ -313,30 +309,125 @@
 
   <main>
 
+    <!-- 1. WHAT THE VVI DOES -->
     <section class="section-block">
       <h2>1. What the VVI does</h2>
       <p>
-        The Verified Value Index sits inside the GANT Trade Engine. It is the scoring framework that turns each processed lot
-        into a structured, comparable product instead of a generic commodity...
+        The Verified Value Index sits inside the GANT Trade Engine. It transforms every processed lot into a structured, comparable
+        product instead of a generic commodity. Farmers still set their own prices. The VVI simply quantifies the verified
+        integrity of each lot using certified quality data, traceability strength, export compliance readiness and ESG signals.
+      </p>
+      <p>
+        Buyers use the score as a filter and comparison tool, not as a pricing mechanism. The result is a market where value is
+        grounded in measurable attributes, not opaque discounts or speculation.
       </p>
     </section>
 
-    <!-- (rest of your sections unchanged) -->
+    <!-- 2. PILLARS -->
+    <section class="section-block">
+      <h2>2. The five pillar model</h2>
+      <p>The VVI formula is:</p>
+      <p><strong>VVI = Pref + Q + T + C + E</strong></p>
 
+      <div class="pillars-grid">
+
+        <article class="pillar-card">
+          <div class="pillar-tag">Price reference</div>
+          <div class="pillar-weight">Weight: 10 percent</div>
+          <p>A corridor benchmark anchors expectations without dictating price. Farmers still determine their own pricing.</p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-tag">Quality score</div>
+          <div class="pillar-weight">Weight: 40 percent</div>
+          <p>Built from certified lab results: protein, moisture, falling number, mycotoxin tests and NIR profiles.</p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-tag">Traceability integrity</div>
+          <div class="pillar-weight">Weight: 25 percent</div>
+          <p>Evaluates QC record hashing, pallet serialization, warehouse telemetry and chain-of-custody consistency.</p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-tag">Compliance readiness</div>
+          <div class="pillar-weight">Weight: 20 percent</div>
+          <p>Captures phytosanitary eligibility, origin documentation, pesticide declarations and alignment with AAFC/FSMA frameworks.</p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-tag">ESG alignment</div>
+          <div class="pillar-weight">Weight: 5 percent</div>
+          <p>Rewards sustainable and low-input farming practices where documented.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 3. HOW FARMERS USE IT -->
+    <section class="section-block">
+      <h2>3. How farmers use the VVI</h2>
+      <div class="two-col">
+        <p>Farmers see only the final VVI alongside their price. The platform recommends pricing ranges using benchmarks, corridor conditions and VVI strength—but pricing authority stays with farmers.</p>
+        <p>Over time, farmers understand what practices improve VVI scores and use the insight to plan agronomy, equipment investments and documentation improvements.</p>
+      </div>
+    </section>
+
+    <!-- 4. HOW BUYERS USE IT -->
+    <section class="section-block">
+      <h2>4. How buyers use the VVI</h2>
+      <div class="two-col">
+        <p>Procurement teams filter lots using VVI. Higher scoring lots reduce due-diligence time and ease internal approvals, especially for mills, processors and institutional buyers.</p>
+        <p>Large buyers map VVI into internal frameworks, flagging stronger lots for premium channels or long-term contracts.</p>
+      </div>
+    </section>
+
+    <!-- 5. SYSTEM IMPACT -->
     <section class="section-block">
       <h2>5. Effect on the exchange</h2>
-      <p>
-        The VVI does not change settlement rules, counterparty protections or the way bids are escrow backed...
-      </p>
+      <p>The VVI does not affect settlement rules or escrow protections. It operates as a visibility layer that makes each trade easier to evaluate.</p>
+      <p>For farmers, it opens a path to value-based differentiation. For buyers, it strengthens procurement decisions. For the system, it turns Canadian agricultural exports into structured, trust-anchored products rather than undifferentiated commodities.</p>
+
       <a href="how-it-works.html" class="back-link">← Back to how the platform works</a>
     </section>
 
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <!-- unchanged footer -->
+      <div class="f-col">
+        <h4>Platform</h4>
+        <a href="how-it-works.html">How it works</a>
+        <a href="warehouse.html">Warehouse and operations</a>
+        <a href="buyer.html">Buyer hub</a>
+        <a href="farmer.html">Farmer hub</a>
+      </div>
+
+      <div class="f-col">
+        <h4>Documents</h4>
+        <a href="GANT EXCHANGE PITCHDECK.pdf">Pitch deck</a>
+        <a href="Investor FAQ 1*.pdf">Investor FAQ</a>
+        <a href="GANT GOVERNMENT INTEGRATION PROPOSAL .pdf">Government integration proposal</a>
+      </div>
+
+      <div class="f-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="pilot.html">Pilot program</a>
+        <a href="canada.html">Why Canada</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="f-col">
+        <h4>Policies</h4>
+        <a href="compliance.html">Compliance and documentation</a>
+        <a href="vvi.html">Verified Value Index</a>
+        <a href="settlement.html">Settlement and governance</a>
+        <a href="corridorengine.html">Corridor risk engine</a>
+      </div>
     </div>
+
     <div class="subfoot">© 2025 GANT Exchange. All rights reserved.</div>
   </footer>
 
