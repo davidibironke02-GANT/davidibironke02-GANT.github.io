@@ -1,0 +1,12 @@
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Node and package managers
+node_modules/
+npm-debug.log*
+yarn-error.log
+
+# Local tooling
+.env
+*.log
